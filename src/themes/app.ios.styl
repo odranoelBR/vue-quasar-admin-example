@@ -1,0 +1,26 @@
+// This file is included in the build if src/main.js imports it.
+// Otherwise the default iOS CSS file is bundled.
+// Check "DEFAULT / CUSTOM STYLE" in src/main.js
+
+// App Shared Variables
+// --------------------------------------------------
+// Shared Stylus variables go in the app.variables.styl file
+@import 'app.variables'
+
+// App iOS Design Variables
+// --------------------------------------------------
+// iOS Design only Stylus variables can go here
+// http://quasar-framework.org/api/css-stylus-variables.html
+
+$typography-font-family     ?= '-apple-system', 'Helvetica Neue', Helvetica, Arial, sans-serif
+
+$toolbar-color              ?= #424242
+$toolbar-background         ?= $light
+$toolbar-active-color       ?= $light
+$toolbar-faded-color        ?= composite-color($toolbar-color)
+
+// Quasar iOS Design Stylus
+// --------------------------------------------------
+// Custom App variables must be declared before importing Quasar.
+// Quasar will use its default values when a custom variable isn't provided.
+@import '~quasar-framework/dist/quasar.ios.styl'

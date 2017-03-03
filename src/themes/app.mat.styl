@@ -1,0 +1,26 @@
+// This file is included in the build if src/main.js imports it.
+// Otherwise the default Material CSS file is bundled.
+// Check "DEFAULT / CUSTOM STYLE" in src/main.js
+
+// App Shared Variables
+// --------------------------------------------------
+// Shared Stylus variables go in the app.variables.styl file
+@import 'app.variables'
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Stylus variables can go here
+// http://quasar-framework.org/api/css-stylus-variables.html
+
+$typography-font-family     ?= 'Roboto'
+
+$toolbar-color              ?= white
+$toolbar-background         ?= $primary
+$toolbar-active-color       ?= $primary
+$toolbar-faded-color        ?= composite-color($primary)
+
+// Quasar Material Design Stylus
+// --------------------------------------------------
+// Custom App variables must be declared before importing Quasar.
+// Quasar will use its default values when a custom variable isn't provided.
+@import '~quasar-framework/dist/quasar.mat.styl'
