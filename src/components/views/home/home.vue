@@ -50,9 +50,9 @@
   export default {
     name: 'Home',
     mounted () {
-      this.simpleGet('posts', 'totalPosts')
-      this.simpleGet('comments', 'totalComments')
-      this.simpleGet('todos', 'totalTodos')
+      this.simpleGetCounter('posts', 'totalPosts')
+      this.simpleGetCounter('comments', 'totalComments')
+      this.simpleGetCounter('todos', 'totalTodos')
     },
     data () {
       return {
@@ -75,7 +75,7 @@
       cardGraphBar
     },
     methods: {
-      simpleGet (url, property) {
+      simpleGetCounter (url, property) {
         this.$http
           .get(url)
           .then(response => { this[property] = response.data.length })
