@@ -1,6 +1,6 @@
 # Quasar Admin Examples
 
-> Some examples how powerful Quasar framework is for SPA projects.
+> Some examples how powerful Quasar / Vuejs is for SPA projects.
 
 ## Links
 * [Vuejs Page](https://vuejs.org/)
