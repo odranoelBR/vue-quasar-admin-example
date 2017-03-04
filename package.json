@@ -13,13 +13,13 @@
     "axios": "^0.15.3",
     "babel-runtime": "^6.0.0",
     "chart.js": "^2.5.0",
+    "countup.js": "^1.8.2",
     "fastclick": "^1.0.6",
     "material-design-icons": "^3.0.1",
     "moment": "^2.15.0",
     "quasar-framework": "^0.13.1",
     "roboto-fontface": "^0.7.0",
     "vue": "2.1.10",
-    "vue-countup-v2": "^0.1.2",
     "vue-router": "^2.0.0"
   },
   "devDependencies": {

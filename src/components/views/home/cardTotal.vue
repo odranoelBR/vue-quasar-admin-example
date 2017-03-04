@@ -7,14 +7,8 @@
         </div>
         <div class="width-2of3">
           <p class="text-italic ">{{title}}</p>
-          <h5>
-            <i-count-up
-              :start="0"
-              :end="total"
-              :decimals="0"
-              :duration="2.5"
-              :options="options"
-            ></i-count-up>
+          <h5 ref="number">
+
           </h5>
         </div>
       </div>
@@ -23,18 +17,28 @@
 </template>
 
 <script type="text/javascript">
-  import ICountUp from 'vue-countup-v2'
+  import CountUp from 'countup.js'
   export default {
     props: ['title', 'total', 'backgroundColor', 'iconName'],
+    mounted () {
+      this.countUp.start()
+    },
+    computed: {
+      countUp () {
+        return new CountUp(this.$refs.number, 0, this.total, 0, 2.5, this.options)
+      }
+    },
+    watch: {
+      total () {
+        this.countUp.start()
+      }
+    },
     data () {
       return {
         options: {
           separator: '.'
         }
       }
-    },
-    components: {
-      ICountUp
     }
   }
 </script>
