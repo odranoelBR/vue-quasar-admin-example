@@ -22,7 +22,7 @@
         required: true
       },
       cardTitle: {
-        default () { return 'Total Graph'}
+        default () { return 'Graph'}
       }
     },
     computed: {

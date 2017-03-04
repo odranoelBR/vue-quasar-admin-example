@@ -30,6 +30,7 @@
       <div class="flex wrap gutter">
         <div class="width-1of2 sm-width-1of1">
           <card-graph-bar
+            card-title="Total Graph"
             :data.once="dataForGraph"
           ></card-graph-bar>
         </div>
@@ -49,9 +50,9 @@
   export default {
     name: 'Home',
     mounted () {
-      this.getPosts()
-      this.getComments()
-      this.getTodos()
+      this.simpleGet('posts', 'totalPosts')
+      this.simpleGet('comments', 'totalComments')
+      this.simpleGet('todos', 'totalTodos')
     },
     data () {
       return {
@@ -74,20 +75,10 @@
       cardGraphBar
     },
     methods: {
-      getPosts () {
+      simpleGet (url, property) {
         this.$http
-          .get('posts')
-          .then(response => { this.totalPosts = response.data.length })
-      },
-      getComments () {
-        this.$http
-          .get('comments')
-          .then(response => { this.totalComments = response.data.length })
-      },
-      getTodos () {
-        this.$http
-          .get('todos')
-          .then(response => { this.totalTodos = response.data.length })
+          .get(url)
+          .then(response => { this[property] = response.data.length })
       }
     }
   }
