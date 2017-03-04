@@ -5,6 +5,8 @@
       <q-fab icon="keyboard_arrow_left" direction="left" class="float-right" classNames="primary">
         <q-small-fab class="teal" @click.native="type = 'bar'" icon=""><i>equalizer</i></q-small-fab>
         <q-small-fab class="teal" @click.native="type = 'horizontalBar'" icon=""><i class="horizontal-icon">equalizer</i></q-small-fab>
+        <q-small-fab class="teal" @click.native="type = 'pie'" icon=""><i>pie_chart_outlined</i></q-small-fab>
+        <q-small-fab class="teal" @click.native="type = 'doughnut'" icon=""><i>donut_large</i></q-small-fab>
       </q-fab>
     </div>
     <div class="card-content">

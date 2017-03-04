@@ -29,10 +29,10 @@
       </div>
       <div class="flex wrap gutter">
         <div class="width-1of2 sm-width-1of1">
-          <card-graph-bar
+          <card-chart
             card-title="Total Graph"
             :data.lazy="dataForGraph"
-          ></card-graph-bar>
+          ></card-chart>
         </div>
         <div class="auto">
         </div>
@@ -45,7 +45,7 @@
   </div>
 </template>
 <script type="text/javascript">
-  import cardGraphBar from './cardBarLineChart.vue'
+  import cardChart from './cardChart.vue'
   import cardTotal from './cardTotal.vue'
   export default {
     name: 'Home',
@@ -80,7 +80,7 @@
     },
     components: {
       cardTotal,
-      cardGraphBar
+      cardChart
     }
   }
 </script>
