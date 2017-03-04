@@ -22,7 +22,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/javascript">
   import ICountUp from 'vue-countup-v2'
   export default {
     props: ['title', 'total', 'backgroundColor', 'iconName'],
