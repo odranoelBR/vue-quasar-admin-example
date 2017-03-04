@@ -10,3 +10,9 @@ cordova/platforms
 cordova/plugins
 thumbs.db
 !.gitkeep
+.firebaserc
+database.rules.json
+firebase.json
+public/
+yarn-error.log
+yarn.lock

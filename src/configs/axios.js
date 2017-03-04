@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 var axiosInstance = axios.create({
-  baseURL: 'http://jsonplaceholder.typicode.com/'
+  baseURL: 'https://jsonplaceholder.typicode.com/'
 })
 
 export default (Vue) => {
