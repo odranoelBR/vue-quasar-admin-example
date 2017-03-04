@@ -12,4 +12,9 @@
 ## Infos
 * Using Quasar default template
 * Using [Jsonplaceholder](https://jsonplaceholder.typicode.com/) as backend API
-* Using [Axios](https://github.com/mzabriskie/axios) as HTTP client
+*
+
+## Dependecies 
+* [Axios](https://github.com/mzabriskie/axios) as HTTP client
+* [Chart.js](http://www.chartjs.org) as Chart render
+* [Vue-Countup](https://github.com/xlsdg/vue-countup-v2) as number counter animation
