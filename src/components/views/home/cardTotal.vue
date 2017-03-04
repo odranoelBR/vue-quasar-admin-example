@@ -3,7 +3,7 @@
     <div class="card-content ">
       <div class="row">
         <div class="width-1of3">
-          <i>people</i>
+          <i>{{iconName}}</i>
         </div>
         <div class="width-2of3">
           <p class="text-italic ">{{title}}</p>
@@ -25,7 +25,7 @@
 <script>
   import ICountUp from 'vue-countup-v2'
   export default {
-    props: ['title', 'total', 'backgroundColor'],
+    props: ['title', 'total', 'backgroundColor', 'iconName'],
     data () {
       return {
         options: {

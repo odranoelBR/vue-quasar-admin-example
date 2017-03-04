@@ -2,30 +2,33 @@
   <div>
     <div class="layout-padding ">
       <div class="flex wrap gutter">
-        <div class="auto">
+        <div class="width-1of3 sm-auto">
           <cardTotal
             title="Total Posts"
-            background-color="bg-teal-8"
+            background-color="bg-teal-9"
+            icon-name="local_post_office"
             :total="totalPosts">
           </cardTotal>
         </div>
-        <div class="auto">
+        <div class="width-1of3 sm-auto">
           <cardTotal
             title="Total comments"
-            background-color="bg-teal-8"
+            background-color="bg-teal-7"
+            icon-name="comment"
             :total="totalComments">
           </cardTotal>
         </div>
-        <div class="auto">
+        <div class="width-1of3 sm-auto">
           <cardTotal
             title="Static total"
-            background-color="bg-teal-8"
+            background-color="bg-teal-5"
+            icon-name="repeat_one"
             :total="50004">
           </cardTotal>
         </div>
       </div>
       <div class="flex wrap gutter">
-        <div class="width-1of2">
+        <div class="width-1of2 sm-width-1of1">
           <card-graph-bar
             :data.once="dataForGraph"
           ></card-graph-bar>
@@ -41,7 +44,7 @@
   </div>
 </template>
 <script type="text/javascript">
-  import cardGraphBar from './cardGraph/cardGraph.vue'
+  import cardGraphBar from './cardGraph.vue'
   import cardTotal from './cardTotal.vue'
   export default {
     name: 'Home',

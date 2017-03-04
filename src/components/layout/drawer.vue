@@ -5,7 +5,7 @@
       <q-drawer-link icon="home" :to="{path: '/', exact: true}">
         Home
       </q-drawer-link>
-      <q-drawer-link icon="home" :to="{path: '/form', exact: true}">
+      <q-drawer-link icon="search" :to="{path: '/form', exact: true}">
         Form find / edit
       </q-drawer-link>
 
