@@ -16,3 +16,4 @@ firebase.json
 public/
 yarn-error.log
 yarn.lock
+.idea
