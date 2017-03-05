@@ -21,7 +21,8 @@ export default new VueRouter({
    */
 
   routes: [
-    { path: '/', component: load('views/home/home') },
+    { path: '/', component: load('views/dashboard/one/dashboard') },
+    { path: '/dash', component: load('views/dashboard/one/dashboard') },
     { path: '/form', component: load('views/form/form') },
     { path: '*', component: load('Error404') } // Not found
   ]
