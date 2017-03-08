@@ -36,9 +36,9 @@
         </div>
         <div class="auto">
           <div class="width-1of2 sm-width-1of1">
-            <card-knob-statistics
+            <knob-statistics
               card-title="General statistics">
-            </card-knob-statistics>
+            </knob-statistics>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@
   import cardChart from './cardChart.vue'
   import cardTotal from './cardTotal.vue'
   import cardTodo from './cardTodo.vue'
-  import cardKnobStatistics from './cardKnobStatistics.vue'
+  import knobStatistics from './knobStatistics.vue'
   export default {
     name: 'Home',
     mounted () {
@@ -92,7 +92,7 @@
       cardTotal,
       cardChart,
       cardTodo,
-      cardKnobStatistics
+      knobStatistics
     }
   }
 </script>
