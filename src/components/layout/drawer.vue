@@ -9,6 +9,10 @@
       <q-drawer-link icon="search" :to="{path: '/form', exact: true}">
         Form find / edit
       </q-drawer-link>
+      <div class="list-label ">Pages</div>
+      <q-drawer-link icon="attach_money" :to="{path: '/pricing', exact: true}">
+        Pricing
+      </q-drawer-link>
 
     </div>
   </q-drawer>
