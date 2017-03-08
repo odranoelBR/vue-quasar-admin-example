@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="animate-scale">
     <div class="layout-padding ">
       <div class="flex wrap gutter">
         <div class="width-1of3 sm-auto">
