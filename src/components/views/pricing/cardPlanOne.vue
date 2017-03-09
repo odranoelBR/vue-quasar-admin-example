@@ -43,4 +43,7 @@ export default {
     width: 1.4rem;
     height: 1.4rem;
   }
+  .card {
+    width: 332px;
+  }
 </style>

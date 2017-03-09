@@ -28,18 +28,16 @@
         </div>
       </div>
       <div class="flex wrap gutter">
-        <div class="width-1of2 sm-width-1of1">
+        <div class="width-1of2 lg-width-1of3 sm-width-1of1">
           <card-chart
             card-title="Total Graph"
             :data="dataForGraph"
           ></card-chart>
         </div>
         <div class="auto">
-          <div class="width-1of2 sm-width-1of1">
-            <knob-statistics
-              card-title="General statistics">
-            </knob-statistics>
-          </div>
+          <knob-statistics
+            card-title="General statistics">
+          </knob-statistics>
         </div>
       </div>
       <div class="flex wrap gutter">

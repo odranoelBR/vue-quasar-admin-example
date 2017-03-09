@@ -58,8 +58,11 @@
     },
     methods: {
       loadMore (index, done) {
-        this.actualMaxPosition += 9
-        done()
+        setTimeout(() => {
+          this.actualMaxPosition += 9
+          done()
+        }, 1000)
+
       },
       completeTodo (todo) {
         this.$http

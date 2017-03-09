@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="layout-padding">
-      <div class="flex wrap gutter">
-        <div class="width-1of4 ">
+      <div class="row wrap gutter">
+        <div class="auto">
           <card-plan-one
             title="Basket Fruit One"
             title-classes="bg-primary"
@@ -50,7 +50,7 @@
             </div>
           </card-plan-one>
         </div>
-        <div class="width-1of4">
+        <div class="auto">
           <card-plan-one
             title="Basket Fruit Two"
             title-classes="bg-teal"
@@ -84,7 +84,7 @@
             </div>
           </card-plan-one>
         </div>
-        <div class="width-1of4">
+        <div class="auto">
           <card-plan-one
             title="Basket Fruit Three"
             title-classes="bg-red"
@@ -107,7 +107,7 @@
             </div>
           </card-plan-one>
         </div>
-        <div class="width-1of4">
+        <div class="auto">
           <card-plan-one
             title="Basket Fruit Four"
             title-classes="bg-purple"
@@ -155,7 +155,5 @@
     }
   }
 </script>
-
-<style scoped>
-
+<style >
 </style>
