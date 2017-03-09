@@ -14,7 +14,7 @@
     </q-toolbar-title>
     <button >
       <span class="label bg-primary text-white">
-        <i class="on-left animate-bounce">mail</i>
+        <i class="on-left">mail</i>
         10
       </span>
     </button>

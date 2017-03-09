@@ -2,7 +2,7 @@
   <div class="card text-center">
     <div class="card-title no-padding ">
       <span class="label pointing-down text-white fit no-margin" :class="titleClasses">
-        {{title}}
+        <h5 class="">{{title}}</h5>
       </span>
     </div>
     <div class="card-content bg-white" >
@@ -35,6 +35,10 @@ export default {
 <style scoped>
   .label{
     min-height: 50px;
+  }
+  h5{
+    font-weight: 300;
+    flex: 1 1 auto;
   }
   h3, h6{
     font-weight: 300;

@@ -11,6 +11,7 @@
             :button-classes="planData.buttonClasses"
             :card-id="planData.cardId"
             v-on:card-selected="cardSelected"
+            :class="chooseMostUsedPlan(planData.cardId)"
           >
             <div slot="body" class="fit">
               <component :is="planData.planBenefitComponent"></component>
@@ -21,8 +22,8 @@
     </div>
   </div>
 </template>
-
 <script>
+  /* eslint-disable */
   import cardPlanOne from './cardPlanOne.vue'
   import benefitOne from './plansBenefits/benefitOne.vue'
   import benefitTwo from './plansBenefits/benefitTwo.vue'
@@ -82,6 +83,9 @@
     methods: {
       cardSelected (cardId) {
         Toast.create.positive({html: `Congratulations! You have choose the plan ${cardId}`})
+      },
+      chooseMostUsedPlan(cardId) {
+        return cardId == 1 ? 'animate-bounce shadow-3' : ''
       }
     }
   }
