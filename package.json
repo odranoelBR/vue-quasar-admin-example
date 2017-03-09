@@ -17,10 +17,10 @@
     "fastclick": "^1.0.6",
     "material-design-icons": "^3.0.1",
     "moment": "^2.15.0",
-    "quasar-framework": "^0.13.1",
+    "quasar-framework": "^0.13.2",
     "roboto-fontface": "^0.7.0",
-    "vue": "2.1.10",
-    "vue-router": "^2.0.0"
+    "vue": "2.2.2",
+    "vue-router": "^2.3"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
@@ -55,9 +55,9 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^2.1.1",
     "url-loader": "^0.5.7",
-    "vue-loader": "^11.1.0",
-    "vue-style-loader": "^2.0.0",
-    "vue-template-compiler": "2.1.10",
+    "vue-loader": "^11.1.4",
+    "vue-style-loader": "^2.0.3",
+    "vue-template-compiler": "2.2.2",
     "webpack": "^2.2.1",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-hot-middleware": "^2.17.0",

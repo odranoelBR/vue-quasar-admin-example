@@ -49,6 +49,7 @@
         </div>
       </div>
     </div>
+  </div>
 </template>
 <script type="text/javascript">
   import cardChart from './cardChart.vue'

@@ -2,134 +2,18 @@
   <div>
     <div class="layout-padding">
       <div class="row wrap gutter">
-        <div class="auto">
+        <div class="auto" v-for="planData in plansData">
           <card-plan-one
-            title="Basket Fruit One"
-            title-classes="bg-primary"
-            price="19"
-            price-subtitle="per month"
-            button-classes="primary outline fit"
-            card-id="1"
+            :title="planData.title"
+            :title-classes="planData.titleClasses"
+            :price="planData.price"
+            :price-subtitle="planData.priceSubtitle"
+            :button-classes="planData.buttonClasses"
+            :card-id="planData.cardId"
             v-on:card-selected="cardSelected"
           >
             <div slot="body" class="fit">
-              <div class="list ">
-                <q-collapsible icon="inbox" label="Inbox">
-                  <div class="item" v-for="n in 3">
-                    <i class="item-primary">mail</i>
-                    <div class="item-content">
-                      Email {{ n + 1 }}
-                    </div>
-                  </div>
-                  <q-collapsible icon="favorites" label="Favorites">
-                    <div class="item" v-for="n in 3">
-                      <i class="item-primary">mail</i>
-                      <div class="item-content">
-                        Favorite {{ n + 1 }}
-                      </div>
-                    </div>
-                  </q-collapsible>
-                </q-collapsible>
-                <q-collapsible icon="send" label="Sent">
-                  <div class="item" v-for="n in 3">
-                    <i class="item-primary">mail</i>
-                    <div class="item-content">
-                      Email {{ n + 1 }}
-                    </div>
-                  </div>
-                </q-collapsible>
-                <q-collapsible icon="delete" label="Trash">
-                  <div class="item" v-for="n in 3">
-                    <i class="item-primary">mail</i>
-                    <div class="item-content">
-                      Email {{ n + 1 }}
-                    </div>
-                  </div>
-                </q-collapsible>
-              </div>
-            </div>
-          </card-plan-one>
-        </div>
-        <div class="auto">
-          <card-plan-one
-            title="Basket Fruit Two"
-            title-classes="bg-teal"
-            price="29"
-            price-subtitle="per month"
-            button-classes="teal outline fit"
-            card-id="2"
-            v-on:card-selected="cardSelected"
-          >
-            <div slot="body" class="fit">
-              <div class="list">
-                <div class="item">
-                  <div class="item-content inset">
-                    List Item
-                  </div>
-                </div>
-                <hr class="inset">
-                <div class="list-label inset">Inset List Label</div>
-                <div class="item" v-for="n in 2">
-                  <div class="item-content inset">
-                    List Item
-                  </div>
-                </div>
-                <hr class="inset">
-                <div class="item">
-                  <div class="item-content inset">
-                    List Item
-                  </div>
-                </div>
-              </div>
-            </div>
-          </card-plan-one>
-        </div>
-        <div class="auto">
-          <card-plan-one
-            title="Basket Fruit Three"
-            title-classes="bg-red"
-            price="39"
-            price-subtitle="per month"
-            button-classes="red outline fit"
-            card-id="3"
-            v-on:card-selected="cardSelected"
-          >
-            <div slot="body" class="fit">
-              <div class="list">
-                <div class="item two-lines" v-for="n in 3">
-                  <i class="item-primary">mail</i>
-                  <div class="item-content">
-                    <div>john@doe.com</div>
-                    <div>Personal</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </card-plan-one>
-        </div>
-        <div class="auto">
-          <card-plan-one
-            title="Basket Fruit Four"
-            title-classes="bg-purple"
-            price="79"
-            price-subtitle="per month"
-            button-classes="purple outline fit"
-            card-id="4"
-            v-on:card-selected="cardSelected"
-          >
-            <div slot="body" class="fit">
-              <div class="list">
-                <div class="item two-lines" v-for="n in 3">
-                  <div class="item-primary bg-primary text-white">
-                    <i>assignment</i>
-                  </div>
-                  <div class="item-content has-secondary">
-                    <div>Vacation</div>
-                    <div>February 22, 2016</div>
-                  </div>
-                  <i class="item-secondary">info</i>
-                </div>
-              </div>
+              <component :is="planData.planBenefitComponent"></component>
             </div>
           </card-plan-one>
         </div>
@@ -140,13 +24,60 @@
 
 <script>
   import cardPlanOne from './cardPlanOne.vue'
+  import benefitOne from './plansBenefits/benefitOne.vue'
+  import benefitTwo from './plansBenefits/benefitTwo.vue'
+  import benefitThree from './plansBenefits/benefitThree.vue'
+  import benefitFour from './plansBenefits/benefitFour.vue'
   import { Toast } from 'quasar'
   export default {
     data () {
-      return {}
+      return {
+        plansData: [
+          {
+            title: 'Basket Fruit One',
+            titleClasses: 'bg-primary',
+            price: '59',
+            priceSubtitle: 'per month',
+            buttonClasses: 'primary outline fit',
+            cardId: '1',
+            planBenefitComponent: 'benefit-one'
+          },
+          {
+            title: 'Basket Fruit Two',
+            titleClasses: 'bg-teal',
+            price: '39',
+            priceSubtitle: 'per month',
+            buttonClasses: 'teal outline fit',
+            cardId: '2',
+            planBenefitComponent: 'benefit-two'
+          },
+          {
+            title: 'Basket Fruit Three',
+            titleClasses: 'bg-red',
+            price: '29',
+            priceSubtitle: 'per month',
+            buttonClasses: 'red outline fit',
+            cardId: '3',
+            planBenefitComponent: 'benefit-three'
+          },
+          {
+            title: 'Basket Fruit Four',
+            titleClasses: 'bg-purple',
+            price: '19',
+            priceSubtitle: 'per month',
+            buttonClasses: 'purple outline fit',
+            cardId: '4',
+            planBenefitComponent: 'benefit-four'
+          }
+        ]
+      }
     },
     components: {
-      cardPlanOne
+      cardPlanOne,
+      benefitOne,
+      benefitTwo,
+      benefitThree,
+      benefitFour
     },
     methods: {
       cardSelected (cardId) {
@@ -155,5 +86,5 @@
     }
   }
 </script>
-<style >
+<style>
 </style>
