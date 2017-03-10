@@ -1,22 +1,34 @@
 <template>
   <div>
     <div class="layout-padding">
-      <div class="row wrap gutter">
-        <div class="auto" v-for="planData in plansData">
-          <card-plan-one
-            :title="planData.title"
-            :title-classes="planData.titleClasses"
-            :price="planData.price"
-            :price-subtitle="planData.priceSubtitle"
-            :button-classes="planData.buttonClasses"
-            :card-id="planData.cardId"
-            v-on:card-selected="cardSelected"
-            :class="chooseMostUsedPlan(planData.cardId)"
+      <div class="label bg-secondary text-white">
+        Plan model type <span class="right-detail"><em>{{cardType}}</em></span>
+      </div>
+      <div class="group inline-block">
+        <label >
+          <q-radio v-model="cardType" val="Vertical One"></q-radio> Vertical One
+        </label>
+        <label>
+          <q-radio v-model="cardType" val="Horizontal One" class="teal"></q-radio> Horizontal One
+        </label>
+      </div>
+
+      <div class="row wrap gutter justify-center">
+        <div class="auto " v-for="planData in plansData">
+          <component :is="componentInstanceBySelectedPlanType"
+                     :title="planData.title"
+                     :title-classes="planData.titleClasses"
+                     :price="planData.price"
+                     :price-subtitle="planData.priceSubtitle"
+                     :button-classes="planData.buttonClasses"
+                     :card-id="planData.cardId"
+                     v-on:card-selected="cardSelected"
+                     :class="chooseMostUsedPlan(planData.cardId)"
           >
             <div slot="body" class="fit">
               <component :is="planData.planBenefitComponent"></component>
             </div>
-          </card-plan-one>
+          </component>
         </div>
       </div>
     </div>
@@ -25,21 +37,24 @@
 <script>
   /* eslint-disable */
   import cardPlanOne from './cardPlanOne.vue'
+  import cardPlanTwo from './cardPlanTwo.vue'
   import benefitOne from './plansBenefits/benefitOne.vue'
   import benefitTwo from './plansBenefits/benefitTwo.vue'
   import benefitThree from './plansBenefits/benefitThree.vue'
   import benefitFour from './plansBenefits/benefitFour.vue'
   import { Toast } from 'quasar'
   export default {
+    name: 'Pricing',
     data () {
       return {
+        cardType: 'Vertical One',
         plansData: [
           {
             title: 'Basket Fruit One',
             titleClasses: 'bg-primary',
             price: '59',
             priceSubtitle: 'per month',
-            buttonClasses: 'primary outline fit',
+            buttonClasses: 'primary',
             cardId: '1',
             planBenefitComponent: 'benefit-one'
           },
@@ -48,7 +63,7 @@
             titleClasses: 'bg-teal',
             price: '39',
             priceSubtitle: 'per month',
-            buttonClasses: 'teal outline fit',
+            buttonClasses: 'teal',
             cardId: '2',
             planBenefitComponent: 'benefit-two'
           },
@@ -57,7 +72,7 @@
             titleClasses: 'bg-red',
             price: '29',
             priceSubtitle: 'per month',
-            buttonClasses: 'red outline fit',
+            buttonClasses: 'red',
             cardId: '3',
             planBenefitComponent: 'benefit-three'
           },
@@ -66,7 +81,7 @@
             titleClasses: 'bg-purple',
             price: '19',
             priceSubtitle: 'per month',
-            buttonClasses: 'purple outline fit',
+            buttonClasses: 'purple',
             cardId: '4',
             planBenefitComponent: 'benefit-four'
           }
@@ -78,7 +93,14 @@
       benefitOne,
       benefitTwo,
       benefitThree,
-      benefitFour
+      benefitFour,
+      cardPlanTwo
+    },
+    computed: {
+      componentInstanceBySelectedPlanType () {
+        if (this.cardType === 'Vertical One') { return 'card-plan-one'}
+        if (this.cardType === 'Horizontal One') { return 'card-plan-two'}
+      }
     },
     methods: {
       cardSelected (cardId) {
@@ -90,5 +112,8 @@
     }
   }
 </script>
-<style>
+<style scoped>
+  .inline-block {
+    margin-bottom: 7%;
+  }
 </style>

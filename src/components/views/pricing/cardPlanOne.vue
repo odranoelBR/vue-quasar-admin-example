@@ -13,7 +13,7 @@
       <slot name="body"></slot>
     </div>
     <div class="card-content bg-white">
-      <button :class="buttonClasses" @click="planSelected()">Choose</button>
+      <button :class="buttonClasses" class="outline fit" @click="planSelected()">Choose</button>
     </div>
 
   </div>
