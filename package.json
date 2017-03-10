@@ -15,6 +15,7 @@
     "chart.js": "^2.5.0",
     "countup.js": "^1.8.2",
     "fastclick": "^1.0.6",
+    "font-awesome": "^4.7.0",
     "material-design-icons": "^3.0.1",
     "moment": "^2.15.0",
     "quasar-framework": "^0.13.2",
