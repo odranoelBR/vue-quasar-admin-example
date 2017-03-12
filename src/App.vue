@@ -2,8 +2,8 @@
   <!-- Don't drop "q-app" class -->
   <div id="q-app" >
     <q-layout :style="{ backgroundColor: backgroundColor}">
-      <div class="fixed-bottom-right bg-primary text-white" id="configurations">
-        <label >
+      <div class="fixed-bottom-right bg-primary text-white gt-md" id="configurations">
+        <label>
           Layout
           <q-toggle
             class="green"

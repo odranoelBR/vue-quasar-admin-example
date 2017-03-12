@@ -6,7 +6,7 @@
         <i>arrow_back</i>
       </button>
     </router-link>
-    <button class="hide-on-drawer-visible" @click="$parent.$children[1].$refs.leftDrawer.open()" v-else >
+    <button class="hide-on-drawer-visible" @click="$parent.$children[2].$refs.leftDrawer.open()" v-else >
       <i>menu</i>
     </button>
     <q-toolbar-title :padding="1">
