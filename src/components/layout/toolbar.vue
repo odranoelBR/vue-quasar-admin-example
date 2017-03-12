@@ -12,19 +12,26 @@
     <q-toolbar-title :padding="1">
       Quasar Admin App
     </q-toolbar-title>
-    <button>
+
+    <div class="right-itens">
       <a href="https://github.com/odranoelBR/vue-quasar-admin-example" class="text-white">
         <i class="fa fa-2x fa-github"></i>
       </a>
+      <button>
       <span class="label bg-primary text-white">
         <i class="on-left">mail</i>
         10
       </span>
-    </button>
+      </button>
+    </div>
   </div>
 </template>
 <script>
   export default {
   }
 </script>
-<style scoped></style>
+<style scoped>
+  .right-itens{
+
+  }
+</style>
