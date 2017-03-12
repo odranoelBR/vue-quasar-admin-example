@@ -1,7 +1,7 @@
 <template>
   <!-- Don't drop "q-app" class -->
-  <div id="q-app">
-    <q-layout>
+  <div id="q-app" >
+    <q-layout :style="{ backgroundColor: backgroundColor}">
       <template v-if="getLayoutNeeded">
         <toolbar slot="header"></toolbar>
         <drawer></drawer>
@@ -19,6 +19,11 @@
     computed: {
       ...mapGetters(['getLayoutNeeded'])
     },
+    data () {
+      return {
+        backgroundColor: 'whitesmoke'
+      }
+    },
     components: {
       toolbar,
       drawer
@@ -27,7 +32,4 @@
 </script>
 
 <style>
-  body {
-    background-color: whitesmoke;
-  }
 </style>

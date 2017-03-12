@@ -4,6 +4,7 @@
       <div class="card-title bg-deep-purple-7">
         <svg id="logo" viewBox="0 0 463 463" style="enable-background:new 0 0 463 463;" xml:space="preserve" width="128px" height="128px" v-html="logo" >
         </svg>
+        <h4>Digitalizer</h4>
       </div>
       <div class="card-content bg-white ">
         <div class="floating-label">
@@ -32,9 +33,11 @@
     mounted () {
       this.setLayoutNeeded(false)
       new Vivus('logo', {
-          duration: 100
-        },function() {
-          this.fill = '#fff'
+          duration: 400
+        }, function(element) {
+          for (let item of element.el.children[0].children) {
+              item.setAttribute('style', 'fill:white')
+          }
         }
       )
     },
@@ -48,7 +51,7 @@
     }
   }
 </script>
-<style scoped>
+<style >
   #login {
     margin-top: 5%;
     width: 300px;
@@ -56,5 +59,8 @@
   }
   button {
     margin-bottom: 4%;
+  }
+  h4 {
+    font-weight: 300;
   }
 </style>
