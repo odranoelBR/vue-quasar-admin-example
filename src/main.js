@@ -11,8 +11,9 @@ import Quasar from 'quasar'
 
 import axios from 'configs/axios'
 import router from 'configs/router'
+import store from './configs/store'
+
 import 'font-awesome/css/font-awesome.css'
-import 'leaflet/dist/leaflet.css'
 
 Vue.use(Quasar) // Install Quasar Framework
 Vue.use(axios)
@@ -22,6 +23,7 @@ Quasar.start(() => {
   new Vue({
     el: '#q-app',
     router,
+    store,
     render: h => h(require('./App'))
   })
 })

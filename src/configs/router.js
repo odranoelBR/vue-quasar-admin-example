@@ -24,6 +24,7 @@ export default new VueRouter({
     { path: '/', component: load('views/dashboard/one/dashboard') },
     { path: '/dash', component: load('views/dashboard/one/dashboard') },
     { path: '/form', component: load('views/form/form') },
+    { path: '/login-one', component: load('views/login/login-one') },
     { path: '/pricing', component: load('views/pricing/pricing') },
     { path: '*', component: load('Error404') } // Not found
   ]

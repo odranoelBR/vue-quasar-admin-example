@@ -10,10 +10,12 @@
         Form find / edit
       </q-drawer-link>
       <div class="list-label ">Pages</div>
+      <q-drawer-link icon="lock_open" :to="{path: '/login-one', exact: true}">
+        Login One
+      </q-drawer-link>
       <q-drawer-link icon="attach_money" :to="{path: '/pricing', exact: true}">
         Pricing
       </q-drawer-link>
-
     </div>
   </q-drawer>
 </template>
