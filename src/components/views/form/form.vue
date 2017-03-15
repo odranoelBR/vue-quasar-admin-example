@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="layout-padding ">
-
       <div class="card">
         <div class="card-title bg-teal text-white">
           Search Users

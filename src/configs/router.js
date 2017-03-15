@@ -21,11 +21,11 @@ export default new VueRouter({
    */
 
   routes: [
-    { path: '/', component: load('views/dashboard/one/dashboard') },
-    { path: '/dash', component: load('views/dashboard/one/dashboard') },
-    { path: '/form', component: load('views/form/form') },
-    { path: '/login-one', component: load('views/login/login-one') },
-    { path: '/pricing', component: load('views/pricing/pricing') },
+    { path: '/', component: load('views/dashboard/one/dashboard'), meta: { name: 'Dashboard One' } },
+    { path: '/dash', component: load('views/dashboard/one/dashboard'), meta: { name: 'Dashboard One' } },
+    { path: '/form', component: load('views/form/form'), meta: { name: 'Form find / edit' } },
+    { path: '/login-one', component: load('views/login/login-one'), meta: { name: 'Login One' } },
+    { path: '/pricing', component: load('views/pricing/pricing'), meta: { name: 'Pricing' } },
     { path: '*', component: load('Error404') } // Not found
   ]
 })

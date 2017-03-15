@@ -7,18 +7,18 @@
         <h4>Digitalizer</h4>
       </div>
       <div class="card-content bg-white ">
-        <div class="floating-label">
-          <input required class="full-width">
+        <div class="stacked-label">
+          <input required class="full-width" type="email" v-model="email">
           <label>Email</label>
         </div>
-        <div class="floating-label">
-          <input required class="full-width">
+        <div class="stacked-label">
+          <input required class="full-width" type="password" v-model="password">
           <label>Password</label>
         </div>
       </div>
       <div class="card-actions inline-block">
-        <button class="teal raised outline fit" >Login</button>
-        <button class="red raised outline fit" >Login Google</button>
+        <button class="teal raised outline fit" @click="login()">Login</button>
+        <button class="red raised outline fit" @click="login()">Login Google</button>
       </div>
     </div>
   </div>
@@ -32,6 +32,7 @@
   export default {
     mounted () {
       this.setLayoutNeeded(false)
+      this.setIsLoginPage(true)
       new Vivus('logo', {
           duration: 400
         }, function(element) {
@@ -43,11 +44,18 @@
     },
     data () {
       return {
-        logo: fingerPrint
+        logo: fingerPrint,
+        email: 'quasar@admin.com',
+        password: '123456'
       }
     },
     methods: {
-      ...mapMutations(['setLayoutNeeded'])
+      ...mapMutations(['setLayoutNeeded', 'setIsLoginPage']),
+      login () {
+        this.setLayoutNeeded(true)
+        this.setIsLoginPage(false)
+        this.$router.push('/')
+      }
     }
   }
 </script>

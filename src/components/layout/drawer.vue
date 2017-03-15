@@ -1,7 +1,7 @@
 <template>
   <q-drawer ref="leftDrawer">
     <div class="list no-border platform-delimiter">
-      <div class="list-label ">Dashboard</div>
+      <div class="list-label">Dashboard</div>
       <q-drawer-link icon="home" :to="{path: '/dash', exact: true}">
         Dashboard One
       </q-drawer-link>
@@ -26,5 +26,8 @@
 <style scoped>
   .toolbar {
     min-height: 70px;
+  }
+  .list-label:first-child{
+    line-height: 60px;
   }
 </style>
