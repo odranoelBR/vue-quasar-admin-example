@@ -1,4 +1,5 @@
-# Quasar Admin Examples
+   
+![Quasar Admin](https://github.com/odranoelBR/vue-quasar-admin-example/blob/master/docs/docs-logo.png)
 
 > Some examples how powerful Quasar / Vuejs is for SPA projects.
 
