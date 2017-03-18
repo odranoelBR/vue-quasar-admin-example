@@ -2,7 +2,7 @@
   <div>
     <div class="layout-padding ">
       <div class="flex wrap gutter">
-        <div class="width-1of2 sm-auto">
+        <div class="width-1of2 sm-width-1of1">
           <div class="card">
             <div class="card-title bg-teal text-white">
               Input
@@ -18,7 +18,7 @@
             </div>
           </div>
         </div>
-        <div class="width-1of2 sm-auto">
+        <div class="width-1of2 sm-width-1of1">
           <div class="card">
             <div class="card-title bg-teal text-white">
               Select
