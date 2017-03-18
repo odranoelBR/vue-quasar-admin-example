@@ -24,6 +24,7 @@ export default new VueRouter({
     { path: '/', component: load('views/dashboard/one/dashboard'), meta: { name: 'Dashboard One' } },
     { path: '/dash', component: load('views/dashboard/one/dashboard'), meta: { name: 'Dashboard One' } },
     { path: '/form', component: load('views/form/form'), meta: { name: 'Form find / edit' } },
+    { path: '/embeeded', component: load('views/form/embeeded/embeeded'), meta: { name: 'Embeeded Validation Elements' } },
     { path: '/login-one', component: load('views/login/login-one'), meta: { name: 'Login One' } },
     { path: '/pricing', component: load('views/pricing/pricing'), meta: { name: 'Pricing' } },
     { path: '*', component: load('Error404') } // Not found

@@ -9,6 +9,9 @@
       <q-drawer-link icon="search" :to="{path: '/form', exact: true}">
         Form find / edit
       </q-drawer-link>
+      <q-drawer-link icon="check" :to="{path: '/embeeded', exact: true}">
+        Embeeded validations
+      </q-drawer-link>
       <div class="list-label ">Pages</div>
       <q-drawer-link icon="lock_open" :to="{path: '/login-one', exact: true}">
         Login One

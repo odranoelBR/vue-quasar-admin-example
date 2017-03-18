@@ -7,7 +7,7 @@
     "clean": "node build/script.clean.js",
     "dev": "node build/script.dev.js",
     "build": "node build/script.build.js",
-    "lint": "eslint --ext .js,.vue src"
+    "lint": "eslint --ext .js,.vue src",
   },
   "dependencies": {
     "axios": "^0.15.3",
@@ -24,6 +24,7 @@
     "vivus": "^0.4.0",
     "vue": "2.2.2",
     "vue-router": "^2.3",
+    "vuelidate": "^0.3.1",
     "vuex": "^2.2.1"
   },
   "devDependencies": {
