@@ -17,12 +17,6 @@
       <a href="https://github.com/odranoelBR/vue-quasar-admin-example" class="text-white">
         <i class="fa fa-2x fa-github"></i>
       </a>
-      <button>
-      <span class="label bg-primary text-white">
-        <i class="on-left">mail</i>
-        10
-      </span>
-      </button>
     </div>
   </div>
 </template>
