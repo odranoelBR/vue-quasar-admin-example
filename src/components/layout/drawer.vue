@@ -1,5 +1,16 @@
 <template>
   <q-drawer ref="leftDrawer">
+    <div id="profile">
+      <img src="./img/avatar-1.svg" id="avatar" class="inline-block">
+      <div id="user-name">
+        <span class="text-white">Greldon</span>
+        <hr>
+      </div>
+      <div id="user-actions">
+        <button class="bordered blue small" ><i>person</i></button>
+        <button class="bordered blue small" ><i>lock</i></button>
+      </div>
+    </div>
     <div class="list no-border platform-delimiter light-paragraph">
       <div class="list-label">Dashboard</div>
       <q-drawer-link icon="home" :to="{path: '/', exact: true}">
@@ -46,12 +57,27 @@
   .router-link-active .item-primary{
     color: #027be3;
   }
-  img:nth-child(1) {
+  .fixed-bottom a img {
     width: 25px;
     height: 25px;
   }
-  img:nth-child(2) {
-    width: 30px;
-    height: 30px;
+  #avatar{
+    padding: 20px;
+  }
+  #profile {
+    height: 150px;
+    background-color: #009688;
+  }
+  #user-name {
+    left: 90px;
+    bottom: 77px;
+    position: relative;
+    width: 171px;
+  }
+  #user-actions {
+    left: 90px;
+    bottom: 71px;
+    position: relative;
+    width: 171px;
   }
 </style>

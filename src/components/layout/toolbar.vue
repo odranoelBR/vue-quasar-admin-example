@@ -25,7 +25,7 @@
   }
 </script>
 <style scoped>
-  .right-itens{
-
+  .toolbar{
+    min-height: 60px;
   }
 </style>
