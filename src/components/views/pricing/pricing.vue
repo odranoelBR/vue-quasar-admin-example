@@ -23,7 +23,6 @@
                      :button-classes="planData.buttonClasses"
                      :card-id="planData.cardId"
                      v-on:card-selected="cardSelected"
-                     :class="chooseMostUsedPlan(planData.cardId)"
           >
             <div slot="body" class="fit">
               <component :is="planData.planBenefitComponent"></component>
@@ -115,5 +114,9 @@
 <style scoped>
   .inline-block {
     margin-bottom: 7%;
+  }
+  .label{
+    padding: 1.2rem 0.7rem;
+    min-width: 260px;
   }
 </style>

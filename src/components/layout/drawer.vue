@@ -65,7 +65,7 @@
     padding: 20px;
   }
   #profile {
-    height: 150px;
+    height: 130px;
     background-color: #009688;
   }
   #user-name {
