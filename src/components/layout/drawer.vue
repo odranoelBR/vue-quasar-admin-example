@@ -22,6 +22,8 @@
     </div>
     <div class="fixed-bottom text-center light text-italic">
       Powered by
+      <a href="https://vuejs.org/"><img src="./img/vue-logo.png" alt=""></a>
+      <a href="http://quasar-framework.org/"><img src="./img/quasar-logo.png" alt=""></a>
     </div>
   </q-drawer>
 </template>
@@ -43,5 +45,13 @@
   }
   .router-link-active .item-primary{
     color: #027be3;
+  }
+  img:nth-child(1) {
+    width: 25px;
+    height: 25px;
+  }
+  img:nth-child(2) {
+    width: 30px;
+    height: 30px;
   }
 </style>
