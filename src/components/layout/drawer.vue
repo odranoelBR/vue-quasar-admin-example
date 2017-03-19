@@ -1,8 +1,8 @@
 <template>
   <q-drawer ref="leftDrawer">
-    <div class="list no-border platform-delimiter">
+    <div class="list no-border platform-delimiter light-paragraph">
       <div class="list-label">Dashboard</div>
-      <q-drawer-link icon="home" :to="{path: '/dash', exact: true}">
+      <q-drawer-link icon="home" :to="{path: '/', exact: true}">
         Dashboard One
       </q-drawer-link>
       <div class="list-label ">Forms</div>
@@ -20,6 +20,9 @@
         Pricing
       </q-drawer-link>
     </div>
+    <div class="fixed-bottom text-center light text-italic">
+      Powered by
+    </div>
   </q-drawer>
 </template>
 <script>
@@ -27,10 +30,18 @@
   }
 </script>
 <style scoped>
-  .toolbar {
-    min-height: 70px;
+  .fixed-bottom {
+    margin-bottom: 1%;
   }
   .list-label:first-child{
-    line-height: 60px;
+    line-height: 50px;
+  }
+  .router-link-active {
+    color: #027be3;
+    background-color: #dadada !important;
+    border-right: 2px solid #027be3;
+  }
+  .router-link-active .item-primary{
+    color: #027be3;
   }
 </style>
