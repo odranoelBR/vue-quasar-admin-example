@@ -9,6 +9,7 @@
       <div id="user-actions">
         <button class="bordered blue small" ><i>person</i></button>
         <button class="bordered blue small" ><i>lock</i></button>
+        <button class="bordered blue small" ><i>exit_to_app</i></button>
       </div>
     </div>
     <div class="list no-border platform-delimiter light-paragraph">
@@ -72,7 +73,7 @@
     left: 90px;
     bottom: 77px;
     position: relative;
-    width: 171px;
+    width: 159px;
   }
   #user-actions {
     left: 90px;
