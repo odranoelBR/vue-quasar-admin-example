@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="floating-label" :class="labelColor">
-      <q-select type="list"
+      <q-select :type="type"
                 class="full-width"
                 :class="borderColor"
                 :options="options"
@@ -36,6 +36,9 @@
         required: true
       },
       value: {
+        required: true
+      },
+      type: {
         required: true
       },
       validationMessages: {},

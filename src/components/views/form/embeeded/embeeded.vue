@@ -25,6 +25,7 @@
             </div>
             <div class="card-content bg-white">
               <e-select
+                type="list"
                 label="Authentication"
                 v-model="authentication"
                 :validation="$v.authentication"
