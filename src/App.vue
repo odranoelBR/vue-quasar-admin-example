@@ -51,4 +51,22 @@
   .router-link-active .item-primary{
     color: #027be3;
   }
+  .q-picker-textfield .q-picker-textfield-label{
+    color: inherit !important;
+  }
+  .label-success .q-picker-textfield-label {
+    color: #4caf50 !important;
+  }
+  .label-error .q-picker-textfield-label {
+    color: #f44336 !important;
+  }
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+  }
+  .label-success .q-picker-textfield:after, .label-error .q-picker-textfield:after{
+    content: "" !important;
+  }
 </style>

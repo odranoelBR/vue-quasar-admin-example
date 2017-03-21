@@ -24,9 +24,21 @@
               Select
             </div>
             <div class="card-content bg-white">
-              Coming...
+              <e-select
+                label="Authentication"
+                v-model="authentication"
+                :validation="$v.authentication"
+                :validation-messages="validationMessages.authentication"
+                :value="authentication"
+                :options="options"
+              ></e-select>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="flex wrap justify-center">
+        <div class="width-1of3">
+          <button class="teal raised outline fit" @click="$v.$touch()">Try Submit</button>
         </div>
       </div>
     </div>
@@ -35,6 +47,7 @@
 <script type="text/javascript">
   import { required, minLength, alpha } from 'vuelidate/lib/validators'
   import eInput from './eInput.vue'
+  import eSelect from './eSelect.vue'
   export default {
     name: 'EmbeededValidationsElements',
     mounted () {
@@ -42,13 +55,22 @@
     data () {
       return {
         name: '',
+        authentication: '',
         validationMessages: {
           name: {
             required: 'Name is required.',
             minLength: 'Minimum 5 characters.',
             alpha: 'Only letters.'
+          },
+          authentication: {
+            required: 'Authentication is required.'
           }
-        }
+        },
+        options: [
+          { label: 'Google', value: 'google' },
+          { label: 'Facebook', value: 'facebook' },
+          { label: '', value: '' }
+        ]
       }
     },
     validations: {
@@ -56,10 +78,14 @@
         required,
         minLength: minLength(5),
         alpha
+      },
+      authentication: {
+        required
       }
     },
     components: {
-      eInput
+      eInput,
+      eSelect
     }
   }
 </script>
