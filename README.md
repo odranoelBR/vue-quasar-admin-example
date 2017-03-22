@@ -8,8 +8,8 @@
 * [Quasar Framework Page](http://quasar-framework.org/)
 
 ## Demo 
-* ![Android](https://quasar-admin.firebaseapp.com/icon-android.png)[Demo](https://quasar-admin.firebaseapp.com/android/# )
-* ![IOS](https://quasar-admin.firebaseapp.com/icon-ios.png)[Demo](https://quasar-admin.firebaseapp.com/ios/# )
+[https://quasar-admin.firebaseapp.com/icon-android.png](https://quasar-admin.firebaseapp.com/android/# )
+[https://quasar-admin.firebaseapp.com/icon-ios.png](https://quasar-admin.firebaseapp.com/ios/# )
 
 ## Infos
 * Using Quasar default template
