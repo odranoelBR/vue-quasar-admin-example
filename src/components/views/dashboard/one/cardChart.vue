@@ -9,7 +9,7 @@
           <q-small-fab class="teal" @click.native="type = 'pie'" icon=""><i>pie_chart_outlined</i></q-small-fab>
           <q-small-fab class="teal" @click.native="type = 'doughnut'" icon=""><i>donut_large</i></q-small-fab>
         </q-fab>
-        <button class="primary circular raised " @click="toImage()">
+        <button class="primary circular raised gt-sm inline" @click="toImage()">
           <i>portrait</i>
         </button>
       </div>
@@ -95,4 +95,6 @@
     }
   }
 </script>
-<style scoped></style>
+<style scoped>
+
+</style>

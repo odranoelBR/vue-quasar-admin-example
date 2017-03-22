@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 let state = {
   layoutNeeded: true,
-  isLoginPage: false
+  isLoginPage: false,
+  mobileMode: false
 }
 
 let mutations = {
@@ -14,6 +15,9 @@ let mutations = {
   },
   setIsLoginPage (state, value) {
     state.isLoginPage = value
+  },
+  setMobileMode (state, value) {
+    state.mobileMode = value
   }
 }
 
@@ -23,6 +27,9 @@ let getters = {
   },
   getIsLoginPage () {
     return state.isLoginPage
+  },
+  getMobileMode () {
+    return state.mobileMode
   }
 }
 

@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="flex wrap gutter">
-      <div class="width-1of2 lg-width-1of3 sm-width-1of1">
+      <div class="width-1of2 lg-width-1of3 sm-auto">
         <card-chart
           card-title="Total Graph"
           :data="dataForGraph"

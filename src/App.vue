@@ -1,7 +1,15 @@
 <template>
   <!-- Don't drop "q-app" class -->
   <div id="q-app" >
-    <q-layout :style="{ backgroundColor: backgroundColor}">
+    <div v-if="getMobileMode">
+      <div  id="android-preview" class="platform-android mat-only">
+        <iframe id="android-iframe" frameborder="0" src="https://quasar-admin.firebaseapp.com/android/#/"></iframe>
+      </div>
+      <div  id="ios-preview" class="platform-ios ios-only">
+        <iframe id="ios-iframe" frameborder="0" src="https://quasar-admin.firebaseapp.com/ios/#/"></iframe>
+      </div>
+    </div>
+    <q-layout :style="{ backgroundColor: backgroundColor}" v-else>
       <template v-if="getLayoutNeeded">
         <toolbar slot="header"></toolbar>
         <drawer></drawer>
@@ -26,7 +34,7 @@
       }
     },
     computed: {
-      ...mapGetters(['getLayoutNeeded'])
+      ...mapGetters(['getLayoutNeeded', 'getMobileMode'])
     },
     components: {
       toolbar,
@@ -68,5 +76,38 @@
   }
   .label-success .q-picker-textfield:after, .label-error .q-picker-textfield:after{
     content: "" !important;
+  }
+  #android-preview {
+    display: block;
+    text-align: center;
+    width: 467px;
+    height: 800px;
+    background: url('./statics/devices-sprite.jpg') 0 -800px no-repeat;
+    background-size: 467px;
+    margin: 5px auto 0;
+  }
+  #ios-preview {
+    text-align: center;
+    width: 467px;
+    height: 800px;
+    background: url('./statics/devices-sprite.jpg') center top no-repeat;
+    background-size: 467px;
+    margin: 5px auto 0;
+  }
+
+  #android-preview iframe {
+    margin-top: 64px;
+    width: 357px;
+    height: 590px;
+    background: #fff;
+  }
+  #ios-preview iframe {
+    margin-top: 64px;
+    width: 320px;
+    height: 590px;
+    background: #fff;
+  }
+  canvas {
+    width: 270px !important;
   }
 </style>
