@@ -7,7 +7,7 @@
 * [Vuejs Page](https://vuejs.org/)
 * [Quasar Framework Page](http://quasar-framework.org/)
 
-## Demo 
+## Demo (Android or IOS Style) 
 [![Alt text](https://quasar-admin.firebaseapp.com/icon-android.png)](https://quasar-admin.firebaseapp.com/android/#/)
 [![Alt text](https://quasar-admin.firebaseapp.com/icon-ios.png)](https://quasar-admin.firebaseapp.com/ios/#/)
 
