@@ -1,5 +1,5 @@
 <template>
-  <div class="card bg-white animate-scale ">
+  <div class="card bg-white">
     <div class="card-title bg-teal text-white">
       {{cardTitle}}
       <div class=" float-right">

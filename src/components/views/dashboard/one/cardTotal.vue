@@ -1,5 +1,5 @@
 <template>
-  <div class="card text-white animate-scale" :class="backgroundColor">
+  <div class="card text-white" :class="backgroundColor">
     <div class="card-content ">
       <div class="row">
         <div class="width-1of3">
