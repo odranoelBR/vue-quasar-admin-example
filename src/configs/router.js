@@ -26,6 +26,7 @@ export default new VueRouter({
     { path: '/embeeded', component: load('views/form/embeeded/embeeded'), meta: { name: 'Embeeded Validations' } },
     { path: '/login-one', component: load('views/login/login-one'), meta: { name: 'Login One' } },
     { path: '/pricing', component: load('views/pricing/pricing'), meta: { name: 'Pricing' } },
+    { path: '/drag-and-drop', component: load('views/dragAndDrop/dragAndDrop'), meta: { name: 'Drag and Drop' } },
     { path: '*', component: load('Error404') } // Not found
   ]
 })

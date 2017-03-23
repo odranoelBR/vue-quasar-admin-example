@@ -16,6 +16,7 @@ import store from './configs/store'
 
 import 'font-awesome/css/font-awesome.css'
 import 'highlight/lib/vendor/highlight.js/styles/default.css'
+import 'dragula/dist/dragula.css'
 
 Vue.use(Vuelidate)
 Vue.use(Quasar) // Install Quasar Framework

@@ -31,6 +31,9 @@
       <q-drawer-link icon="attach_money" :to="{path: '/pricing', exact: true}">
         Pricing
       </q-drawer-link>
+      <q-drawer-link icon="move_to_inbox" :to="{path: '/drag-and-drop', exact: true}" class="gt-sm">
+        Drag and Drop
+      </q-drawer-link>
     </div>
     <div class="fixed-bottom text-center light text-italic">
       Powered by
