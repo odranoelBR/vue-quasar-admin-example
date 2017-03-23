@@ -16,7 +16,9 @@
       </template>
       <div class="layout-view">
         <content-header></content-header>
-        <router-view></router-view>
+        <transition name="fade" mode="out-in">
+          <router-view></router-view>
+        </transition>
       </div>
     </q-layout>
   </div>
@@ -45,6 +47,14 @@
 </script>
 
 <style>
+  .fade-enter-active, .fade-enter{
+    -webkit-animation: moveFromRight .5s both ease;
+    animation: moveFromRight .5s both ease;
+  }
+  .fade-leave-to, .fade-leave-active {
+    -webkit-animation: moveToLeft 1s both ease;
+    animation: moveToLeft 1s both ease;
+  }
   .layout-padding {
     padding: 1em 4em;
   }
@@ -53,6 +63,22 @@
       padding: 1.5em .5em;
     }
   }
+  @-webkit-keyframes moveToLeft {
+    from { }
+    to { opacity: .5; -webkit-transform: translateX(-100%); }
+  }
+  @keyframes moveToLeft {
+    from { }
+    to { opacity: .5; -webkit-transform: translateX(-100%); transform: translateX(-100%); }
+  }
+
+  @-webkit-keyframes moveFromRight {
+    from { opacity: .7; -webkit-transform: translateX(100%); }
+  }
+  @keyframes moveFromRight {
+    from {opacity: .7; -webkit-transform: translateX(100%); transform: translateX(100%); }
+  }
+
   .drawer-closer .item-content {
     margin-left: 50px !important;
   }
