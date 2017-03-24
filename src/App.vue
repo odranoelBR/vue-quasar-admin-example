@@ -63,6 +63,16 @@
       padding: 1.5em .5em;
     }
   }
+  @keyframes cartOut {
+    from {
+      transform: translate(0px, 0px);
+    }
+    to {
+      transform: translate(800px, 0px);
+      animation-timing-function: ease-out;
+    }
+
+  }
   @-webkit-keyframes moveToLeft {
     from { }
     to { opacity: .5; -webkit-transform: translateX(-100%); }

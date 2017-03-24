@@ -8,20 +8,37 @@
           </div>
           <div class="card-content bg-white">
             <div class="flex wrap">
-              <div class="card shadow-3" id="left">
-                <img src="./img/apple.svg" class="cursor-pointer icon-size " alt="" >
-                <img src="./img/pear.svg" class="cursor-pointer icon-size " alt="" >
-                <img src="./img/orange.svg" class="cursor-pointer icon-size " alt="" >
-                <img src="./img/watermelon.svg" class="cursor-pointer icon-size " alt="" >
-                <img src="./img/strawberry.svg" class="cursor-pointer icon-size " alt="" >
+              <div class="card shadow-3 no-margin" id="left">
+                <button class="relative-position no-padding" value="5">
+                  <img src="./img/apple.svg" class=" icon-size" alt="">
+                  <span class="floating label bg-primary text-white">$5</span>
+                </button>
+                <button class="relative-position no-padding" value="3">
+                  <img src="./img/pear.svg" class=" icon-size " alt="">
+                  <span class="floating label bg-primary text-white">$3</span>
+                </button>
+                <button class="relative-position no-padding" value="2">
+                  <img src="./img/orange.svg" class=" icon-size " alt="">
+                  <span class="floating label bg-primary text-white">$2</span>
+                </button>
+                <button class="relative-position no-padding" value="4">
+                  <img src="./img/watermelon.svg" class=" icon-size " alt="">
+                  <span class="floating label bg-primary text-white">$4</span>
+                </button>
+                <button class="relative-position no-padding" value="7">
+                  <img src="./img/strawberry.svg" class=" icon-size " alt="">
+                  <span class="floating label bg-primary text-white">$7</span>
+                </button>
               </div>
-              <div class="card shadow-3 text-center" id="prices">
-                <div v-for="price in prices" class="div-prices">
-                  <h5>${{price}}</h5>
-                </div>
+              <div class="text-center" id="cart" ref="cart" :style="move">
+                <h5><span class="label bg-amber text-white" id="span-price">
+                 <span class="left-detail">Total</span> $<span ref="number"></span>
+                </span>
+                </h5>
+                <div id="right" ></div>
               </div>
-              <div class="" id="cart">
-                <div id="right"></div>
+              <div class="auto self-end" v-show="totalCost > 0">
+                <button class="green raised" @click="pay()" >Pay</button>
               </div>
             </div>
           </div>
@@ -32,58 +49,75 @@
 </template>
 <script>
   import Dragula from 'dragula/dragula'
+  import CountUp from 'countup.js'
   export default {
     name: 'DragAndDrop',
     mounted () {
-      Dragula([document.querySelector('#left'), document.querySelector('#right')])
+      let vm = this
+      this.dragula = Dragula([document.querySelector('#left'), document.querySelector('#right')])
+        .on('drop', (el, container, source) => {
+          if (source.id === container.id) {
+            return
+          }
+          source.id === 'left'
+            ? vm.totalCost += parseInt(el.value)
+            : vm.totalCost -= parseInt(el.value)
+        })
+    },
+    watch: {
+      totalCost (newValue, oldValue) {
+        /* eslint-disable no-new */
+        let countUp = new CountUp(this.$refs.number, oldValue, newValue, 0, 1.5, this.options)
+        countUp.start()
+      }
     },
     data () {
       return {
-        prices: [5, 3, 2, 4, 7]
+        dragula: '',
+        totalCost: 0,
+        options: {
+          separator: '.'
+        },
+        move: ''
       }
     },
-    components: {
-    },
-    computed: {
-    },
     methods: {
+      pay () {
+        let vm = this
+        this.move = { animation: 'cartOut 2s' }
+        setTimeout(function () { vm.move = '' }, 2100)
+      }
     }
   }
 </script>
 <style scoped>
   .card {
-    padding: 15px;
     margin-right: 2%;
-  }
-  h5{
-    margin-bottom: 5%;
   }
   #cart {
     background: url("./img/cart.svg") white no-repeat;
     background-size: 300px 300px;
     width: 300px;
-    height: 300px;
+    height: 320px;
   }
-  #prices {
-    width: 82px;
-  }
-  .div-prices{
-    height: 45px;
+  #span-price{
+    margin-top: 16px;
+    margin-left: 166px;
+    width: 132px;
   }
   #left {
-    width: 82px;
+    padding: 15px;
+    width: 100px;
   }
   #right{
     margin-left: 87px;
-    margin-top: 75px;
+    margin-top: 20px;
     width: 194px;
     height: 111px;
   }
-
   .icon-size {
     width: 56px;
     height: 57px;
-
   }
 
 </style>
