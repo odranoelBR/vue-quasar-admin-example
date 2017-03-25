@@ -24,6 +24,9 @@
       <q-drawer-link icon="check" :to="{path: '/embeeded', exact: true}">
         Embeeded validations
       </q-drawer-link>
+      <q-drawer-link icon="check" :to="{path: '/advanced-form-one', exact: true}">
+        Adv. Form One
+      </q-drawer-link>
       <div class="list-label ">Pages</div>
       <q-drawer-link icon="lock_open" :to="{path: '/login-one', exact: true}">
         Login One

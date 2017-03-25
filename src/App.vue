@@ -146,4 +146,26 @@
   canvas {
     width: 270px !important;
   }
+  @media only screen and (min-width: 601px){
+    .adv-form-one .timeline-badge {
+      right: auto !important;
+      left: auto !important;
+    }
+    .adv-form-one .timeline-content {
+      margin-left: 3.9rem;
+    }
+    .adv-form-one .timeline-item {
+      width: 100% !important;
+    }
+    .adv-form-one .timeline-title {
+      text-align: inherit !important;
+      margin-left: 3.9rem;
+    }
+    .timeline:before {
+      left: 1.6rem;
+    }
+  }
+  .adv-form-one .timeline-content .primary {
+    display: none !important;
+  }
 </style>
