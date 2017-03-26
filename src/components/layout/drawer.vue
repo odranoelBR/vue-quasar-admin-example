@@ -1,5 +1,5 @@
 <template>
-  <q-drawer ref="leftDrawer">
+  <q-drawer ref="leftDrawer" v-show="getLayoutNeeded">
     <div id="profile">
       <img src="./img/avatar-1.svg" id="avatar" class="inline-block">
       <div id="user-name">
@@ -24,7 +24,7 @@
       <q-drawer-link icon="check" :to="{path: '/embeeded', exact: true}">
         Embeeded validations
       </q-drawer-link>
-      <q-drawer-link icon="check" :to="{path: '/advanced-form-one', exact: true}">
+      <q-drawer-link icon="filter_1" :to="{path: '/advanced-form-one', exact: true}">
         Adv. Form One
       </q-drawer-link>
       <div class="list-label ">Pages</div>
@@ -46,7 +46,11 @@
   </q-drawer>
 </template>
 <script>
+  import { mapGetters } from 'vuex'
   export default {
+    computed: {
+      ...mapGetters(['getLayoutNeeded'])
+    }
   }
 </script>
 <style scoped>

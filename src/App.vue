@@ -10,10 +10,8 @@
       </div>
     </div>
     <q-layout :style="{ backgroundColor: backgroundColor}" v-else>
-      <template v-if="getLayoutNeeded">
-        <toolbar slot="header"></toolbar>
-        <drawer></drawer>
-      </template>
+      <toolbar slot="header"></toolbar>
+      <drawer></drawer>
       <div class="layout-view">
         <content-header></content-header>
         <transition name="fade" mode="out-in">

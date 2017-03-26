@@ -1,5 +1,5 @@
 <template>
-  <div class="toolbar">
+  <div class="toolbar" v-show="getLayoutNeeded">
     <q-ajax-bar color="#80cbc4"></q-ajax-bar>
     <router-link :to="'/'" v-if="$router.currentRoute.meta.backButton">
       <button>
@@ -23,8 +23,11 @@
   </div>
 </template>
 <script>
-  import { mapMutations } from 'vuex'
+  import { mapMutations, mapGetters } from 'vuex'
   export default {
+    computed: {
+      ...mapGetters(['getLayoutNeeded'])
+    },
     methods: {
       ...mapMutations(['setMobileMode'])
     }
