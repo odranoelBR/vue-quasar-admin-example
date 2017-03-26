@@ -22,4 +22,6 @@
 * [Gmaps.js](https://hpneo.github.io/gmaps/) as map Api / data
 * [Vivus.js](https://maxwellito.github.io/vivus/) as SVG animator
 * [Vuelidate.js](https://monterail.github.io/vuelidate/) for form validations
+* [Dragula.js](https://github.com/bevacqua/dragula) for drag and drop
 * [Flaticon](http://www.flaticon.com) for SVG's
+
