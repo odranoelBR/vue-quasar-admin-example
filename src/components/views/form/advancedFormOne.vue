@@ -19,7 +19,7 @@
                   ></e-input>
                   <button class="teal raised outline" @click="findUser()">Search</button>
                 </div>
-                <div class="offset-1of5 ">
+                <div class="sm-width-1of1">
                   <div class="card" v-if="userData.name">
                     <div class="card-content">
                       <h6>{{userData.name}}</h6>
@@ -107,6 +107,6 @@
 </script>
 <style scoped>
   .comment-name{
-    width: 150px;
+    width: 160px;
   }
 </style>
