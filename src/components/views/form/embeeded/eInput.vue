@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="floating-label" >
+    <div class="floating-label" :class="shakeDiv">
       <input required class="full-width" :class="borderColor"
              :value="value"
              @input="change($event.target.value)">
@@ -49,11 +49,14 @@
       },
       labelColor () {
         return this.validAndDirty ? 'text-green' : '' ||
-          this.invalidAndDirty ? 'text-red' : ''
+          this.invalidAndDirty ? 'text-red ' : ''
       },
       borderColor () {
         return this.validAndDirty ? 'has-success' : '' ||
           this.invalidAndDirty ? 'has-error' : ''
+      },
+      shakeDiv () {
+        return this.invalidAndDirty ? 'animate-pop' : ''
       }
     },
     data () {

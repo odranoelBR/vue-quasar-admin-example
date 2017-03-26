@@ -57,7 +57,7 @@
       },
       labelColor () {
         return this.validAndDirty ? 'label-success' : '' ||
-          this.invalidAndDirty ? 'label-error' : ''
+          this.invalidAndDirty ? 'label-error animate-pop' : ''
       },
       borderColor () {
         return this.validAndDirty ? 'has-success' : '' ||
