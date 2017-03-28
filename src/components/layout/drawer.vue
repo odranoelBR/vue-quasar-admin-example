@@ -9,7 +9,9 @@
       <div id="user-actions">
         <button class="bordered blue small" ><i>person</i></button>
         <button class="bordered blue small" ><i>lock</i></button>
-        <button class="bordered blue small" ><i>exit_to_app</i></button>
+        <router-link to="login-one">
+          <button class="bordered blue small" ><i>exit_to_app</i></button>
+        </router-link>
       </div>
     </div>
     <div class="list no-border platform-delimiter light-paragraph">

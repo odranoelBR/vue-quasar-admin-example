@@ -66,7 +66,7 @@
       transform: translate(0px, 0px);
     }
     to {
-      transform: translate(800px, 0px);
+      transform: translate(1200px, 0px);
       animation-timing-function: ease-out;
     }
 
