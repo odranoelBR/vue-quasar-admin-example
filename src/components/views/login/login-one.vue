@@ -81,7 +81,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/javascript">
   /* eslint-disable */
   import {mapMutations} from 'vuex'
   import Vivus from 'vivus'

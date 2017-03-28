@@ -45,7 +45,7 @@
     </div>
   </q-drawer>
 </template>
-<script>
+<script type="text/javascript">
   import { mapGetters } from 'vuex'
   export default {
     computed: {

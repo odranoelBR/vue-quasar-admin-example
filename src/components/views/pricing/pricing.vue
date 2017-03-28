@@ -33,7 +33,7 @@
     </div>
   </div>
 </template>
-<script>
+<script type="text/javascript">
   /* eslint-disable */
   import cardPlanOne from './cardPlanOne.vue'
   import cardPlanTwo from './cardPlanTwo.vue'

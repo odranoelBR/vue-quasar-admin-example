@@ -45,7 +45,7 @@
   </q-modal>
 </template>
 
-<script>
+<script type="text/javascript">
   /* eslint-disable */
   import { Toast } from 'quasar'
   import GMaps from 'gmaps'

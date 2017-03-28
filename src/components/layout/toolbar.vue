@@ -22,7 +22,7 @@
     </div>
   </div>
 </template>
-<script>
+<script type="text/javascript">
   import { mapMutations, mapGetters } from 'vuex'
   export default {
     computed: {

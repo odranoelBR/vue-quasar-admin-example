@@ -47,7 +47,7 @@
     </div>
   </div>
 </template>
-<script>
+<script type="text/javascript">
   import Dragula from 'dragula/dragula'
   import CountUp from 'countup.js'
   export default {

@@ -21,7 +21,7 @@
     </q-layout>
   </div>
 </template>
-<script>
+<script type="text/javascript">
   import toolbar from './components/layout/toolbar.vue'
   import drawer from './components/layout/drawer.vue'
   import contentHeader from './components/layout/content-header.vue'

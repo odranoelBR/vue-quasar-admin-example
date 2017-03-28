@@ -52,7 +52,7 @@
     </div>
   </div>
 </template>
-<script>
+<script type="text/javascript">
   export default {
     props: ['title', 'titleClasses', 'price', 'priceSubtitle', 'buttonClasses', 'cardId'],
     data () {
