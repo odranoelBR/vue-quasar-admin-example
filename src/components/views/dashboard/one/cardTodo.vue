@@ -14,7 +14,7 @@
               <div class="item-primary">{{index + 1}}</div>
               <div class="item-content has-secondary">
                 <span v-show="todo.completed" class="completed-line">{{todo.title}}</span>
-                <input v-show="!todo.completed" v-model="todo.title" class="fit" @input.right="changeTitle(todo)">
+                <input v-show="!todo.completed" v-model.lazy="todo.title" class="fit" @change="changeTitle(todo)">
               </div>
               <q-toggle class="item-secondary"
                         icon="done"
