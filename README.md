@@ -14,6 +14,8 @@
 ## Infos
 * Using Quasar default template
 * Using [Jsonplaceholder](https://jsonplaceholder.typicode.com/) as backend API
+* Using [Flaticon](http://www.flaticon.com) for SVG's
+
 
 ## Dependecies 
 * [Axios.js](https://github.com/mzabriskie/axios) as HTTP client
@@ -23,5 +25,4 @@
 * [Vivus.js](https://maxwellito.github.io/vivus/) as SVG animator
 * [Vuelidate.js](https://monterail.github.io/vuelidate/) for form validations
 * [Dragula.js](https://github.com/bevacqua/dragula) for drag and drop
-* [Flaticon](http://www.flaticon.com) for SVG's
 
