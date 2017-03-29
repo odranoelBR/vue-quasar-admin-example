@@ -28,13 +28,14 @@
               </div>
             </q-step>
             <q-step title="Choose photos">
-              <card-data-table :selected-album="selectedAlbum"></card-data-table>
+              <card-data-table :selected-album="selectedAlbum" v-on:selectedRows="populatePhotos"></card-data-table>
+
               <div class="flex wrap gutter">
                 <div class="width-1of4 sm-width-3of3">
                   <button class="orange fit" @click="$refs.stepper.previousStep()">Back</button>
                 </div>
-                <div class="width-1of4 sm-width-3of3">
-                  <button class="green fit" @click="finish()">Send to <i>print</i></button>
+                <div class="width-1of4 sm-width-3of3" v-show="selectedPhotos.length > 0">
+                  <button class="green fit" @click="finish()">Preview</button>
                 </div>
               </div>
             </q-step>
@@ -42,6 +43,9 @@
         </div>
       </div>
     </div>
+    <q-modal ref="previewModal" class="minimized">
+      <q-gallery-slider :src="photosForGalery" ></q-gallery-slider>
+    </q-modal>
   </div>
 </template>
 <script type="text/javascript">
@@ -57,6 +61,7 @@
         userData: {},
         currentStep: '1',
         selectedAlbum: '',
+        selectedPhotos: [],
         validationMessages: {
           userName: {
             required: 'Username is required.'
@@ -69,6 +74,13 @@
         required
       }
     },
+    computed: {
+      photosForGalery () {
+        let galery = []
+        this.selectedPhotos.forEach(photo => { galery.push(photo.data.thumbnailUrl) })
+        return galery
+      }
+    },
     components: {
       eInput,
       cardUserData,
@@ -76,7 +88,7 @@
     },
     methods: {
       finish () {
-
+        this.$refs.previewModal.open()
       },
       findUser () {
         this.$http
@@ -84,6 +96,9 @@
           .then(response => { this.userData = response.data[0] })
 
         this.$v.$touch()
+      },
+      populatePhotos (photos) {
+        photos.forEach(item => { this.selectedPhotos.push(item) })
       }
     }
   }

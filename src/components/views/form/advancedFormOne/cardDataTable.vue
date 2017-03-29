@@ -1,5 +1,6 @@
 <template>
   <q-data-table
+    ref="dataTable"
     v-if="commentsOfPost.length > 0"
     :data="commentsOfPost"
     :columns="columns"
@@ -7,6 +8,11 @@
   >
     <template slot="col-photo" scope="cell">
       <img :src="cell.row.thumbnailUrl" alt="">
+    </template>
+    <template slot="selection" scope="selection">
+      <button class="orange" @click="addPrint(selection.rows)">
+        Add to print
+      </button>
     </template>
   </q-data-table>
 </template>
@@ -26,6 +32,9 @@
       }
     },
     computed: {
+      selectedRows () {
+        return this.$refs.dataTable.selectedRows
+      },
       configs () {
         return {
           title: `Photos of the album : ${this.selectedAlbum.title}`,
@@ -53,12 +62,14 @@
           {
             label: 'Photo',
             field: 'photo',
-            width: '100px',
-            format (value) {
-
-            }
+            width: '100px'
           }
         ]
+      }
+    },
+    methods: {
+      addPrint (rows) {
+        this.$emit('selectedRows', rows)
       }
     }
   }

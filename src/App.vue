@@ -90,6 +90,12 @@
   .drawer-closer .item-content {
     margin-left: 50px !important;
   }
+  .drawer-content .list-label {
+    line-height: 45px;
+  }
+  .drawer-content .item {
+    height: 45px;
+  }
   .router-link-active .item-primary{
     color: #027be3;
   }
@@ -163,7 +169,7 @@
       left: 1.6rem;
     }
   }
-  .adv-form-one .timeline-content .primary {
+  .adv-form-one .timeline-content .group .primary {
     display: none !important;
   }
 </style>
