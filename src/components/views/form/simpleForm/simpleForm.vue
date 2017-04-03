@@ -71,7 +71,7 @@
         }, 500)
       },
       getUsers () {
-        this.$http
+        this.$http.jsonplaceholder
           .get('users')
           .then(response => { this.users = response.data })
       },
@@ -79,7 +79,7 @@
         this.selectedUser = user.allData
       },
       save () {
-        this.$http
+        this.$http.jsonplaceholder
           .put(`users/${this.selectedUser.id}`, this.selectedUser)
           .then(response => { Toast.create.positive('Updated successful!') })
       }

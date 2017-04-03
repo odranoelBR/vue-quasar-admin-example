@@ -43,7 +43,7 @@ export default {
   },
   watch: {
     userData () {
-      this.$http
+      this.$http.jsonplaceholder
         .get(`albums?userId=${this.userData.id}`)
         .then(response => { this.userAlbums = response.data })
     }

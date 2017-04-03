@@ -59,9 +59,9 @@
     mounted () {
       // Axios.all not working
       Promise.all([
-        this.$http.get('posts'),
-        this.$http.get('comments'),
-        this.$http.get('todos')
+        this.$http.jsonplaceholder.get('posts'),
+        this.$http.jsonplaceholder.get('comments'),
+        this.$http.jsonplaceholder.get('todos')
       ])
         .then(response => {
           this.totalPosts = response[0].data.length

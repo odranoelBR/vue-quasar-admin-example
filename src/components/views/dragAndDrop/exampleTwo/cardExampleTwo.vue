@@ -18,7 +18,6 @@
     </div>
   </div>
 </template>
-
 <script>
   import Dragula from 'dragula/dragula'
   import todoColumn from './todoColumn.vue'

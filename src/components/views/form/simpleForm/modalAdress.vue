@@ -59,7 +59,7 @@
     props: ['user'],
     methods: {
       save () {
-        this.$http
+        this.$http.jsonplaceholder
           .patch(`users/${this.user.id}`, {address: this.user.address})
           .then(response => { Toast.create.positive('Updated successful!') })
       },

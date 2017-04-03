@@ -26,7 +26,7 @@
     },
     watch: {
       selectedAlbum () {
-        this.$http
+        this.$http.jsonplaceholder
           .get(`photos?albumId=${this.selectedAlbum.id}`)
           .then(response => { this.commentsOfPost = response.data })
       }

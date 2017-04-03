@@ -38,7 +38,7 @@
 
   export default {
     mounted () {
-      this.$http
+      this.$http.jsonplaceholder
         .get(this.api)
         .then(response => { this.todos = response.data })
     },
@@ -65,12 +65,12 @@
 
       },
       completeTodo (todo) {
-        this.$http
+        this.$http.jsonplaceholder
           .patch(`${this.api}/${todo.id}`, {completed : todo.completed})
           .then(response => { Toast.create.positive('Completed todo!') })
       },
       changeTitle (todo) {
-        this.$http
+        this.$http.jsonplaceholder
           .patch(`${this.api}/${todo.id}`, {title : todo.title})
           .then(response => { Toast.create.positive('Title updated successful!') })
       }

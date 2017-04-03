@@ -91,7 +91,7 @@
         this.$refs.previewModal.open()
       },
       findUser () {
-        this.$http
+        this.$http.jsonplaceholder
           .get(`users?username=${this.userName}`)
           .then(response => { this.userData = response.data[0] })
 

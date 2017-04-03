@@ -1,16 +1,16 @@
 import axios from 'axios'
 import { Loading } from 'quasar'
 
-var axiosInstance = axios.create({
+const axiosInstanceJsonPlaceholder = axios.create({
   baseURL: 'https://jsonplaceholder.typicode.com/'
 })
-
-axiosInstance.interceptors.request.use(function (config) {
+// http://services.groupkt.com
+axiosInstanceJsonPlaceholder.interceptors.request.use(function (config) {
   Loading.show()
   return config
 })
 
-axiosInstance.interceptors.response.use(function (response) {
+axiosInstanceJsonPlaceholder.interceptors.response.use(function (response) {
   Loading.hide()
   return response
 }, function (error) {
@@ -18,12 +18,20 @@ axiosInstance.interceptors.response.use(function (response) {
   return Promise.reject(error)
 })
 
-export default (Vue) => {
-  Object.defineProperties(Vue.prototype, {
-    $http: {
-      get () {
-        return axiosInstance
+const axiosInstanceGroupKt = Object.assign({}, axiosInstanceJsonPlaceholder)
+axiosInstanceGroupKt.baseURL = 'http://services.groupkt.com'
+
+let clients = {
+  $http: {
+    get () {
+      return {
+        jsonplaceholder: axiosInstanceJsonPlaceholder,
+        groupKt: axiosInstanceGroupKt
       }
     }
-  })
+  }
+}
+
+export default (Vue) => {
+  Object.defineProperties(Vue.prototype, clients)
 }
