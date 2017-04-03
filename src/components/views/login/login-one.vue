@@ -93,6 +93,10 @@
       this.setIsLoginPage(true)
       this.startAnimation()
     },
+    beforeDestroy () {
+      this.setLayoutNeeded(true)
+      this.setIsLoginPage(false)
+    },
     computed: {
       heightSize (){
         if (Platform.is.desktop) {
