@@ -29,6 +29,9 @@
       <q-drawer-link icon="filter_1" :to="{path: '/advanced-form-one', exact: true}">
         Adv. Form One
       </q-drawer-link>
+      <q-drawer-link icon="filter_2" :to="{path: '/advanced-form-two', exact: true}">
+        Adv. Form Two
+      </q-drawer-link>
       <div class="list-label ">Pages</div>
       <q-drawer-link icon="lock_open" :to="{path: '/login-one', exact: true}">
         Login One
