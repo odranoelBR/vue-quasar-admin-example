@@ -18,7 +18,7 @@
 
 
 ## Dependecies 
-* [Axios.js](https://github.com/mzabriskie/axios) as HTTP client
+* [Axios.js](https://github.com/mzabriskie/axios) as HTTP client / Config from [CodeCasts](https://github.com/codecasts/spa-starter-kit/blob/develop/client/src/plugins/http/index.js) 
 * [Chart.js](http://www.chartjs.org) as Chart render
 * [CountUp.js](https://inorganik.github.io/countUp.js/) as number counter animation
 * [Gmaps.js](https://hpneo.github.io/gmaps/) as map Api / data
