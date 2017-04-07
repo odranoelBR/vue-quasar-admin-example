@@ -1,32 +1,36 @@
 import axios from 'axios'
 import { Loading } from 'quasar'
 
-const axiosInstanceJsonPlaceholder = axios.create({
-  baseURL: 'https://jsonplaceholder.typicode.com/'
-})
-// http://services.groupkt.com
-axiosInstanceJsonPlaceholder.interceptors.request.use(function (config) {
+let loadFunction = config => {
   Loading.show()
   return config
-})
-
-axiosInstanceJsonPlaceholder.interceptors.response.use(function (response) {
+}
+let finishFunction = response => {
   Loading.hide()
   return response
-}, function (error) {
+}
+let errorFunction = error => {
   Loading.hide()
   return Promise.reject(error)
-})
+}
 
-const axiosInstanceGroupKt = Object.assign({}, axiosInstanceJsonPlaceholder)
-axiosInstanceGroupKt.baseURL = 'http://services.groupkt.com'
+const axiosInstanceJsonPlaceholder =
+  axios.create({ baseURL: 'https://jsonplaceholder.typicode.com/' })
+const axiosInstancePunk =
+  axios.create({ baseURL: 'https://api.punkapi.com/v2/' })
+
+axiosInstanceJsonPlaceholder.interceptors.request.use(loadFunction)
+axiosInstancePunk.interceptors.request.use(loadFunction)
+
+axiosInstanceJsonPlaceholder.interceptors.response.use(finishFunction, errorFunction)
+axiosInstancePunk.interceptors.response.use(finishFunction, errorFunction)
 
 let clients = {
   $http: {
     get () {
       return {
         jsonplaceholder: axiosInstanceJsonPlaceholder,
-        groupKt: axiosInstanceGroupKt
+        punk: axiosInstancePunk
       }
     }
   }

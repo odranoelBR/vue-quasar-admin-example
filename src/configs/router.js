@@ -28,6 +28,7 @@ export default new VueRouter({
     { path: '/login-one', component: load('views/login/login-one'), meta: { name: 'Login One' } },
     { path: '/pricing', component: load('views/pricing/pricing'), meta: { name: 'Pricing' } },
     { path: '/drag-and-drop', component: load('views/dragAndDrop/dragAndDrop'), meta: { name: 'Drag and Drop' } },
+    { path: '/server-side-data-table', component: load('views/serverSideDataTable/serverSideDataTable'), meta: { name: 'Server Side Data Table' } },
     { path: '*', component: load('Error404') } // Not found
   ]
 })

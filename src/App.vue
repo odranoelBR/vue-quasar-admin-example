@@ -23,7 +23,7 @@
 </template>
 <script type="text/javascript">
   import toolbar from './components/layout/toolbar.vue'
-  import drawer from './components/layout/drawer.vue'
+  import drawer from './components/layout/drawer/drawer.vue'
   import contentHeader from './components/layout/content-header.vue'
   import { mapGetters } from 'vuex'
   export default {
@@ -61,6 +61,26 @@
       padding: 1.5em .5em;
     }
   }
+  .menu-enter-active, .scale-enter{
+    -webkit-animation: moveFromLeftFade .9s ease both;
+    animation: moveFromLeftFade .9s ease both;
+  }
+  .menu-leave-to, .scale-leave-active {
+    -webkit-animation: moveToLeft .9s ease both;
+    animation: moveToLeft .9s ease both;
+  }
+
+  @-webkit-keyframes moveFromLeftFade {
+    from { opacity: 0.3; -webkit-transform: translateX(-100%); }
+  }
+  @keyframes moveFromLeftFade {
+    from { opacity: 0.3; -webkit-transform: translateX(-100%); transform: translateX(-100%); }
+  }
+  @-webkit-keyframes moveToRight {
+    from { }
+    to { -webkit-transform: translateX(100%); }
+  }
+
   @keyframes cartOut {
     from {
       transform: translate(0px, 0px);
@@ -171,5 +191,8 @@
   }
   .adv-form-one .timeline-content .group .primary {
     display: none !important;
+  }
+  .underline {
+    text-decoration: underline;
   }
 </style>
