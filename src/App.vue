@@ -1,5 +1,4 @@
 <template>
-  <!-- Don't drop "q-app" class -->
   <div id="q-app" >
     <div v-if="getMobileMode">
       <div  id="android-preview" class="platform-android mat-only">
@@ -22,7 +21,7 @@
   </div>
 </template>
 <script type="text/javascript">
-  import toolbar from './components/layout/toolbar.vue'
+  import toolbar from './components/layout/toolbar/toolbar.vue'
   import drawer from './components/layout/drawer/drawer.vue'
   import contentHeader from './components/layout/content-header.vue'
   import { mapGetters } from 'vuex'
@@ -34,7 +33,7 @@
       }
     },
     computed: {
-      ...mapGetters(['getLayoutNeeded', 'getMobileMode', 'getFooterNeeded'])
+      ...mapGetters(['getLayoutNeeded', 'getMobileMode'])
     },
     components: {
       toolbar,

@@ -54,6 +54,7 @@
   import cardTotal from './cardTotal.vue'
   import cardTodo from './cardTodo.vue'
   import knobStatistics from './knobStatistics.vue'
+  import { mapMutations } from 'vuex'
   export default {
     name: 'Home',
     mounted () {
@@ -64,6 +65,7 @@
         this.$http.jsonplaceholder.get('todos')
       ])
         .then(response => {
+          this.setPosts(response[0].data)
           this.totalPosts = response[0].data.length
           this.totalComments = response[1].data.length
           this.totalTodos = response[2].data.length
@@ -84,6 +86,9 @@
           comments: this.totalComments
         }
       }
+    },
+    methods: {
+      ...mapMutations(['setPosts'])
     },
     components: {
       cardTotal,

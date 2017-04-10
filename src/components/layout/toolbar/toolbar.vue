@@ -6,13 +6,14 @@
         <i>arrow_back</i>
       </button>
     </router-link>
-    <button class="hide-on-drawer-visible" @click="$parent.$children[1].$refs.leftDrawer.open()" v-else >
+    <button class="hide-on-drawer-visible" @click="leftDrawer.open()" v-else >
       <i>menu</i>
     </button>
     <q-toolbar-title :padding="1">
       Quasar Admin App
     </q-toolbar-title>
     <div class="right-itens">
+      <message-popover></message-popover>
       <a @click="setMobileMode(true)" class="text-white gt-sm inline">
         <i class="fa fa-3x fa-mobile"></i>
       </a>
@@ -24,12 +25,19 @@
 </template>
 <script type="text/javascript">
   import { mapMutations, mapGetters } from 'vuex'
+  import messagePopover from './messagePopover.vue'
   export default {
     computed: {
-      ...mapGetters(['getLayoutNeeded'])
+      ...mapGetters(['getLayoutNeeded']),
+      leftDrawer () {
+        return this.$parent.$children[1].$refs.leftDrawer
+      }
     },
     methods: {
       ...mapMutations(['setMobileMode'])
+    },
+    components: {
+      messagePopover
     }
   }
 </script>
@@ -37,7 +45,7 @@
   .toolbar{
     min-height: 60px;
   }
-  .right-itens a{
+  .right-itens a, .right-itens button{
     margin-right: 10px;
   }
 </style>
