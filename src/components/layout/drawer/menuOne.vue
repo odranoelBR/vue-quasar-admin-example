@@ -1,7 +1,7 @@
 <template>
   <div class="list no-border platform-delimiter light-paragraph">
     <template v-for="(parent, index) in links">
-      <div class="list-label cursor-pointer underline" @click="parent.show = !parent.show">{{index}}</div>
+      <div class="list-label cursor-pointer underline" @click="parent.show = !parent.show">{{replaceUnderlineToSpace(index)}}</div>
       <template v-for="child in parent.routes">
         <transition name="menu">
           <div v-show="parent.show">
@@ -14,6 +14,12 @@
       </template>
       <hr>
     </template>
+    <div class="list-label cursor-pointer">Quasar Ready UI</div>
+    <a href="http://quasar-framework.org/quasar-play/android/index.html#/showcase" target="_blank"
+       class="item item-link drawer-closer cursor-pointer text-black" >
+      <i class="fa fa-puzzle-piece item-primary" ></i>
+      <div class="item-content">Components (55+)</div>
+    </a>
   </div>
 </template>
 
@@ -38,6 +44,12 @@
             return
           }
         })
+      },
+      replaceUnderlineToSpace (text) {
+        while (text.indexOf('_') !== -1) {
+          text = text.replace('_', ' ')
+        }
+        return text
       }
     }
   }

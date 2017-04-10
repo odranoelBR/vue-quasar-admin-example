@@ -34,7 +34,7 @@
       }
     },
     computed: {
-      ...mapGetters(['getLayoutNeeded', 'getMobileMode'])
+      ...mapGetters(['getLayoutNeeded', 'getMobileMode', 'getFooterNeeded'])
     },
     components: {
       toolbar,

@@ -42,14 +42,14 @@
             routes: [
               { route: '/form', faIcon: 'fa fa-search', materialIcon: 'search', name: 'Form find / edit' },
               { route: '/embeeded', faIcon: 'fa fa-check', materialIcon: 'check', name: 'Embeeded validations' },
-              { route: '/advanced-form-one', faIcon: 'fa fa-puzzle-piece', materialIcon: 'filter_1', name: 'Adv. Form One' }
+              { route: '/advanced-form-one', faIcon: 'fa fa-hdd-o', materialIcon: 'filter_1', name: 'Adv. Form One' }
             ],
             show: false
           },
           Pages: {
             routes: [
               { route: '/login-one', faIcon: 'fa fa-unlock-alt', materialIcon: 'lock_open', name: 'Login One' },
-              { route: '/pricing', faIcon: 'fa fa-money', materialIcon: 'attach_money', name: 'Embeeded validations' },
+              { route: '/pricing', faIcon: 'fa fa-money', materialIcon: 'attach_money', name: 'Pricing' },
               { route: '/drag-and-drop', faIcon: 'fa fa-arrows', materialIcon: 'move_to_inbox', name: 'Drag and Drop' },
               { route: '/server-side-data-table', faIcon: 'fa fa-list-alt', materialIcon: 'list_compact', name: 'Server Side Data Table' }
             ],
