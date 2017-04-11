@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="floating-label" :class="labelColor">
-      <q-select :type="type"
-                class="full-width"
-                :class="borderColor"
-                :options="options"
-                :label="label"
-                :value="value"
-                @input="change($event)"
-      ></q-select>
+      <q-datetime type="datetime"
+                  class="full-width"
+                  :class="borderColor"
+                  :label="label"
+                  :value="value"
+                  :format="format"
+                  @input="change($event)"
+      ></q-datetime>
       <transition-group name="slide-fade">
         <span class="label text-red"
               v-for="(key, index) in messageKeys"
@@ -30,6 +30,9 @@
 <script type="text/javascript">
   export default {
     props: {
+      format: {
+        type: String
+      },
       validation: {
         type: Object,
         required: true
@@ -37,12 +40,8 @@
       value: {
         required: true
       },
-      type: {
-        required: true
-      },
       validationMessages: {},
-      label: {},
-      options: {}
+      label: {}
     },
     computed: {
       messageKeys () {
@@ -61,13 +60,14 @@
       borderColor () {
         return this.validAndDirty ? 'has-success' : '' ||
           this.invalidAndDirty ? 'has-error' : ''
+      },
+      shakeDiv () {
+        return this.invalidAndDirty ? 'animate-pop' : ''
       }
-    },
-    data () {
-      return {}
     },
     methods: {
       change (value) {
+        console.log(value)
         this.validation.$touch()
         this.$emit('input', value)
       }
@@ -77,9 +77,6 @@
 <style scoped>
   .has-success {
     border-bottom: 2px solid #4caf50 !important;
-  }
-  .label-success .q-picker-textfield-label {
-    color: #4caf50;
   }
   i {
     position: absolute;

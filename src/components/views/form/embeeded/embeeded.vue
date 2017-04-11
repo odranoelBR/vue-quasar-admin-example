@@ -2,7 +2,7 @@
   <div>
     <div class="layout-padding ">
       <div class="flex wrap gutter">
-        <div class="width-1of2 sm-width-1of1">
+        <div class="gt-md-width-1of3 width-1of1">
           <div class="card">
             <div class="card-title bg-teal text-white">
               Input
@@ -18,7 +18,7 @@
             </div>
           </div>
         </div>
-        <div class="width-1of2 sm-width-1of1">
+        <div class="gt-md-width-1of3 width-1of1">
           <div class="card">
             <div class="card-title bg-teal text-white">
               Select
@@ -36,6 +36,23 @@
             </div>
           </div>
         </div>
+        <div class="gt-md-width-1of3 width-1of1">
+          <div class="card">
+            <div class="card-title bg-teal text-white">
+              DateTime
+            </div>
+            <div class="card-content bg-white">
+              <e-date-time
+                format="YYYY/MM/DD"
+                label="Date of birth"
+                v-model="dateOfBirth"
+                :validation="$v.dateOfBirth"
+                :validation-messages="validationMessages.dateOfBirth"
+                :value="dateOfBirth"
+              ></e-date-time>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="flex wrap justify-center">
         <div class="width-1of3">
@@ -49,6 +66,7 @@
   import { required, minLength, alpha } from 'vuelidate/lib/validators'
   import eInput from './eInput.vue'
   import eSelect from './eSelect.vue'
+  import eDateTime from './eDateTime.vue'
   export default {
     name: 'EmbeededValidationsElements',
     mounted () {
@@ -57,6 +75,7 @@
       return {
         name: '',
         authentication: '',
+        dateOfBirth: '',
         validationMessages: {
           name: {
             required: 'Name is required.',
@@ -65,6 +84,9 @@
           },
           authentication: {
             required: 'Authentication is required.'
+          },
+          dateOfBirth: {
+            required: 'Date of birth is required.'
           }
         },
         options: [
@@ -82,11 +104,15 @@
       },
       authentication: {
         required
+      },
+      dateOfBirth: {
+        required
       }
     },
     components: {
       eInput,
-      eSelect
+      eSelect,
+      eDateTime
     }
   }
 </script>

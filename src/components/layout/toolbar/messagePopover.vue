@@ -1,7 +1,7 @@
 <template>
   <button class="relative-position animate-bounce">
     <i class="fa fa-2x fa-envelope-o"></i>
-    <span class="floating label bg-dark">22</span>
+    <span class="floating label bg-dark">5</span>
     <q-popover self="top right" >
       <div class="list striped">
         <p class="caption no-margin text-center text-white bg-teal">Messages from people</p>
@@ -22,8 +22,13 @@
   </button>
 </template>
 <script>
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapMutations } from 'vuex'
   export default {
+    mounted () {
+      if (this.getPosts.length < 1) {
+        this.requestPosts()
+      }
+    },
     computed: {
       ...mapGetters(['getPosts']),
       filteredPosts () {
@@ -31,6 +36,7 @@
       }
     },
     methods: {
+      ...mapMutations(['setPosts']),
       randomDate () {
         return new Date((new Date()) - Math.floor(Math.random() * 10000000000))
       },
@@ -51,6 +57,11 @@
       },
       randomArrayElement (array) {
         return array[Math.floor((Math.random() * array.length))]
+      },
+      requestPosts () {
+        this.$http.jsonplaceholder
+          .get('posts')
+          .then(response => { this.setPosts(response.data) })
       }
     }
   }
