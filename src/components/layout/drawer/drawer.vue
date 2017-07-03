@@ -12,9 +12,7 @@
       <div id="user-actions">
         <button class="bordered blue small" ><i>person</i></button>
         <button class="bordered blue small" ><i>lock</i></button>
-        <router-link to="login-one">
-          <button class="bordered blue small" ><i>exit_to_app</i></button>
-        </router-link>
+        <button class="bordered blue small" @click='logOut'><i>exit_to_app</i></button>
       </div>
     </div>
     <menu-one v-if="getMenuCollapse" :links="links"></menu-one>
