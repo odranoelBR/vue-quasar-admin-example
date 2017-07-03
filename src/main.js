@@ -38,9 +38,11 @@ Quasar.start(() => {
       firebase.initializeApp(config)
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
+          this.$store.state.user = this.$firebase.auth().currentUser
           this.$router.push('/success')
         }
         else {
+          this.$store.state.user = null
           if (this.$route.path !== '/auth') {
             this.$router.push('/auth')
           }
