@@ -17,3 +17,4 @@ public/
 yarn-error.log
 yarn.lock
 .idea
+.history

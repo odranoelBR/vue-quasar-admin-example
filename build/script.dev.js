@@ -10,7 +10,7 @@ var
   config = require('../config'),
   opn = require('opn'),
   proxyMiddleware = require('http-proxy-middleware'),
-  webpackConfig = require('./webpack.dev.conf.js'),
+  webpackConfig = require('./webpack.dev.conf'),
   app = express(),
   port = process.env.PORT || config.dev.port,
   uri = 'http://localhost:' + port

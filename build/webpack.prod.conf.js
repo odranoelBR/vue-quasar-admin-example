@@ -4,11 +4,12 @@ var
   cssUtils = require('./css-utils'),
   webpack = require('webpack'),
   merge = require('webpack-merge'),
-  baseWebpackConfig = require('./webpack.base.conf.js'),
+  baseWebpackConfig = require('./webpack.base.conf'),
   ExtractTextPlugin = require('extract-text-webpack-plugin'),
-  HtmlWebpackPlugin = require('html-webpack-plugin')
+  HtmlWebpackPlugin = require('html-webpack-plugin'),
+  OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 
-var webpackConfig = merge(baseWebpackConfig, {
+module.exports = merge(baseWebpackConfig, {
   module: {
     rules: cssUtils.styleRules({
       sourceMap: config.build.productionSourceMap,
@@ -25,12 +26,19 @@ var webpackConfig = merge(baseWebpackConfig, {
         warnings: false
       }
     }),
+    // Compress extracted CSS. We are using this plugin so that possible
+    // duplicated CSS from different components can be deduped.
+    new OptimizeCSSPlugin({
+      cssProcessorOptions: {
+        safe: true
+      }
+    }),
     // extract css into its own file
     new ExtractTextPlugin({
       filename: '[name].[contenthash].css'
     }),
     new HtmlWebpackPlugin({
-      filename: config.build.index,
+      filename: path.resolve(__dirname, '../dist/index.html'),
       template: 'src/index.html',
       inject: true,
       minify: {
@@ -51,9 +59,12 @@ var webpackConfig = merge(baseWebpackConfig, {
         return (
           module.resource &&
           /\.js$/.test(module.resource) &&
-          module.resource.indexOf(
-            path.join(__dirname, '../node_modules')
-          ) === 0
+          (
+            module.resource.indexOf('quasar') > -1 ||
+            module.resource.indexOf(
+              path.join(__dirname, '../node_modules')
+            ) === 0
+          )
         )
       }
     }),
@@ -65,23 +76,3 @@ var webpackConfig = merge(baseWebpackConfig, {
     })
   ]
 })
-
-if (config.build.productionGzip) {
-  var CompressionWebpackPlugin = require('compression-webpack-plugin')
-
-  webpackConfig.plugins.push(
-    new CompressionWebpackPlugin({
-      asset: '[path].gz[query]',
-      algorithm: 'gzip',
-      test: new RegExp(
-        '\\.(' +
-        config.build.productionGzipExtensions.join('|') +
-        ')$'
-      ),
-      threshold: 10240,
-      minRatio: 0.8
-    })
-  )
-}
-
-module.exports = webpackConfig

@@ -3,7 +3,7 @@ var
   webpack = require('webpack'),
   merge = require('webpack-merge'),
   cssUtils = require('./css-utils'),
-  baseWebpackConfig = require('./webpack.base.conf.js'),
+  baseWebpackConfig = require('./webpack.base.conf'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
   FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
