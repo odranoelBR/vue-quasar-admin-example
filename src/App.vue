@@ -6,13 +6,13 @@
           Quasar admin
         </q-toolbar-title>
         <q-btn class="relative-position animate-bounce" color="secondary" icon="fa-envelope-o">
-          <message-popover></message-popover>
+          <message-popover :posts="posts"></message-popover>
         </q-btn>
         <q-btn color="secondary" small round id="botao-menu" @click="toogleMenu" icon="menu"> </q-btn>
       </q-toolbar>
       <!--<g-menu slot="left"></g-menu>-->
       <q-transition appear enter="flipInX" leave="flipOutX" duration="500">
-        <user-menu v-on:logout="toogleMenu" v-if="showMenu"></user-menu>
+        <user-menu v-on:logout="toogleMenu" v-if="showMenu" nome="Leo"></user-menu>
       </q-transition>
     </q-layout>
     <q-inner-loading :visible="showMenu" dark size="0" />
@@ -30,8 +30,12 @@ export default {
   components: {
     QInnerLoading, QLayout, QBtn, QToolbar, QToolbarTitle, QAjaxBar, QTransition, Drawer, ContentHeader, UserMenu, MessagePopover
   },
+  mounted () {
+    this.getPosts()
+  },
   data () {
     return {
+      posts: [],
       showMenu: false,
       backgroundColor: 'whitesmoke'
     }
@@ -50,7 +54,12 @@ export default {
     },
     closeMenu () {
       this.showMenu = false
+    },
+    getPosts () {
+      this.$http.jsonplaceholder.get(`posts`)
+        .then(response => { this.posts = response.data })
     }
+
   }
 }
 </script>

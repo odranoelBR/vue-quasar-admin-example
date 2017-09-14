@@ -14,7 +14,9 @@ import axios from 'configs/axios'
 import router from 'configs/router'
 import store from './configs/store'
 
-import 'font-awesome/css/font-awesome.css'
+import 'quasar-extras/material-icons'
+import 'quasar-extras/fontawesome'
+import 'quasar-extras/animate'
 import 'highlight/lib/vendor/highlight.js/styles/default.css'
 import 'dragula/dist/dragula.css'
 

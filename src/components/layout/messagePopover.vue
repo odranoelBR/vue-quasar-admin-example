@@ -16,25 +16,23 @@
   </q-popover>
 </template>
 <script>
-import { mapGetters, mapMutations } from 'vuex'
 import { QPopover, QList, QItem, QListHeader, QItemSide, QItemMain, QItemTile } from 'quasar'
 export default {
+  props: {
+    posts: {
+      type: Array,
+      default: () => []
+    }
+  },
   components: {
     QPopover, QList, QItem, QListHeader, QItemSide, QItemMain, QItemTile
   },
-  mounted () {
-    if (this.getPosts.length < 1) {
-      this.requestPosts()
-    }
-  },
   computed: {
-    ...mapGetters(['getPosts']),
     filteredPosts () {
-      return this.getPosts.slice(0, 5)
+      return this.posts.slice(0, 5)
     }
   },
   methods: {
-    ...mapMutations(['setPosts']),
     randomDate () {
       return new Date((new Date()) - Math.floor(Math.random() * 10000000000))
     },
@@ -55,11 +53,6 @@ export default {
     },
     randomArrayElement (array) {
       return array[Math.floor((Math.random() * array.length))]
-    },
-    requestPosts () {
-      this.$http.jsonplaceholder
-        .get('posts')
-        .then(response => { this.setPosts(response.data) })
     }
   }
 }

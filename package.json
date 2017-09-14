@@ -7,18 +7,25 @@
     "clean": "node build/script.clean.js",
     "dev": "node build/script.dev.js",
     "build": "node build/script.build.js",
+    "test": "cross-env NODE_ENV=test jest",
+    "coverage": "cross-env NODE_ENV=test jest --no-cache --coverage",
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "avoriaz": "^4.1.0",
     "axios": "^0.15.3",
+    "babel-jest": "^21.0.2",
     "babel-runtime": "^6.0.0",
     "chart.js": "^2.5.0",
     "countup.js": "^1.8.2",
+    "cross-env": "^5.0.5",
     "dragula": "^3.7.2",
     "fastclick": "^1.0.6",
     "font-awesome": "^4.7.0",
     "gmaps": "^0.4.24",
     "highlight": "^0.2.4",
+    "jest": "^21.0.2",
+    "jest-vue-preprocessor": "^1.1.0",
     "material-design-icons": "^3.0.1",
     "moment": "^2.15.0",
     "quasar-framework": "^0.13.2",
@@ -69,5 +76,28 @@
     "webpack-dev-middleware": "^1.8.4",
     "webpack-hot-middleware": "^2.17.0",
     "webpack-merge": "^3.0.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "vue"
+    ],
+    "collectCoverageFrom": [
+      "**/*.{vue}"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/core-js",
+      "node_modules/babel-runtime",
+      "node_modules/lodash",
+      "node_modules/vue"
+    ],
+    "moduleNameMapper": {
+      "quasar": "quasar-framework/dist/quasar.esm.js"
+    },
+    "coverageDirectory": "<rootDir>/src/components/coverage",
+    "transform": {
+      ".*\\.(vue)$": "jest-vue-preprocessor",
+      ".*\\.(vue|js)$": "babel-jest"
+    }
   }
 }
