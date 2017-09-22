@@ -7,9 +7,7 @@ let state = {
   layoutNeeded: true,
   isLoginPage: false,
   mobileMode: false,
-  menuCollapse: true,
-
-  posts: []
+  menuCollapse: true
 }
 
 let mutations = {
@@ -24,9 +22,6 @@ let mutations = {
   },
   setMenuCollapse (state, value) {
     state.menuCollapse = value
-  },
-  setPosts (state, posts) {
-    state.posts = posts
   }
 }
 
@@ -42,9 +37,6 @@ let getters = {
   },
   getMenuCollapse () {
     return state.menuCollapse
-  },
-  getPosts () {
-    return state.posts
   }
 }
 
