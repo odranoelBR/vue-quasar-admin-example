@@ -10,24 +10,34 @@
       <div class="col-3 hvr-float-shadow">
         <card-total titleClass="bg-purple" icon="fa-tasks" titulo="Tasks" :conteudo="totalTodos"></card-total>
       </div>
+      <div class="col-3 hvr-float-shadow">
+        <card-total titleClass="bg-orange" icon="fa-yelp" titulo="Static" :conteudo="1200"></card-total>
+      </div>
     </div>
     <div class="row">
-      <q-card class="bg-white ">
-        <q-card-main>
-          <bar-graph :data="dataForGraph" :labels="labelsForGraph"> </bar-graph>
-        </q-card-main>
-      </q-card>
+      <div class="col-4">
+        <q-card class="bg-white ">
+          <q-card-main>
+            <bar-graph :data="dataForGraph" :labels="labelsForGraph"> </bar-graph>
+          </q-card-main>
+        </q-card>
+      </div>
+      <div class="col-4">
+        <card-todo></card-todo>
+      </div>
     </div>
   </div>
 </template>
 <script type="text/javascript">
 import CardTotal from './cardTotal.vue'
+import CardTodo from './cardTodo.vue'
 import BarGraph from './barGraph'
 export default {
   name: 'DashboardOne',
   components: {
-    BarGraph,
-    CardTotal
+    CardTodo,
+    CardTotal,
+    BarGraph
   },
   mounted () {
     // Axios.all not working
@@ -52,7 +62,11 @@ export default {
   },
   computed: {
     dataForGraph () {
-      return [this.totalPosts, this.totalTodos, this.totalComments]
+      return [
+        { label: 'Posts', backgroundColor: '#2196F3', data: [this.totalPosts] },
+        { label: 'Todos', backgroundColor: '#D81B60', data: [this.totalTodos] },
+        { label: 'Comments', backgroundColor: '#21BA45', data: [this.totalComments] }
+      ]
     }
   }
 }

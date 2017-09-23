@@ -1,81 +1,86 @@
 <template>
-  <div class="card bg-white">
-    <div class="card-title bg-teal text-white">
-      {{cardTitle}}
-      <div class=" float-right">
-      </div>
-    </div>
-    <div class="card-content">
-      <div class="flex">
-        <div class="list item-inset-delimiter auto">
-          <q-infinite-scroll :handler="loadMore" :offset="7">
-            <!-- Content, in this case some <p> tags -->
-            <div class="item" v-for="(todo, index) in showingData">
-              <div class="item-primary">{{index + 1}}</div>
-              <div class="item-content has-secondary">
-                <span v-show="todo.completed" class="completed-line">{{todo.title}}</span>
-                <input v-show="!todo.completed" v-model.lazy="todo.title" class="fit" @change="changeTitle(todo)">
-              </div>
-              <q-toggle class="item-secondary" icon="done" @input="completeTodo(todo)" v-model="todo.completed"></q-toggle>
-            </div>
-            <div class="row justify-center">
-              <spinner name="dots" slot="message" :size="40"></spinner>
-            </div>
-          </q-infinite-scroll>
-        </div>
-      </div>
-    </div>
-  </div>
+  <q-card class="bg-white">
+    <q-card-title class="bg-primary text-white text-center title-todo shadow-1">
+      Todo List
+      <q-btn slot="right" color="positive" round class="addBtn shadow-6" @click="createTodo">
+        <q-icon name="add"></q-icon>
+      </q-btn>
+    </q-card-title>
+    <q-card-main>
+      <q-list highlight no-border>
+        <q-item v-for="(todo, index) in showingData" :key="index">
+          <q-item-side> {{index + 1}} </q-item-side>
+          <q-item-main>
+            <q-item-tile label>
+              <span v-show="todo.completed" class="completed-line">{{todo.title}}</span>
+              <q-input v-show="!todo.completed" v-model.lazy="todo.title" class="fit" @change="updateTodo(todo)" />
+            </q-item-tile>
+          </q-item-main>
+          <q-item-side right>
+            <q-toggle class="item-secondary" icon="done" @input="updateTodo(todo)" v-model="todo.completed"></q-toggle>
+          </q-item-side>
+          <q-item-side right>
+            <q-btn color="red" small round flat @click="removeTodo(todo)">
+              <q-icon name="clear"></q-icon>
+            </q-btn>
+          </q-item-side>
+        </q-item>
+      </q-list>
+    </q-card-main>
+  </q-card>
 </template>
 <script type="text/javascript">
-/* eslint-disable */
-import Chart from 'chart.js'
 import { Toast } from 'quasar'
 export default {
-  mounted() {
+  mounted () {
     this.$http.jsonplaceholder
-      .get(this.api)
+      .get('todos')
       .then(response => { this.todos = response.data })
   },
-  data() {
+  data () {
     return {
       todos: [],
-      actualMaxPosition: 10
+      actualMaxPosition: 5
     }
   },
-  props: ['cardTitle', 'api'],
-  watch: {
-  },
   computed: {
-    showingData() {
+    showingData () {
       return this.todos.slice(0, this.actualMaxPosition)
     }
   },
   methods: {
-    loadMore(index, done) {
-      setTimeout(() => {
-        this.actualMaxPosition += 9
-        done()
-      }, 1000)
-
-    },
-    completeTodo(todo) {
+    createTodo () {
       this.$http.jsonplaceholder
-        .patch(`${this.api}/${todo.id}`, { completed: todo.completed })
+        .post('todos', {})
+        .then(response => { Toast.create.positive('Created todo!') })
+    },
+    updateTodo (todo) {
+      this.$http.jsonplaceholder
+        .patch(`todos/${todo.id}`, todo)
         .then(response => { Toast.create.positive('Completed todo!') })
     },
-    changeTitle(todo) {
+    removeTodo (todo) {
       this.$http.jsonplaceholder
-        .patch(`${this.api}/${todo.id}`, { title: todo.title })
-        .then(response => { Toast.create.positive('Title updated successful!') })
+        .delete(`todos/${todo.id}`)
+        .then(response => {
+          this.todos.splice(todo.__index, 1)
+          Toast.create.positive('Deleted todo!')
+        })
     }
   }
 }
 </script>
 <style scoped>
-input {
-  padding: 7px 0;
-  font-size: 16px;
+.q-card-main {
+  padding-top: 1vw;
+}
+
+.title-todo {
+  max-height: 64px;
+}
+
+.addBtn {
+  top: 29px;
 }
 
 .completed-line {
