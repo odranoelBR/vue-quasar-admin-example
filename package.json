@@ -22,6 +22,7 @@
     "fastclick": "^1.0.6",
     "font-awesome": "^4.7.0",
     "gmaps": "^0.4.24",
+    "gojs": "^1.7.25",
     "highlight": "^0.2.4",
     "hover.css": "^2.2.1",
     "jest": "^21.0.2",

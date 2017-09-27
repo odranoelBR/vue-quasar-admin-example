@@ -22,22 +22,23 @@
           </q-card-main>
         </q-card>
       </div>
-      <div class="col-4">
-        <card-todo></card-todo>
+      <div class="col-3">
+        <ball-card icon="fa-envelope" icon-size="38px"></ball-card>
+      </div>
+      <div class="col-3">
+        <ball-card icon="fingerprint" icon-size="48px"></ball-card>
       </div>
     </div>
   </div>
 </template>
 <script type="text/javascript">
 import CardTotal from './cardTotal.vue'
-import CardTodo from './cardTodo.vue'
 import BarGraph from './barGraph'
+import BallCard from './ballCard.vue'
 export default {
   name: 'DashboardOne',
   components: {
-    CardTodo,
-    CardTotal,
-    BarGraph
+    CardTotal, BarGraph, BallCard
   },
   mounted () {
     // Axios.all not working
