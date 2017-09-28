@@ -23,10 +23,10 @@
         </q-card>
       </div>
       <div class="col-3">
-        <ball-card icon="fa-envelope" icon-size="38px"></ball-card>
+        <ball-card icon="fa-envelope" icon-size="38px" padding="8px" margin="15px" title="Dados de imagens"></ball-card>
       </div>
       <div class="col-3">
-        <ball-card icon="fingerprint" icon-size="48px"></ball-card>
+        <ball-card icon="fingerprint" icon-size="48px" padding="2px" margin="11px" title="Avaliar datiloscopia"></ball-card>
       </div>
     </div>
   </div>

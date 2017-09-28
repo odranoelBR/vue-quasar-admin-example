@@ -2,13 +2,14 @@
   <div>
     <q-card class="bg-white ">
       <q-card-title class="bg-blue" @click="test = !test">
-        <q-icon :name="icon" class="text-white text-center" :size="iconSize"></q-icon>
+        <q-icon :name="icon" class="text-white text-center" :style="{'padding-left': padding, 'font-size': iconSize}"></q-icon>
 
-        <span class="caption" slot="right">ASas</span>
+        <span class="light-paragraph" :style="{'margin-left': margin}">{{title}} </span>
+
       </q-card-title>
 
       <q-card-main>
-        testse
+        <slot name="content"></slot>
       </q-card-main>
     </q-card>
   </div>
@@ -24,6 +25,15 @@ export default {
     iconSize: {
       type: String,
       required: true
+    },
+    padding: {
+      type: String
+    },
+    margin: {
+      type: String
+    },
+    title: {
+      type: String
     },
     titleClass: {
       type: String,
@@ -53,11 +63,6 @@ export default {
 }
 
 span {
-  position: relative;
-}
-
-.q-card-primary>.col {
-  text-align: center;
-  margin-right: 15px;
+  border-bottom: 1px solid;
 }
 </style>
