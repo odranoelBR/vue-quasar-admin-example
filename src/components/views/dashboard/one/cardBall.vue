@@ -2,16 +2,21 @@
   <div>
     <q-card class="bg-white">
       <div class="q-card-primary q-card-container">
-        <div class="row text-center">
-          <div class="col-auto title bg-blue">
+        <div class="row xs-gutter">
+          <div class="col-auto title-icon bg-blue text-center">
             <q-icon :name="icon" class="text-white text-center" :size="iconSize"></q-icon>
           </div>
           <div class="col">
             <span class="light-paragraph">{{title}} </span>
           </div>
         </div>
-
       </div>
+      <q-card-media>
+        <img :src="imgPath">
+        <q-card-title slot="overlay">
+          Rebbeca Lin's
+        </q-card-title>
+      </q-card-media>
       <q-card-main>
         <slot name="content"></slot>
       </q-card-main>
@@ -22,17 +27,10 @@
 <script>
 export default {
   props: {
-    icon: {
-      type: String,
-      required: true
-    },
-    iconSize: {
-      type: String,
-      required: true
-    },
-    title: {
-      type: String
-    },
+    icon: { type: String, required: true },
+    iconSize: { type: String, required: true },
+    title: { type: String },
+    imgPath: { type: String },
     titleClass: {
       type: String,
       default () { return 'bg-blue' }
@@ -47,7 +45,7 @@ export default {
 </script>
 
 <style scoped>
-.title {
+.title-icon {
   width: 60px;
   border-radius: 0 0 50% 50%;
   height: 60px;
@@ -57,14 +55,14 @@ export default {
 }
 
 .q-card-primary {
-  padding: 0;
+  padding: 10px 0.3vw;
 }
 
-.q-card-primary+.q-card-main {
-  padding-top: 20px;
+.q-card-primary .light-paragraph {
+  font-size: 18px;
 }
 
-span {
+.q-card-primary span {
   border-bottom: 1px solid;
 }
 </style>

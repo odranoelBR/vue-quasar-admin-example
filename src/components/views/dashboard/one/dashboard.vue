@@ -23,10 +23,37 @@
         </q-card>
       </div>
       <div class="col-3">
-        <ball-card icon="fa-envelope" icon-size="38px" padding="8px" margin="15px" title="Dados de imagens"></ball-card>
+        <ball-card icon="fa-id-card-o" icon-size="38px" title="User Profile" img-path="statics/profile.jpg">
+          <div slot="content">
+            <span class="text-secondary">Email</span>
+            <p class="light-paragraph">BeccaLins@gmail.com</p>
+            <span class="text-secondary">City</span>
+            <p class="light-paragraph">San Francisco</p>
+            <span class="text-secondary">State</span>
+            <p class="light-paragraph">CA</p>
+
+            <div class="row justify-center xs-gutter social">
+              <div class="col">
+                <q-btn small outline color="red">
+                  <q-icon name="fa-google-plus"></q-icon>
+                </q-btn>
+              </div>
+              <div class="col">
+                <q-btn small outline color="blue-4">
+                  <q-icon name="fa-twitter"></q-icon>
+                </q-btn>
+              </div>
+              <div class="col">
+                <q-btn small outline color="blue-10">
+                  <q-icon name="fa-facebook"></q-icon>
+                </q-btn>
+              </div>
+            </div>
+          </div>
+        </ball-card>
       </div>
       <div class="col-3">
-        <ball-card icon="fingerprint" icon-size="48px" padding="2px" margin="11px" title="Avaliar datiloscopia"></ball-card>
+        <ball-card icon="fingerprint" icon-size="48px" title="Avaliar datiloscopia"></ball-card>
       </div>
     </div>
   </div>
@@ -34,7 +61,7 @@
 <script type="text/javascript">
 import CardTotal from './cardTotal.vue'
 import BarGraph from './barGraph'
-import BallCard from './ballCard.vue'
+import BallCard from './cardBall.vue'
 export default {
   name: 'DashboardOne',
   components: {
@@ -72,6 +99,8 @@ export default {
   }
 }
 </script>
-<style>
-
+<style scoped>
+.social button {
+  min-width: 58px;
+}
 </style>
