@@ -1,13 +1,17 @@
 <template>
   <div>
-    <q-card class="bg-white ">
-      <q-card-title class="bg-blue" @click="test = !test">
-        <q-icon :name="icon" class="text-white text-center" :style="{'padding-left': padding, 'font-size': iconSize}"></q-icon>
+    <q-card class="bg-white">
+      <div class="q-card-primary q-card-container">
+        <div class="row text-center">
+          <div class="col-auto title bg-blue">
+            <q-icon :name="icon" class="text-white text-center" :size="iconSize"></q-icon>
+          </div>
+          <div class="col">
+            <span class="light-paragraph">{{title}} </span>
+          </div>
+        </div>
 
-        <span class="light-paragraph" :style="{'margin-left': margin}">{{title}} </span>
-
-      </q-card-title>
-
+      </div>
       <q-card-main>
         <slot name="content"></slot>
       </q-card-main>
@@ -26,12 +30,6 @@ export default {
       type: String,
       required: true
     },
-    padding: {
-      type: String
-    },
-    margin: {
-      type: String
-    },
     title: {
       type: String
     },
@@ -49,13 +47,17 @@ export default {
 </script>
 
 <style scoped>
-.q-card-primary {
+.title {
   width: 60px;
-  border-radius: 50%;
+  border-radius: 0 0 50% 50%;
   height: 60px;
   margin-left: 30px;
   padding: 3px;
   box-shadow: 0 6px 6px -3px rgba(59, 89, 178, .2), 0 10px 14px 1px rgba(59, 89, 178, .14), 0 4px 18px 3px rgba(59, 89, 178, .12);
+}
+
+.q-card-primary {
+  padding: 0;
 }
 
 .q-card-primary+.q-card-main {
