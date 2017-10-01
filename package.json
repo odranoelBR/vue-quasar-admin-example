@@ -29,6 +29,7 @@
     "jest-vue-preprocessor": "^1.1.0",
     "material-design-icons": "^3.0.1",
     "moment": "^2.15.0",
+    "promise.prototype.finally": "^3.0.1",
     "quasar-framework": "^0.14.3",
     "roboto-fontface": "^0.7.0",
     "up.js": "^1.8.2",
