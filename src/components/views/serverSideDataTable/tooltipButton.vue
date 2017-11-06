@@ -1,10 +1,10 @@
 <template>
-  <button class="primary">
-    <i>image</i>
+  <q-btn color="primary">
+    <q-icon name="image"></q-icon>
     <q-tooltip>
       <img :src="url" alt="" >
     </q-tooltip>
-  </button>
+  </q-btn>
 </template>
 <script>
 export default {

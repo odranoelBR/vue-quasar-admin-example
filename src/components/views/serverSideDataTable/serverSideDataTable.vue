@@ -1,35 +1,29 @@
 <template>
-  <div>
-    <div class="layout-padding">
-      <div class="card">
-        <div class="card-title bg-teal text-white">Example using pagination / filter outside of data tables (Tks to
-          <a href="https://github.com/wilcorrea" class="text-black underline">Willian Correa</a> ) </div>
-        <div class="card-content">
-          <div class="flex wrap gutter">
-            <div class="auto">
-              <q-search placeholder="Search for beer name" :debounce="500"
-                        v-model.lazy="searchBeer" @input="getBeers"/>
-            </div>
-            <div class="auto">
-              <q-pagination
-                v-model="page"
-                :max="10"
-              ></q-pagination>
-            </div>
+  <card-ball icon="fa-id-card-o" icon-size="36px" title="Server side Data Table">
+    <div slot="content">
+        <div class="row xs-gutter">
+          <div class="auto">
+            <q-search placeholder="Search for beer name" :debounce="500"
+                      v-model.lazy="searchBeer" @input="getBeers"/>
           </div>
-          <q-data-table
-            :data="beers"
-            :config="configs"
-            :columns="columns">
-
-            <template slot="col-image_url" scope="cell">
-              <tooltip-button :url="cell.row.image_url"></tooltip-button>
-            </template>
-          </q-data-table>
+          <div class="auto">
+            <q-pagination
+              v-model="page"
+              :max="10"
+            ></q-pagination>
+          </div>
         </div>
+        <q-data-table
+          :data="beers"
+          :config="configs"
+          :columns="columns">
+          <template slot="col-image_url" scope="cell">
+            <tooltip-button :url="cell.row.image_url"></tooltip-button>
+          </template>
+        </q-data-table>
       </div>
     </div>
-  </div>
+  </card-ball>
 </template>
 
 <script>
