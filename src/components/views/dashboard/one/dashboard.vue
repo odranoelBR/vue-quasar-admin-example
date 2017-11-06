@@ -79,7 +79,5 @@ export default {
 }
 </script>
 <style scoped>
-#card-profile {}
 
-#card-settings {}
 </style>

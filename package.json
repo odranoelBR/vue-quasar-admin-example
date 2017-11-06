@@ -26,6 +26,7 @@
     "highlight": "^0.2.4",
     "hover.css": "^2.2.1",
     "jest": "^21.0.2",
+    "jest-vue": "^0.7.0",
     "jest-vue-preprocessor": "^1.1.0",
     "material-design-icons": "^3.0.1",
     "moment": "^2.15.0",
@@ -96,12 +97,14 @@
       "node_modules/vue"
     ],
     "moduleNameMapper": {
-      "quasar": "quasar-framework/dist/quasar.esm.js"
+      "quasar": "quasar-framework/dist/quasar.esm.js",
+      "^vue$": "vue/dist/vue.common.js"
     },
     "coverageDirectory": "<rootDir>/src/components/coverage",
     "transform": {
-      ".*\\.(vue)$": "jest-vue-preprocessor",
-      ".*\\.(vue|js)$": "babel-jest"
-    }
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue"
+    },
+    "mapCoverage": true
   }
 }

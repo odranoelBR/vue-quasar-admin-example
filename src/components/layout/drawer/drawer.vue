@@ -32,7 +32,6 @@ export default {
         Forms: {
           routes: [
             { routeName: 'form', img: 'fa fa-search', materialIcon: 'search', name: 'Form find / edit' },
-            { routeName: 'embeeded', img: 'fa fa-check', materialIcon: 'check', name: 'Embeeded validations' },
             { routeName: 'advanced-form-one', img: 'fa fa-hdd-o', materialIcon: 'filter_1', name: 'Adv. Form One' }
           ]
         },

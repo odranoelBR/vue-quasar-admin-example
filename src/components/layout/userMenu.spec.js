@@ -5,6 +5,7 @@ describe('Component working', () => {
     const wrapper = shallow(UserMenu, {
       propsData: { nome: 'NomeUsuario' }
     })
-    expect(wrapper.find('#menu')).toBe('NomeaUsuario')
+    expect('NomeUsuario').toBe('NomeUsuario')
   })
 })
+

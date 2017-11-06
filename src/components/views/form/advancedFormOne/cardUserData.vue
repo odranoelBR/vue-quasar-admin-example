@@ -5,12 +5,9 @@
       {{userData.email}}
       <p class="caption">Choose one of the user Albums</p>
       <div class="list">
-        <label class="item two-lines" v-for="album in filteredAlbums">
+        <label class="item" v-for="(album, index) in filteredAlbums" :key="index">
           <div class="item-primary">
-            <q-radio @input="change(album)" v-model="selectedAlbum" :val="album.id"></q-radio>
-          </div>
-          <div class="item-content post-data">
-            <div class="ellipsis">{{album.title}}</div>
+            <q-radio @input="change(album)" v-model="selectedAlbum" :val="album.id" :label="album.title"></q-radio>
           </div>
         </label>
       </div>

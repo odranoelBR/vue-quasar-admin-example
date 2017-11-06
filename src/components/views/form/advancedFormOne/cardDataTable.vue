@@ -10,9 +10,9 @@
       <img :src="cell.row.thumbnailUrl" alt="">
     </template>
     <template slot="selection" scope="selection">
-      <button class="orange" @click="addPrint(selection.rows)">
+      <q-btn color="orange" @click="addPrint(selection.rows)">
         Add to print
-      </button>
+      </q-btn>
     </template>
   </q-data-table>
 </template>
@@ -24,12 +24,10 @@
         required: true
       }
     },
-    watch: {
-      selectedAlbum () {
-        this.$http.jsonplaceholder
+    mounted () {
+      this.$http.jsonplaceholder
           .get(`photos?albumId=${this.selectedAlbum.id}`)
           .then(response => { this.commentsOfPost = response.data })
-      }
     },
     computed: {
       selectedRows () {
@@ -52,18 +50,8 @@
       return {
         commentsOfPost: [],
         columns: [
-          {
-            label: 'Title',
-            field: 'title',
-            width: '130px',
-            filter: true,
-            sort: true
-          },
-          {
-            label: 'Photo',
-            field: 'photo',
-            width: '100px'
-          }
+          { label: 'Title', field: 'title', width: '130px', filter: true, sort: true },
+          { label: 'Photo', field: 'photo', width: '100px' }
         ]
       }
     },
@@ -74,6 +62,5 @@
     }
   }
 </script>
-
-<style>
+<style scoped>
 </style>
