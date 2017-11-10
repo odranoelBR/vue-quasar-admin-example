@@ -1,12 +1,12 @@
 <template>
-  <div class="card " >
-    <div class="card-title bg-blue-grey-2">
+  <q-card >
+    <q-card-title class="card-title bg-blue-grey-2">
       <h5>Done</h5>
-    </div>
-    <div class="card-content bg-blue-grey-1" ref="done">
+    </q-card-title>
+    <q-card-main class="bg-blue-grey-1" ref="done">
 
-    </div>
-  </div>
+    </q-card-main>
+  </q-card>
 </template>
 
 <script>

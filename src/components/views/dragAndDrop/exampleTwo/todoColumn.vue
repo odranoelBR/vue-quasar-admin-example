@@ -1,19 +1,16 @@
 <template>
-  <div class="card">
-    <div class="card-title bg-blue-grey-2">
+  <q-card>
+    <q-card-title class="bg-blue-grey-2">
       <h5>Todo
-        <button
-          class="primary bg-green float-right cursor-pointer"
-          @click="addCardTask()"
-        >
-          <i>add</i>
+        <button class="primary bg-green float-right cursor-pointer" @click="addCardTask()">
+          <q-icon name="add"></q-icon>
         </button>
       </h5>
-    </div>
-    <div class="card-content bg-blue-grey-1" ref="todo">
+    </q-card-title>
+    <q-card-main class="bg-blue-grey-1" ref="todo">
       <card-task v-for="(task, index) in todoTasks" :key="index" :class="index"></card-task>
-    </div>
-  </div>
+    </q-card-main>
+  </q-card>
 </template>
 
 <script>

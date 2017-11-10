@@ -1,22 +1,21 @@
 <template>
-  <div class="card text-center">
-    <div class="card-title no-padding ">
-      <span class="label pointing-down text-white fit no-margin" :class="titleClasses">
-        <h5 class="">{{title}}</h5>
+  <q-card>
+    <q-card-title :class="titleClasses">
+      <span class="text-white" >
+        <h5>{{title}}</h5>
       </span>
-    </div>
-    <div class="card-content bg-white" >
-      <h3>$ {{price}}</h3>
+    </q-card-title>
+    <q-card-main >
+      <h3>${{price}}</h3>
       <h6 class="text-italic">{{priceSubtitle}}</h6>
-    </div>
-    <div class="card-actions">
+    </q-card-main>
+    <q-card-actions>
       <slot name="body"></slot>
-    </div>
+    </q-card-actions>
     <div class="card-content bg-white">
-      <button :class="buttonClasses" class="outline fit" @click="planSelected()">Choose</button>
+      <q-btn :color="buttonClasses" outline class="fit" @click="planSelected()">Choose</q-btn>
     </div>
-
-  </div>
+  </q-card>
 </template>
 
 <script type="text/javascript">
@@ -47,7 +46,7 @@ export default {
     width: 1.4rem;
     height: 1.4rem;
   }
-  .card {
+  .q-card {
     width: 332px;
   }
 </style>

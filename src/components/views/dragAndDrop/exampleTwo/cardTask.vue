@@ -1,30 +1,24 @@
 <template>
-  <div class="card">
-    <div class="card-title" :class="`bg-${cardColor}`">
-      <i class="handle cursor-pointer">crop_free</i>
-      <input type="text" v-model="title">
+  <q-card>
+    <q-card-title class="card-title" :class="`bg-${cardColor}`">
+      <q-icon name="crop_free" class="handle cursor-pointer"></q-icon>
+      <q-input v-model="title"></q-input>
       <div class="float-right">
-        <i>keyboard_arrow_down</i>
+        <q-icon name="keyboard_arrow_down"></q-icon>
         <q-popover ref="popover">
-          <div class="list item-delimiter highlight">
-            <div
-              class="item item-link no-margin"
-              v-for="color in cardColorOptions"
-              :class="`bg-${color}`"
-              @click="chooseColor(color)"
-            >
-            </div>
-          </div>
+          <q-list>
+            <q-item v-for="(color, index) in cardColorOptions"
+              :class="`bg-${color}`" @click="chooseColor(color)" :key="index">
+            </q-item>
+          </q-list>
         </q-popover>
       </div>
+      </q-card-title>
     </div>
-    <div class="card-content bg-white">
-      <input
-        class="full-width"
-        type="text"
-        v-model="body">
-    </div>
-  </div>
+    <q-card-main class="bg-white">
+      <q-input v-model="body" type="textarea" :min-rows="4"></q-input>
+    </q-card-main>
+  </q-card>
 </template>
 
 <script>

@@ -47,7 +47,6 @@ export default {
     CardTotal, BarGraph, Settings, Profile
   },
   mounted () {
-    // Axios.all not working
     Promise.all([
       this.$http.jsonplaceholder.get('posts'),
       this.$http.jsonplaceholder.get('comments'),

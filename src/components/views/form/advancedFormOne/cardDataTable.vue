@@ -6,10 +6,10 @@
     :columns="columns"
     :config="configs"
   >
-    <template slot="col-photo" scope="cell">
+    <template slot="col-photo" slot-scope="cell">
       <img :src="cell.row.thumbnailUrl" alt="">
     </template>
-    <template slot="selection" scope="selection">
+    <template slot="selection" slot-scope="selection">
       <q-btn color="orange" @click="addPrint(selection.rows)">
         Add to print
       </q-btn>

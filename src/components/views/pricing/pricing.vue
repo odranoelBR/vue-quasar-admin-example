@@ -1,9 +1,6 @@
 <template>
-  <div>
-    <div class="layout-padding">
-      <div class="label bg-secondary text-white">
-        Plan model type <span class="right-detail"><em>{{cardType}}</em></span>
-      </div>
+  <card-ball icon="fa-id-card-o" icon-size="36px" :title="`Plan model type ${cardType}`">
+    <div class="row" slot="content">
       <div class="group inline-block">
         <label >
           <q-radio v-model="cardType" val="Vertical One"></q-radio> Vertical One
@@ -12,26 +9,25 @@
           <q-radio v-model="cardType" val="Horizontal One" class="teal"></q-radio> Horizontal One
         </label>
       </div>
-
-      <div class="row wrap gutter justify-center">
-        <div class="auto " v-for="planData in plansData">
-          <component :is="componentInstanceBySelectedPlanType"
-                     :title="planData.title"
-                     :title-classes="planData.titleClasses"
-                     :price="planData.price"
-                     :price-subtitle="planData.priceSubtitle"
-                     :button-classes="planData.buttonClasses"
-                     :card-id="planData.cardId"
-                     v-on:card-selected="cardSelected"
-          >
-            <div slot="body" class="fit">
-              <component :is="planData.planBenefitComponent"></component>
-            </div>
-          </component>
-        </div>
+    </div>
+    <div class="row xs-gutter justify-center" slot="content">
+      <div class="(auto, index) " v-for="(planData, index) in plansData" :key="index">
+        <component :is="componentInstanceBySelectedPlanType"
+                    :title="planData.title"
+                    :title-classes="planData.titleClasses"
+                    :price="planData.price"
+                    :price-subtitle="planData.priceSubtitle"
+                    :button-classes="planData.buttonClasses"
+                    :card-id="planData.cardId"
+                    v-on:card-selected="cardSelected"
+        >
+          <div slot="body" class="fit">
+            <component :is="planData.planBenefitComponent"></component>
+          </div>
+        </component>
       </div>
     </div>
-  </div>
+  </card-ball>
 </template>
 <script type="text/javascript">
   /* eslint-disable */
@@ -111,11 +107,5 @@
   }
 </script>
 <style scoped>
-  .inline-block {
-    margin-bottom: 7%;
-  }
-  .label{
-    padding: 1.2rem 0.7rem;
-    min-width: 260px;
-  }
+
 </style>

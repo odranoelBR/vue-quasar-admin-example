@@ -1,9 +1,9 @@
 <template>
-  <div class="flex justify-center full-height" :class="heightSize">
+  <div class="row justify-center full-height" :class="heightSize">
     <div class="row gt-sm">
       <div class="row">
         <div class="list">
-          <label class="item" v-for="color in colors">
+          <label class="item" v-for="(color, index) in colors" :key="index">
             <div class="item-primary">
               <q-radio v-model="bgColor" :val="color"></q-radio>
             </div>
@@ -15,7 +15,7 @@
       </div>
       <div class="row">
         <div class="list fit">
-          <label class="item" v-for="tone in colorTones">
+          <label class="item" v-for="(tone, index) in colorTones" :key="index">
             <div class="item-primary">
               <q-radio v-model="toneColor" :val="tone"></q-radio>
             </div>
@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <div class="card text-white text-center width-3of4 bg-width-2of5 gt-bg-width-1of4 sm-auto " id="login">
+    <q-card class="text-white text-center width-3of4 bg-width-2of5 gt-bg-width-1of4 sm-auto " id="login">
       <div class="card-title" :class="finalBgColor">
         <svg id="logo" viewBox="0 0 483 483"
              style="enable-background:new 0 0 460 460;"
@@ -50,11 +50,11 @@
         <button class="red fit" :class="buttonClass" @click="login()">Login Google</button>
         <button class="blue fit" :class="buttonClass" @click="login()">Login Facebook</button>
       </div>
-    </div>
+    </q-card>
     <div class="row gt-sm">
       <div class="row ">
         <div class="list fit">
-          <label class="item" v-for="bClass in buttonClasses">
+          <label class="item" v-for="(bClass, index) in buttonClasses" :key="index">
             <div class="item-primary">
               <q-radio v-model="buttonClass" :val="bClass"></q-radio>
             </div>
@@ -66,7 +66,7 @@
       </div>
       <div class="row">
         <div class="list">
-          <label class="item" v-for="logoName in logos">
+          <label class="item" v-for="(logoName, index) in logos" :key="index">
             <div class="item-primary">
               <q-radio v-model="logo" :val="logoName"></q-radio>
             </div>

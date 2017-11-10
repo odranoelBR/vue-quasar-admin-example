@@ -1,16 +1,15 @@
 <template>
-  <div class="list striped">
-    <div class="item">
-      <div class="item-content">8 Oranges</div>
-    </div>
-    <div class="item">
-      <div class="item-content">6 Limons</div>
-    </div>
-    <div class="item">
-      <div class="item-content">3 Grapes</div>
-    </div>
-
-  </div>
+  <q-list no-border>
+    <q-item>
+      <div class="item-content inset">8 Oranges</div>
+    </q-item>
+    <q-item>
+      <div class="item-content inset">6 Limes</div>
+    </q-item>
+    <q-item>
+      <div class="item-content inset">3 Grapes</div>
+    </q-item>
+  </q-list>
 </template>
 
 <script type="text/javascript">

@@ -1,21 +1,21 @@
 <template>
-  <div class="list">
-    <div class="list-label inset">Citrus</div>
-    <div class="item">
+  <q-list no-border>
+    <q-list-header>Citrus</q-list-header>
+    <q-item>
       <div class="item-content inset">24 Oranges</div>
-    </div>
-    <div class="item">
+    </q-item>
+    <q-item>
       <div class="item-content inset">20 Limes</div>
-    </div>
-    <hr class="inset">
-    <div class="list-label inset">Berries</div>
-    <div class="item">
+    </q-item>
+    <q-item-separator />
+    <q-list-header>Berries</q-list-header>
+    <q-item>
       <div class="item-content inset">20 Blackberries</div>
-    </div>
-    <div class="item">
+    </q-item>
+    <q-item>
       <div class="item-content inset">10 Grapes</div>
-    </div>
-  </div>
+    </q-item>
+  </q-list>
 </template>
 <script type="text/javascript">
 export default {

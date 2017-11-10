@@ -17,7 +17,7 @@
           :data="beers"
           :config="configs"
           :columns="columns">
-          <template slot="col-image_url" scope="cell">
+          <template slot="col-image_url" slot-scope="cell">
             <tooltip-button :url="cell.row.image_url"></tooltip-button>
           </template>
         </q-data-table>

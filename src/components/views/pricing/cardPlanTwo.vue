@@ -1,10 +1,12 @@
 <template>
-  <div class="card ">
-    <div class="card-content bg-white text-center" >
+  <q-card>
+    <q-card-title class="text-center bg-light">
       <h5>{{title}}</h5>
+    </q-card-title>
+    <q-card-main class="text-center" >
       <h2 class="inline-block">$ {{price}}</h2> <span>{{priceSubtitle}}</span>
-      <div class="flex wrap gutter ">
-        <div class="auto">
+      <div class="row wrap xs-gutter ">
+        <div class="col">
           <div class="label bg-faded text-white ">
             Vitamin A
             <span class="right-detail ">
@@ -13,7 +15,7 @@
               </span>
           </div>
         </div>
-        <div class="auto">
+        <div class="col">
           <div class="label bg-faded text-white">
             Vitamin K
             <span class="right-detail">
@@ -22,7 +24,7 @@
             </span>
           </div>
         </div>
-        <div class="auto">
+        <div class="col">
           <div class="label bg-faded text-white">
             Vitamin B
             <span class="right-detail">
@@ -32,25 +34,26 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="card-actions">
+    </q-card-main>
+    <q-card-actions>
       <div class="list fit">
         <q-collapsible group="somegroup" icon="format_list_bulleted" label="Check inside for itens" >
           <slot name="body" ></slot>
         </q-collapsible>
       </div>
-    </div>
+    </q-card-actions>
     <div class="card-content bg-white">
-      <q-progress-button
-        :class="buttonClasses"
+      <q-btn
+        :color="buttonClasses"
+        loader 
         class="fit"
+        @click="workButton"
         :percentage="progressBtn"
-        @click.native="workButton()"
       >
         Choose
-      </q-progress-button>
+      </q-btn>
     </div>
-  </div>
+  </q-card>
 </template>
 <script type="text/javascript">
   export default {
@@ -75,13 +78,13 @@
       planSelected () {
         this.$emit('card-selected', this.cardId)
       },
-      workButton () {
-        this.stopWorkButton()
-        this.progressBtn = 15
+      workButton (event, done) {
+        this.progressBtn = 30
         this.workingButton = setInterval(() => {
           this.progressBtn += parseInt(Math.random() * 12, 10)
           if (this.progressBtn >= 100) {
             this.stopWorkButton()
+            done()
           }
         }, 500)
       },
@@ -104,8 +107,7 @@
     text-decoration: underline;
     margin-bottom: 5%;
   }
-  .card {
-    min-width: 350px;
-    max-width: 700px;
+  .q-card {
+    width: 332px;
   }
 </style>

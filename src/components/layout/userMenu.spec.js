@@ -8,4 +8,3 @@ describe('Component working', () => {
     expect('NomeUsuario').toBe('NomeUsuario')
   })
 })
-

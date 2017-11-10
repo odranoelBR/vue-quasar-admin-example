@@ -6,7 +6,7 @@ import {
   QLayout, QToolbar, QToolbarTitle, QAjaxBar, QCollapsible, QListItem, QItem, QItemTile, QCard, QCardMain,
   QInfiniteScroll, QSpinner, QToggle, QInput, QCardTitle, QRating, QTooltip, QCardMedia, QItemSeparator,
   QSelect, QSlider, QRange, QAutocomplete, QSearch, QModal, QCardActions, QStepper, QStep, QStepPane, QGalleryCarousel,
-  QRadio, QDataTable, QPagination
+  QRadio, QDataTable, QPagination, QPopover
 } from 'quasar'
 const imports = {
   QBtn,
@@ -51,7 +51,8 @@ const imports = {
   QGalleryCarousel,
   QRadio,
   QDataTable,
-  QPagination
+  QPagination,
+  QPopover
 }
 
 Object.keys(imports).forEach(component => {
