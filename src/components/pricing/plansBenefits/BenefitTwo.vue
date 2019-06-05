@@ -1,20 +1,28 @@
 <template>
- <q-list bordered separator>
-      <q-item clickable v-ripple>
+ <q-list >
+      <q-item-label header>Citrus</q-item-label>
+      <q-separator inset />
+
+      <q-item  v-ripple>
         <q-item-section>24 Oranges</q-item-section>
       </q-item>
-
-      <q-item clickable v-ripple>
+      <q-item  v-ripple>
         <q-item-section>
-          <q-item-label>Item with caption</q-item-label>
-          <q-item-label caption>Caption</q-item-label>
+          <q-item-label>20 Limes</q-item-label>
         </q-item-section>
       </q-item>
 
-      <q-item clickable v-ripple>
+      <q-item-label header>Berries</q-item-label>
+      <q-separator inset />
+
+      <q-item  v-ripple>
         <q-item-section>
-          <q-item-label overline>OVERLINE</q-item-label>
-          <q-item-label>Item with caption</q-item-label>
+          <q-item-label>20 Limes</q-item-label>
+        </q-item-section>
+      </q-item>
+      <q-item  v-ripple>
+        <q-item-section>
+          <q-item-label>10 Grapes</q-item-label>
         </q-item-section>
       </q-item>
     </q-list>

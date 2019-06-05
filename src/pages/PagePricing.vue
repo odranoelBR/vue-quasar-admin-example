@@ -10,7 +10,7 @@
         :toolbar-class="planData.titleClasses"
         :title="planData.title"
       > 
-        <div slot="body-one" class="text-center" >
+        <div slot="body-one" class="text-center div-price" >
           <h3 class="text-weight-light"> $ {{planData.price}}</h3>
           <h6 class="text-weight-light text-italic">per month</h6>
         </div>
@@ -110,5 +110,7 @@
   }
 </script>
 <style scoped>
-
+.div-price > h3, h6 {
+      margin: 1rem 0 1rem;
+}
 </style>
