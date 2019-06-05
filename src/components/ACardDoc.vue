@@ -13,7 +13,7 @@
 
     </q-toolbar>
 
-    <q-separator />
+    <q-separator inset />
 
     <q-card-section class="bg-white">
       <slot name="body-one" />
@@ -21,8 +21,14 @@
 
     <q-separator />
 
-    <q-card-section class="bg-grey-2" >
+    <q-card-section class="bg-grey-1" >
       <slot name="body-two" />
+    </q-card-section>
+
+    <q-separator />
+
+    <q-card-section class="bg-white" >
+      <slot name="body-three" />
     </q-card-section>
 
   </q-card>

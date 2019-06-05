@@ -16,32 +16,18 @@
         </div>
 
         <component :is="planData.planBenefitComponent" slot="body-two"></component>
+
+        <div slot="body-three">
+          <q-btn :color="planData.buttonClasses" outline class="fit" @click="cardSelected(planData.cardId)"
+                  >Choose</q-btn>
+        </div>
       </a-card-doc>
 
       </div>
   </div>
-   
-    <!-- <div class="row xs-gutter justify-center" slot="content">
-    
-        <component
-          :is="componentInstanceBySelectedPlanType"
-          :title="planData.title"
-          :title-classes="planData.titleClasses"
-          :price="planData.price"
-          :price-subtitle="planData.priceSubtitle"
-          :button-classes="planData.buttonClasses"
-          :card-id="planData.cardId"
-          v-on:card-selected="cardSelected"
-        >
-          <div slot="body" class="fit">
-            <component :is="planData.planBenefitComponent"></component>
-          </div>
-        </component>
-      </div>
-    </div> -->
+ 
 </template>
 <script type="text/javascript">
-/* eslint-disable */
   import ACardDoc from 'components/ACardDoc.vue'
   import BenefitOne from 'components/pricing/plansBenefits/BenefitOne.vue'
   import BenefitTwo from 'components/pricing/plansBenefits/BenefitTwo.vue'
@@ -64,7 +50,7 @@
           },
           {
             title: 'Basket Fruit Two',
-            titleClasses: 'bg-primary',
+            titleClasses: 'bg-teal',
             price: '39',
             priceSubtitle: 'per month',
             buttonClasses: 'teal',
@@ -73,16 +59,16 @@
           },
           {
             title: 'Basket Fruit Three',
-            titleClasses: 'bg-primary',
+            titleClasses: 'bg-warning',
             price: '29',
             priceSubtitle: 'per month',
-            buttonClasses: 'red',
+            buttonClasses: 'warning',
             cardId: '3',
             planBenefitComponent: 'benefit-three'
           },
           {
             title: 'Basket Fruit Four',
-            titleClasses: 'bg-primary',
+            titleClasses: 'bg-purple',
             price: '19',
             priceSubtitle: 'per month',
             buttonClasses: 'purple',
@@ -101,10 +87,7 @@
     },
     methods: {
       cardSelected (cardId) {
-        Toast.create.positive({html: `Congratulations! You have choose the plan ${cardId}`})
-      },
-      chooseMostUsedPlan(cardId) {
-        return cardId == 1 ? 'animate-bounce shadow-3' : ''
+        this.$q.notify({ message: `Congratulations! You have choose the plan ${cardId}`, color: 'positive'})
       }
     }
   }
