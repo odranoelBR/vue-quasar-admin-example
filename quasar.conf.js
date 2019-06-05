@@ -37,8 +37,11 @@ module.exports = function(ctx) {
         "QMenu",
         "QImg",
         "QAvatar",
-        "QCard",
-        "QCardSection"
+        'QCard',
+        'QCardSection',
+        'QCardActions',
+        'QSeparator',
+
       ],
 
       directives: ["Ripple"],

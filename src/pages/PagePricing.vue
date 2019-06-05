@@ -1,30 +1,28 @@
 <template>
-  <card-ball
-    icon="fa-id-card-o"
-    icon-size="36px"
-    :title="`Plan model type ${cardType}`"
-  >
-    <div class="row" slot="content">
-      <div class="group inline-block">
-        <label>
-          <q-radio v-model="cardType" val="Vertical One"></q-radio> Vertical One
-        </label>
-        <label>
-          <q-radio
-            v-model="cardType"
-            val="Horizontal One"
-            class="teal"
-          ></q-radio>
-          Horizontal One
-        </label>
-      </div>
-    </div>
-    <div class="row xs-gutter justify-center" slot="content">
+
+  <div class="row q-gutter-md">
       <div
-        class="(auto, index) "
-        v-for="(planData, index) in plansData"
-        :key="index"
-      >
+      class="col"
+      v-for="(planData, index) in plansData"
+      :key="index"
+    >
+      <a-card-doc
+        :toolbar-class="planData.titleClasses"
+        :title="planData.title"
+      > 
+        <div slot="body-one" class="text-center" >
+          <h3 class="text-weight-light"> $ {{planData.price}}</h3>
+          <h6 class="text-weight-light text-italic">per month</h6>
+        </div>
+
+        <component :is="planData.planBenefitComponent" slot="body-two"></component>
+      </a-card-doc>
+
+      </div>
+  </div>
+   
+    <!-- <div class="row xs-gutter justify-center" slot="content">
+    
         <component
           :is="componentInstanceBySelectedPlanType"
           :title="planData.title"
@@ -40,18 +38,15 @@
           </div>
         </component>
       </div>
-    </div>
-  </card-ball>
+    </div> -->
 </template>
 <script type="text/javascript">
 /* eslint-disable */
-  import cardPlanOne from 'components/pricing/cardPlanOne.vue'
-  import CardBall from 'components/CardBall.vue'
-  import cardPlanTwo from 'components/pricing/cardPlanTwo.vue'
-  import benefitOne from 'components/pricing/plansBenefits/benefitOne.vue'
-  import benefitTwo from 'components/pricing/plansBenefits/benefitTwo.vue'
-  import benefitThree from 'components/pricing/plansBenefits/benefitThree.vue'
-  import benefitFour from 'components/pricing/plansBenefits/benefitFour.vue'
+  import ACardDoc from 'components/ACardDoc.vue'
+  import BenefitOne from 'components/pricing/plansBenefits/BenefitOne.vue'
+  import BenefitTwo from 'components/pricing/plansBenefits/BenefitTwo.vue'
+  import BenefitThree from 'components/pricing/plansBenefits/BenefitThree.vue'
+  import BenefitFour from 'components/pricing/plansBenefits/BenefitFour.vue'
   export default {
     name: 'Pricing',
     data () {
@@ -69,7 +64,7 @@
           },
           {
             title: 'Basket Fruit Two',
-            titleClasses: 'bg-teal',
+            titleClasses: 'bg-primary',
             price: '39',
             priceSubtitle: 'per month',
             buttonClasses: 'teal',
@@ -78,7 +73,7 @@
           },
           {
             title: 'Basket Fruit Three',
-            titleClasses: 'bg-red',
+            titleClasses: 'bg-primary',
             price: '29',
             priceSubtitle: 'per month',
             buttonClasses: 'red',
@@ -87,7 +82,7 @@
           },
           {
             title: 'Basket Fruit Four',
-            titleClasses: 'bg-purple',
+            titleClasses: 'bg-primary',
             price: '19',
             priceSubtitle: 'per month',
             buttonClasses: 'purple',
@@ -98,18 +93,11 @@
       }
     },
     components: {
-      cardPlanOne,
-      benefitOne,
-      benefitTwo,
-      benefitThree,
-      benefitFour,
-      cardPlanTwo,
-      CardBall
-    },
-    computed: {
-      componentInstanceBySelectedPlanType () {
-        return this.cardType === 'Vertical One' ? 'card-plan-one' : 'card-plan-two'
-      }
+      BenefitOne,
+      BenefitTwo,
+      BenefitThree,
+      BenefitFour,
+      ACardDoc
     },
     methods: {
       cardSelected (cardId) {
