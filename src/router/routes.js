@@ -10,10 +10,10 @@ const routes = [
         name: "dash-one"
       },
       {
-        path: "/advanced-form-one",
-        component: () => import("pages/form/advancedFormOne/advancedFormOne"),
-        meta: { name: "Advanced Form One" },
-        name: "form"
+        path: "/form-search",
+        component: () => import("pages/FormSearch"),
+        meta: { name: "Form Search" },
+        name: "form-search"
       },
       {
         path: "/login-one",

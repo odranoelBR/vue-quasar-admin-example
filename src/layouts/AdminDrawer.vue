@@ -89,7 +89,7 @@ export default {
             faIcon: "fa fa-search",
             materialIcon: "search",
             name: "Form find / edit",
-            routeName: "form"
+            routeName: "form-search"
           }
         ],
         show: false
