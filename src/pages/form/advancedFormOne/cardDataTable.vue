@@ -1,16 +1,28 @@
 <template>
   <q-data-table
-    ref="dataTable"
     v-if="commentsOfPost.length > 0"
+    ref="dataTable"
     :data="commentsOfPost"
     :columns="columns"
     :config="configs"
   >
-    <template slot="col-photo" slot-scope="cell">
-      <img :src="cell.row.thumbnailUrl" alt="" />
+    <template
+      slot="col-photo"
+      slot-scope="cell"
+    >
+      <img
+        :src="cell.row.thumbnailUrl"
+        alt=""
+      >
     </template>
-    <template slot="selection" slot-scope="selection">
-      <q-btn color="orange" @click="addPrint(selection.rows)">
+    <template
+      slot="selection"
+      slot-scope="selection"
+    >
+      <q-btn
+        color="orange"
+        @click="addPrint(selection.rows)"
+      >
         Add to print
       </q-btn>
     </template>
@@ -24,12 +36,20 @@ export default {
       required: true
     }
   },
-  mounted() {
-    this.$http.jsonplaceholder
-      .get(`photos?albumId=${this.selectedAlbum.id}`)
-      .then(response => {
-        this.commentsOfPost = response.data;
-      });
+  data() {
+    return {
+      commentsOfPost: [],
+      columns: [
+        {
+          label: "Title",
+          field: "title",
+          width: "130px",
+          filter: true,
+          sort: true
+        },
+        { label: "Photo", field: "photo", width: "100px" }
+      ]
+    };
   },
   computed: {
     selectedRows() {
@@ -48,20 +68,12 @@ export default {
       };
     }
   },
-  data() {
-    return {
-      commentsOfPost: [],
-      columns: [
-        {
-          label: "Title",
-          field: "title",
-          width: "130px",
-          filter: true,
-          sort: true
-        },
-        { label: "Photo", field: "photo", width: "100px" }
-      ]
-    };
+  mounted() {
+    this.$http.jsonplaceholder
+      .get(`photos?albumId=${this.selectedAlbum.id}`)
+      .then(response => {
+        this.commentsOfPost = response.data;
+      });
   },
   methods: {
     addPrint(rows) {

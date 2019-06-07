@@ -2,12 +2,12 @@
   <div>
     <div class="row">
       <div class="col">
-        <card-example-one></card-example-one>
+        <card-example-one />
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <card-example-two></card-example-two>
+        <card-example-two />
       </div>
     </div>
   </div>

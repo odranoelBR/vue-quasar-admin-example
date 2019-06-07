@@ -15,49 +15,80 @@
             }
           "
         >
-          <q-step title="Find a user by username" :name="1">
+          <q-step
+            title="Find a user by username"
+            :name="1"
+          >
             <div class="row wrap gutter">
               <div class="col-4">
                 <q-input
-                  float-label="User Name"
                   v-model="userName"
+                  float-label="User Name"
                   :validation="$v.userName"
                   :validation-messages="validationMessages.userName"
                   :value="userName"
                 />
               </div>
               <div class="col-2">
-                <q-btn color="primary" @click="findUser()">Search</q-btn>
+                <q-btn
+                  color="primary"
+                  @click="findUser()"
+                >
+                  Search
+                </q-btn>
               </div>
               <div class="col-auto">
                 <card-user-data
-                  :user-data="userData"
                   v-model="selectedAlbum"
-                ></card-user-data>
+                  :user-data="userData"
+                />
               </div>
             </div>
-            <div class="row"></div>
+            <div class="row" />
           </q-step>
-          <q-step title="Choose photos" :name="2">
+          <q-step
+            title="Choose photos"
+            :name="2"
+          >
             <card-data-table
               :selected-album="selectedAlbum"
-              v-on:selectedRows="populatePhotos"
-            ></card-data-table>
+              @selectedRows="populatePhotos"
+            />
           </q-step>
         </q-stepper>
       </div>
-      <div class="col" slot="actions">
-        <q-btn color="orange" v-show="currentStep == 2" @click="previousStep()"
-          >previous</q-btn
+      <div
+        slot="actions"
+        class="col"
+      >
+        <q-btn
+          v-show="currentStep == 2"
+          color="orange"
+          @click="previousStep()"
         >
-        <q-btn color="orange" v-show="canContinue" @click="nextStep()"
-          >Continue</q-btn
+          previous
+        </q-btn>
+        <q-btn
+          v-show="canContinue"
+          color="orange"
+          @click="nextStep()"
         >
-        <q-btn color="green" v-show="finished" @click="finish()">Preview</q-btn>
+          Continue
+        </q-btn>
+        <q-btn
+          v-show="finished"
+          color="green"
+          @click="finish()"
+        >
+          Preview
+        </q-btn>
       </div>
     </card-ball>
-    <q-modal ref="previewModal" class="minimized">
-      <q-gallery-carousel :src="photosForGalery"></q-gallery-carousel>
+    <q-modal
+      ref="previewModal"
+      class="minimized"
+    >
+      <q-gallery-carousel :src="photosForGalery" />
     </q-modal>
   </div>
 </template>
@@ -67,6 +98,10 @@ import cardUserData from "./cardUserData.vue";
 import cardDataTable from "./cardDataTable.vue";
 export default {
   name: "AdvancedFormOne",
+  components: {
+    cardUserData,
+    cardDataTable
+  },
   data() {
     return {
       userName: "Bret",
@@ -100,10 +135,6 @@ export default {
     canContinue() {
       return this.selectedAlbum && this.currentStep === 1;
     }
-  },
-  components: {
-    cardUserData,
-    cardDataTable
   },
   methods: {
     finish() {

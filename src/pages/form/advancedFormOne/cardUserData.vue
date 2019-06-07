@@ -1,22 +1,27 @@
 <template>
-  <div class="card" v-if="userData.name">
+  <div
+    v-if="userData.name"
+    class="card"
+  >
     <div class="card-content">
       <h6>{{ userData.name }}</h6>
       {{ userData.email }}
-      <p class="caption">Choose one of the user Albums</p>
+      <p class="caption">
+        Choose one of the user Albums
+      </p>
       <div class="list">
         <label
-          class="item"
           v-for="(album, index) in filteredAlbums"
           :key="index"
-        >
+          class="item"
+        >    
           <div class="item-primary">
             <q-radio
-              @input="change(album)"
               v-model="selectedAlbum"
               :val="album.id"
               :label="album.title"
-            ></q-radio>
+              @input="change(album)"
+            />
           </div>
         </label>
       </div>
@@ -42,11 +47,6 @@ export default {
       return this.userAlbums.slice(0, 3);
     }
   },
-  methods: {
-    change(album) {
-      this.$emit("input", album);
-    }
-  },
   watch: {
     userData() {
       this.$http.jsonplaceholder
@@ -54,6 +54,11 @@ export default {
         .then(response => {
           this.userAlbums = response.data;
         });
+    }
+  },
+  methods: {
+    change(album) {
+      this.$emit("input", album);
     }
   }
 };

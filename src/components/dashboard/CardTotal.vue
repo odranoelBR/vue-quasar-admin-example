@@ -3,9 +3,16 @@
     <div class="row justify">
       <div class="col-title fit row">
         <div class="col">
-          <q-card class="g-card-title" :class="titleClass">
+          <q-card
+            class="g-card-title"
+            :class="titleClass"
+          >
             <q-card-section class="">
-              <q-icon size="45px" :name="icon" v-if="icon"></q-icon>
+              <q-icon
+                v-if="icon"
+                size="45px"
+                :name="icon"
+              />
             </q-card-section>
           </q-card>
         </div>
@@ -15,8 +22,10 @@
       </div>
     </div>
     <q-card-section class="no-padding text-right">
-      <hr />
-      <p class="light-paragraph q-pr-lg q-pb-sm">{{ titulo }}</p>
+      <hr>
+      <p class="light-paragraph q-pr-lg q-pb-sm">
+        {{ titulo }}
+      </p>
     </q-card-section>
   </q-card>
 </template>

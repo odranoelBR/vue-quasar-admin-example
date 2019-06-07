@@ -1,27 +1,38 @@
 <template>
-  <q-list no-border>
-    <q-list-header>Citrus</q-list-header>
-    <q-item>
-      <div class="item-content inset">16 Oranges</div>
+  <q-list>
+    <q-item-label header>
+      Citrus
+    </q-item-label>
+    <q-separator inset />
+
+    <q-item v-ripple>
+      <q-item-section>16 Oranges</q-item-section>
+    </q-item>  
+    <q-item v-ripple>
+      <q-item-section>
+        <q-item-label>12 Limes</q-item-label>
+      </q-item-section>
     </q-item>
-    <q-item>
-      <div class="item-content inset">12 Limes</div>
+
+    <q-item-label header>
+      Berries
+    </q-item-label>
+    <q-separator inset />
+
+    <q-item v-ripple>
+      <q-item-section>
+        <q-item-label>14 Limes</q-item-label>
+      </q-item-section>
     </q-item>
-    <q-item-separator />
-    <q-list-header>Berries</q-list-header>
-    <q-item>
-      <div class="item-content inset">14 Blackberries</div>
-    </q-item>
-    <q-item>
-      <div class="item-content inset">6 Grapes</div>
+    <q-item v-ripple>
+      <q-item-section>
+        <q-item-label>6 Grapes</q-item-label>
+      </q-item-section>
     </q-item>
   </q-list>
 </template>
 <script type="text/javascript">
 export default {
-  data() {
-    return {};
-  }
-};
+}
 </script>
 <style></style>

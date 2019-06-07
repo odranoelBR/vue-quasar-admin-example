@@ -3,43 +3,45 @@
     <div class="row q-gutter-sm">
       <div class="col">
         <card-total
-          titleClass="bg-secondary"
+          title-class="bg-secondary"
           icon="fa fa-envelope"
           titulo="Posts"
           :conteudo="totalPosts"
-        ></card-total>
+        />
       </div>
       <div class="col-3">
         <card-total
-          titleClass="bg-secondary"
+          title-class="bg-secondary"
           icon="fa fa-comments"
           titulo="Comments"
           :conteudo="totalComments"
-        ></card-total>
+        />
       </div>
       <div class="col-3">
         <card-total
-          titleClass="bg-accent"
+          title-class="bg-accent"
           icon="fa fa-tasks"
           titulo="Tasks"
           :conteudo="totalTodos"
-        ></card-total>
+        />
       </div>
       <div class="col-3">
         <card-total
-          titleClass="bg-accent"
+          title-class="bg-accent"
           icon="fa fa-amilia"
           titulo="Static"
           :conteudo="1200"
-        ></card-total>
+        />
       </div>
     </div>
     <div class="row">
       <div class="col-xl-5">
         <q-card class="bg-white ">
           <q-card-section>
-            <bar-graph :data="dataForGraph" :labels="labelsForGraph">
-            </bar-graph>
+            <bar-graph
+              :data="dataForGraph"
+              :labels="labelsForGraph"
+            />
           </q-card-section>
         </q-card>
       </div>
@@ -57,20 +59,20 @@ export default {
     CardTotal,
     BarGraph
   },
+  data() {
+    return {
+      labelsForGraph: ["Posts", "Comments", "Todos"],
+      totalComments: 0,
+      totalTodos: 0
+    }; 
+  },
   mounted() {
     Promise.all([getComments(), getTodos()]).then(response => {
       this.totalComments = response[0].data.length;
       this.totalTodos = response[1].data.length;
     });
   },
-  data() {
-    return {
-      labelsForGraph: ["Posts", "Comments", "Todos"],
-      totalComments: 0,
-      totalTodos: 0
-    };
-  },
-  computed: {
+  computed: { 
     ...mapGetters("app", ["getPosts"]),
     totalPosts() {
       return this.getPosts.length;

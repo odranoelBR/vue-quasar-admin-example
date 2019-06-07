@@ -3,7 +3,10 @@
     <q-card-title class="card-title bg-blue-grey-2">
       <h5>Done</h5>
     </q-card-title>
-    <q-card-main class="bg-blue-grey-1" ref="done"> </q-card-main>
+    <q-card-main
+      ref="done"
+      class="bg-blue-grey-1"
+    />
   </q-card>
 </template>
 

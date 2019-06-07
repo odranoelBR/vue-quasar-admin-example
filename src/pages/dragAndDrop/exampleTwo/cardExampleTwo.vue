@@ -4,15 +4,18 @@
     icon-size="36px"
     title="Exemple Two - Simple drag and drop kanban"
   >
-    <div class="row wrap xs-gutter" slot="content">
+    <div
+      slot="content"
+      class="row wrap xs-gutter"
+    >
       <div class="col">
-        <todo-column ref="todoColumn"></todo-column>
+        <todo-column ref="todoColumn" />
       </div>
       <div class="col">
-        <doing-column ref="doingColumn"></doing-column>
+        <doing-column ref="doingColumn" />
       </div>
       <div class="col">
-        <done-column ref="doneColumn"></done-column>
+        <done-column ref="doneColumn" />
       </div>
     </div>
   </card-ball>
@@ -23,6 +26,16 @@ import todoColumn from "./todoColumn.vue";
 import doingColumn from "./doingColumn.vue";
 import doneColumn from "./doneColumn.vue";
 export default {
+  components: {
+    todoColumn,
+    doingColumn,
+    doneColumn
+  },
+  data() {
+    return {
+      dragula: ""
+    };
+  },
   mounted() {
     let containers = [
       this.$refs.todoColumn.$refs.todo,
@@ -35,16 +48,6 @@ export default {
         return handle.classList.contains("handle");
       }
     });
-  },
-  data() {
-    return {
-      dragula: ""
-    };
-  },
-  components: {
-    todoColumn,
-    doingColumn,
-    doneColumn
   }
 };
 </script>

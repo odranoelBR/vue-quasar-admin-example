@@ -7,16 +7,19 @@
           class="primary bg-green float-right cursor-pointer"
           @click="addCardTask()"
         >
-          <q-icon name="add"></q-icon>
+          <q-icon name="add" />
         </button>
       </h5>
     </q-card-title>
-    <q-card-main class="bg-blue-grey-1" ref="todo">
+    <q-card-main
+      ref="todo"
+      class="bg-blue-grey-1"
+    >
       <card-task
         v-for="(task, index) in todoTasks"
         :key="index"
         :class="index"
-      ></card-task>
+      />
     </q-card-main>
   </q-card>
 </template>
@@ -24,6 +27,9 @@
 <script>
 import cardTask from "./cardTask.vue";
 export default {
+  components: {
+    cardTask
+  },
   data() {
     return {
       todoTasks: []
@@ -33,9 +39,6 @@ export default {
     addCardTask() {
       this.todoTasks.push({});
     }
-  },
-  components: {
-    cardTask
   }
 };
 </script>

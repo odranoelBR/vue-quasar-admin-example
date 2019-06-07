@@ -1,6 +1,6 @@
 // Configuration for your app
 
-module.exports = function(ctx) {
+module.exports = function(ctx) { 
   return {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
@@ -88,7 +88,9 @@ module.exports = function(ctx) {
     },
 
     // animations: 'all' --- includes all animations
-    animations: [],
+    animations: [
+      'fadeIn', 'fadeOut'
+    ],
 
     ssr: {
       pwa: false

@@ -7,15 +7,22 @@
     </q-card-title>
     <q-card-main>
       <h3>${{ price }}</h3>
-      <h6 class="text-italic">{{ priceSubtitle }}</h6>
+      <h6 class="text-italic">
+        {{ priceSubtitle }}
+      </h6>
     </q-card-main>
     <q-card-actions> 
-      <slot name="body"></slot>
+      <slot name="body" />
     </q-card-actions>
     <div class="card-content bg-white">
-      <q-btn :color="buttonClasses" outline class="fit" @click="planSelected()"
-        >Choose</q-btn
+      <q-btn
+        :color="buttonClasses"
+        outline
+        class="fit"
+        @click="planSelected()"
       >
+        Choose
+      </q-btn>
     </div>
   </q-card>
 </template>

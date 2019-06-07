@@ -1,15 +1,19 @@
 <template>
-  <q-drawer v-model="leftDrawerOpen" bordered elevated>
+  <q-drawer
+    v-model="leftDrawerOpen"
+    bordered
+    elevated
+  >
     <q-list
       padding
       separator
       style="height: calc(100% - 180px); margin-top: 180px; border-right: 1px solid #ddd"
     >
       <q-expansion-item
-        group="links"
-        :label="index"
         v-for="(links, index) in groupedLinks"
         :key="index"
+        group="links"
+        :label="index"
       >
         <q-list no-border>
           <q-item
@@ -20,11 +24,19 @@
             active-class="router-link-active"
           >
             <q-item-section avatar>
-              <q-icon :name="link.faIcon" alt="" />
+              <q-icon
+                :name="link.faIcon"
+                alt=""
+              />
             </q-item-section>
-            <q-item-section label class="light-paragraph">{{
-              link.name
-            }}</q-item-section>
+            <q-item-section
+              label
+              class="light-paragraph"
+            >
+              {{
+                link.name
+              }}
+            </q-item-section>
           </q-item>
         </q-list>
       </q-expansion-item>
@@ -36,10 +48,15 @@
       style="height: 180px"
     >
       <div class="absolute-bottom bg-transparent">
-        <q-avatar size="56px" class="q-mb-sm">
-          <img src="https://cdn.quasar-framework.org/img/boy-avatar.png" />
+        <q-avatar
+          size="56px"
+          class="q-mb-sm"
+        >
+          <img src="https://cdn.quasar-framework.org/img/boy-avatar.png">
         </q-avatar>
-        <div class="text-weight-bold text-white">Razvan Stoenescu</div>
+        <div class="text-weight-bold text-white">
+          Razvan Stoenescu
+        </div>
         <div>@rstoenescu</div>
       </div>
     </q-img>

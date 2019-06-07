@@ -1,23 +1,20 @@
 <template>
-  <q-list no-border>
-    <q-item>
-      <div class="item-content inset">8 Oranges</div>
+  <q-list>
+    <q-item v-ripple>
+      <q-item-section>8 Oranges</q-item-section>
+    </q-item>  
+    <q-item v-ripple>
+      <q-item-label>6 Limes</q-item-label>
     </q-item>
-    <q-item>
-      <div class="item-content inset">6 Limes</div>
-    </q-item>
-    <q-item>
-      <div class="item-content inset">3 Grapes</div>
+    <q-item v-ripple>
+      <q-item-label>3 Grapes</q-item-label>
     </q-item>
   </q-list>
 </template>
 
 <script type="text/javascript">
 export default {
-  data() {
-    return {};
-  }
-};
+}
 </script>
 
 <style></style>

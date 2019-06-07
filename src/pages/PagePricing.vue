@@ -1,31 +1,44 @@
 <template>
-
-  <div class="row q-gutter-md">
-      <div
-      class="col"
+  <div class="row q-col-gutter-md">
+    <div
       v-for="(planData, index) in plansData"
       :key="index"
+      class="col-xs-12 col-sm-6 col-md-4 col-lg-3"
     >
       <a-card-doc
         :toolbar-class="planData.titleClasses"
         :title="planData.title"
       > 
-        <div slot="body-one" class="text-center div-price" >
-          <h3 class="text-weight-light"> $ {{planData.price}}</h3>
-          <h6 class="text-weight-light text-italic">per month</h6>
+        <div
+          slot="body-one"
+          class="text-center div-price"
+        >
+          <h3 class="text-weight-light">
+            $ {{ planData.price }}
+          </h3>
+          <h6 class="text-weight-light text-italic">
+            per month
+          </h6>
         </div>
 
-        <component :is="planData.planBenefitComponent" slot="body-two"></component>
+        <component
+          :is="planData.planBenefitComponent"
+          slot="body-two"
+        />
 
         <div slot="body-three">
-          <q-btn :color="planData.buttonClasses" outline class="fit" @click="cardSelected(planData.cardId)"
-                  >Choose</q-btn>
+          <q-btn
+            :color="planData.buttonClasses"
+            outline
+            class="fit"
+            @click="cardSelected(planData.cardId)"
+          >
+            Choose
+          </q-btn>
         </div>
       </a-card-doc>
-
-      </div>
+    </div>
   </div>
- 
 </template>
 <script type="text/javascript">
   import ACardDoc from 'components/ACardDoc.vue'
@@ -35,6 +48,13 @@
   import BenefitFour from 'components/pricing/plansBenefits/BenefitFour.vue'
   export default {
     name: 'Pricing',
+    components: {
+      BenefitOne,
+      BenefitTwo,
+       BenefitThree,
+      BenefitFour,
+      ACardDoc
+    },
     data () {
       return {
         cardType: 'Vertical One',
@@ -77,14 +97,7 @@
           }
         ]
       }
-    },
-    components: {
-      BenefitOne,
-      BenefitTwo,
-      BenefitThree,
-      BenefitFour,
-      ACardDoc
-    },
+    }, 
     methods: {
       cardSelected (cardId) {
         this.$q.notify({ message: `Congratulations! You have choose the plan ${cardId}`, color: 'positive'})

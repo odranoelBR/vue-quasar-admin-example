@@ -4,10 +4,18 @@
       <admin-toolbar @toggleMenu="leftDrawerOpen = !leftDrawerOpen" />
     </q-header>
 
-    <admin-drawer :leftDrawerOpen="leftDrawerOpen" />
+    <admin-drawer :left-drawer-open="leftDrawerOpen" />
 
     <q-page-container>
-      <router-view class="q-pa-xl" />
+      <transition
+        appear
+        :duration="{ enter: 200, leave: 200 }"
+        mode="out-in"
+        enter-active-class="animated fadeIn"
+        leave-active-class="animated fadeOut"
+      >
+        <router-view class="q-pa-xl" />
+      </transition>
     </q-page-container>
   </q-layout>
 </template>
@@ -24,13 +32,13 @@ export default {
     AdminDrawer,
     AdminToolbar
   },
-  mounted() {
-    this.go();
-  },
   data: () => ({
     leftDrawerOpen: true,
     data: []
   }),
+  mounted() {
+    this.go();
+  },
   methods: {
     ...mapMutations("app", ["setPosts"]),
     openURL,

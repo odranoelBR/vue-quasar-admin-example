@@ -1,11 +1,21 @@
 <template>
-  <div class="row justify-center full-height" :class="heightSize">
+  <div
+    class="row justify-center full-height"
+    :class="heightSize"
+  >
     <div class="row gt-sm">
       <div class="row">
         <div class="list">
-          <label class="item" v-for="(color, index) in colors" :key="index">
-            <div class="item-primary">
-              <q-radio v-model="bgColor" :val="color"></q-radio>
+          <label
+            v-for="(color, index) in colors"
+            :key="index"
+            class="item"
+          >
+            <div class="item-primary"> 
+              <q-radio
+                v-model="bgColor"
+                :val="color" 
+              />
             </div>
             <div class="item-content capitalize">
               {{ color }}
@@ -15,9 +25,16 @@
       </div>
       <div class="row">
         <div class="list fit">
-          <label class="item" v-for="(tone, index) in colorTones" :key="index">
+          <label
+            v-for="(tone, index) in colorTones"
+            :key="index"
+            class="item"
+          >
             <div class="item-primary">
-              <q-radio v-model="toneColor" :val="tone"></q-radio>
+              <q-radio
+                v-model="toneColor"
+                :val="tone" 
+              />
             </div>
             <div class="item-content capitalize">
               {{ tone }}
@@ -27,44 +44,63 @@
       </div>
     </div>
     <q-card
-      class="text-white text-center width-3of4 bg-width-2of5 gt-bg-width-1of4 sm-auto "
       id="login"
+      class="text-white text-center width-3of4 bg-width-2of5 gt-bg-width-1of4 sm-auto "
     >
-      <div class="card-title" :class="finalBgColor">
+      <div
+        class="card-title"
+        :class="finalBgColor"
+      >
         <svg
           id="logo"
           viewBox="0 0 483 483"
           style="enable-background:new 0 0 460 460;"
           xml:space="preserve"
-          width="128px"
+          width="128px" 
           height="128px"
-          v-html="logoMethod"
-        ></svg>
+        />
         <h4>{{ logo }}</h4>
-      </div>
+      </div>  
       <div class="card-content bg-white ">
         <div class="stacked-label">
-          <input required class="full-width" type="email" v-model="email" />
+          <input
+            v-model="email"
+            required
+            class="full-width"
+            type="email"
+          >
           <label>Email</label>
         </div>
         <div class="stacked-label">
           <input
+            v-model="password"
             required
             class="full-width"
             type="password"
-            v-model="password"
-          />
+          >
           <label>Password</label>
         </div>
       </div>
       <div class="card-actions inline-block vertical-middle">
-        <button class="teal fit " :class="buttonClass" @click="login()">
+        <button
+          class="teal fit "
+          :class="buttonClass"
+          @click="login()"
+        >
           Login
         </button>
-        <button class="red fit" :class="buttonClass" @click="login()">
+        <button
+          class="red fit"
+          :class="buttonClass"
+          @click="login()"
+        >
           Login Google
         </button>
-        <button class="blue fit" :class="buttonClass" @click="login()">
+        <button
+          class="blue fit"
+          :class="buttonClass"
+          @click="login()"
+        >
           Login Facebook
         </button>
       </div>
@@ -73,12 +109,15 @@
       <div class="row ">
         <div class="list fit">
           <label
-            class="item"
             v-for="(bClass, index) in buttonClasses"
             :key="index"
+            class="item"
           >
             <div class="item-primary">
-              <q-radio v-model="buttonClass" :val="bClass"></q-radio>
+              <q-radio
+                v-model="buttonClass"
+                :val="bClass"
+              />
             </div>
             <div class="item-content capitalize">
               {{ bClass }}
@@ -88,15 +127,25 @@
       </div>
       <div class="row">
         <div class="list">
-          <label class="item" v-for="(logoName, index) in logos" :key="index">
+          <label
+            v-for="(logoName, index) in logos"
+            :key="index"
+            class="item"
+          >
             <div class="item-primary">
-              <q-radio v-model="logo" :val="logoName"></q-radio>
+              <q-radio
+                v-model="logo"
+                :val="logoName" 
+              />
             </div>
             <div class="item-content capitalize">
               {{ logoName }}
             </div>
           </label>
-          <button class="teal raised full-width " @click="startAnimation()">
+          <button
+            class="teal raised full-width "
+            @click="startAnimation()"
+          >
             Animate !
           </button>
         </div>

@@ -1,6 +1,11 @@
 <template>
   <q-toolbar>
-    <q-btn flat dense round @click="toggleMenu()">
+    <q-btn
+      flat
+      dense
+      round
+      @click="toggleMenu()"
+    >
       <q-icon name="menu" />
     </q-btn>
 
@@ -9,7 +14,10 @@
     </q-toolbar-title>
 
     <div>
-      <q-icon name="fa fa-envelope" size="20px"></q-icon>
+      <q-icon
+        name="fa fa-envelope"
+        size="20px"
+      />
       <admin-menu />
     </div>
   </q-toolbar>

@@ -1,14 +1,18 @@
 <template>
   <q-menu>
-    <q-list bordered separator style="max-width: 450px">
+    <q-list
+      bordered
+      separator
+      style="max-width: 450px"
+    >
       <q-item-section class="text-center text-white bg-secondary q-pa-sm">
         Messages from people
       </q-item-section>
       <q-item
         v-for="(post, index) in filteredPosts"
         :key="index"
-        clickable
         v-ripple
+        clickable
       >
         <q-item-section avatar>
           <q-img
@@ -18,8 +22,12 @@
           />
         </q-item-section>
         <q-item-section>
-          <q-item-label overline>{{ post.title }}</q-item-label>
-          <q-item-label caption>{{ randomDate() }}</q-item-label>
+          <q-item-label overline>
+            {{ post.title }}
+          </q-item-label>
+          <q-item-label caption>
+            {{ randomDate() }}
+          </q-item-label>
         </q-item-section>
       </q-item>
     </q-list>
