@@ -1,49 +1,50 @@
 
 <template>
-  <q-card >
-
-    <q-toolbar :class="toolbarClass" >
+  <q-card>
+    <q-toolbar :class="toolbarClass">
       <section class="text-subtitle1">
         <div class="doc-card-title">
-          {{title}}
+          {{ title }}
         </div>
       </section>
       
       <q-toolbar-title />
-
     </q-toolbar>
 
     <q-separator inset />
 
     <q-card-section class="bg-white">
       <slot name="body-one" />
-    </q-card-section >
+    </q-card-section>
 
     <q-separator />
 
-    <q-card-section class="bg-grey-1" >
+    <q-card-section class="bg-grey-1">
       <slot name="body-two" />
     </q-card-section>
 
     <q-separator />
 
-    <q-card-section class="bg-white" >
+    <q-card-section class="bg-white">
       <slot name="body-three" />
     </q-card-section>
-
   </q-card>
 </template>
 
 <script>
 export default {
   props:  {
-    toolbarClass: String,
+    toolbarClass: {
+      default: '',
+      type: String,
+      required: false 
+    },
     title: {
       type: String,
       required: true
     }
   },
-  data() {
+  data () {
     return {
       test: false
     };

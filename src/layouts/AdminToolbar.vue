@@ -13,12 +13,27 @@
       Quasar Admin App
     </q-toolbar-title>
 
-    <div>
-      <q-icon
-        name="fa fa-envelope"
-        size="20px"
-      />
-      <admin-menu />
+    <div class="row q-gutter-md">
+      <div class="col">
+        <q-icon
+          class="cursor-pointer	"
+          name="fa fa-envelope"
+          size="27px"
+        />
+        <admin-menu />
+      </div>
+      <div class="col">
+        <a
+          href="https://github.com/odranoelBR/vue-quasar-admin-example"
+          class="text-white"
+        >
+          <q-icon
+            class="cursor-pointer"
+            name="fab fa-github"
+            size="25px"
+          />
+        </a>
+      </div>
     </div>
   </q-toolbar>
 </template>
@@ -36,3 +51,9 @@ export default {
   }
 };
 </script>
+<style scoped>
+a {
+   text-decoration: none;
+}
+</style>
+

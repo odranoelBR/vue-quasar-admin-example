@@ -6,6 +6,7 @@
   >
     <q-list
       padding
+      class="text-weight-light drawer"
       separator
       style="height: calc(100% - 180px); margin-top: 180px; border-right: 1px solid #ddd"
     >
@@ -81,18 +82,18 @@ export default {
         ],
         show: true
       },
-      // Forms: {
-      //   routes: [
-      //     {
-      //       route: "/form",
-      //       faIcon: "fa fa-search",
-      //       materialIcon: "search",
-      //       name: "Form find / edit",
-      //       routeName: "form"
-      //     }
-      //   ],
-      //   show: false
-      // },
+      Forms: {
+        routes: [
+          {
+            route: "/form",
+            faIcon: "fa fa-search",
+            materialIcon: "search",
+            name: "Form find / edit",
+            routeName: "form"
+          }
+        ],
+        show: false
+      },
       Pages: {
         routes: [
           //     {
@@ -104,14 +105,14 @@ export default {
           //     },
           {
             route: "/pricing",
-            faIcon: "fa fa-money",
+            faIcon: "fa fa-money-bill-alt",
             materialIcon: "attach_money",
             name: "Pricing",
             routeName: "pricing"
           },
           {
             route: "/drag-and-drop",
-            faIcon: "fa fa-arrows",
+            faIcon: "fa fa-arrows-alt",
             materialIcon: "move_to_inbox",
             name: "Drag and Drop",
             routeName: "drag-and-drop"
@@ -128,5 +129,9 @@ export default {
 .router-link-active {
   border-right: 3px solid #7fd7fb;
   color: #2196f3;
+  background-color: #FAFAFA;
+}
+.drawer {
+  font-size: 1.1em;
 }
 </style>
