@@ -14,7 +14,9 @@
         enter-active-class="animated fadeIn"
         leave-active-class="animated fadeOut"
       >
-        <router-view class="q-pa-xl" />
+        <q-page padding>
+          <router-view class="q-ma-md" />
+        </q-page>
       </transition>
     </q-page-container>
   </q-layout>
@@ -25,7 +27,7 @@ import { openURL } from "quasar";
 import { mapMutations } from "vuex";
 import AdminDrawer from "./AdminDrawer.vue";
 import AdminToolbar from "./AdminToolbar.vue";
-import { getPosts } from "src/boot/axios";
+import { getPosts } from "src/services";
 export default {
   name: "AdminLayout",
   components: {

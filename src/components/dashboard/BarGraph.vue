@@ -3,8 +3,16 @@ import { Bar } from "vue-chartjs";
 export default {
   extends: Bar,
   props: {
-    data: { type: Array, require: true },
-    labels: { type: Array, require: true }
+    data: {  
+      default: () => ([]), 
+      type: Array, 
+      require: true 
+    },
+    labels: { 
+      default: () => ([]),
+      type: Array,
+      require: true
+    }
   },
   data() {
     return {

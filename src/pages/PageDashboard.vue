@@ -52,7 +52,7 @@
 import CardTotal from "components/dashboard/CardTotal.vue";
 import BarGraph from "components/dashboard/BarGraph.vue";
 import { mapGetters } from "vuex";
-import { getComments, getTodos } from "src/boot/axios.js";
+import { getComments, getTodos } from "src/services";
 export default {
   name: "DashboardOne",
   components: {

@@ -16,3 +16,9 @@ export function getComments() {
 export function getTodos() {
   return axiosInstanceJsonPlaceholder.get("todos");
 }
+export function findAllUsers() {
+  return axiosInstanceJsonPlaceholder.get('users')
+}
+export function saveUser(user) {
+  return axiosInstanceJsonPlaceholder.put(`users/${user.id}`, user)
+}

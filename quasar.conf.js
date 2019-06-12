@@ -4,7 +4,7 @@ module.exports = function(ctx) {
   return {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
-    boot: ["i18n"],
+    boot: ["i18n", 'gmaps'],
 
     css: ["app.styl"],
 
@@ -41,6 +41,12 @@ module.exports = function(ctx) {
         'QCardSection',
         'QCardActions',
         'QSeparator',
+        'QSelect',
+        'QField',
+        'QInput',
+        'QDialog',
+        'QBreadcrumbs',
+        'QBreadcrumbsEl'
 
       ],
 
@@ -89,7 +95,7 @@ module.exports = function(ctx) {
 
     // animations: 'all' --- includes all animations
     animations: [
-      'fadeIn', 'fadeOut'
+      'fadeIn', 'fadeOut', 'fadeInDown', 'fadeInUp'
     ],
 
     ssr: {
