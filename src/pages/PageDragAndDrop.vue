@@ -39,14 +39,12 @@
       :style="move"
     >
       <div id="right" />
-      <h5>
-        <span
-          id="span-price"
-          class="label bg-amber text-white"
-        >
-          <span class="left-detail">Total</span> $<span ref="number" />
-        </span>
-      </h5>
+      <span
+        id="span-price"
+        class="label bg-amber text-white"
+      >
+        <span class="left-detail">Total</span> $<span ref="number" />
+      </span>
     </div>
   </div>
 </template>
@@ -70,7 +68,7 @@ export default {
     };
   },
   watch: {
-    totalCost (newValue, oldValue) {
+    totalCost (oldValue, newValue) {
       /* eslint-disable no-new */
       let countUp = new CountUp(
         this.$refs.number,
@@ -116,9 +114,9 @@ export default {
 }
 #cart {
   background: url("~assets/img/cart.svg") white no-repeat;
-  background-size: 300px 300px;
-  width: 300px;
-  height: 320px;
+  background-size: 350px 350px;
+  width: 350px;
+  height: 350px;
 }
 #span-price {
   margin-top: 16px;
@@ -128,8 +126,8 @@ export default {
 
 #right {
   margin-left: 87px;
-  margin-top: 20px;
-  width: 194px;
+  padding-top: 80px;
+  width: 257;
   height: 111px;
 }
 </style>
