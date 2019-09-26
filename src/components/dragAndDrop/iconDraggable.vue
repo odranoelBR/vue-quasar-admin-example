@@ -3,15 +3,16 @@
     :src="icon"
     class="icon-size cursor-pointer	"
     alt=""
+    :data-value="badgeValue"
   >
-    <q-badge 
+    <q-badge
       v-if="badgeValue"
       :color="color"
       transparent
       align="bottom"
     >
-      {{ badgeValue }}
-    </q-badge>  
+      ${{ badgeValue }}
+    </q-badge>
   </q-img>
 </template>
 <script>
@@ -33,15 +34,15 @@ export default {
 }
 </script>
 <style scoped>
- .q-img .q-badge {
-   padding: 7px;
-   left: 43px;
- }
- .q-img:nth-child(2){
-   margin-right: 15px;
- }
- .icon-size {
-    width: 70px;
-    height: 70px;
+.q-img .q-badge {
+  padding: 7px;
+  left: 43px;
+}
+.q-img:nth-child(2) {
+  margin-right: 15px;
+}
+.icon-size {
+  width: 70px;
+  height: 70px;
 }
 </style>

@@ -7,7 +7,7 @@
           {{ title }}
         </div>
       </section>
-      
+
       <q-toolbar-title />
     </q-toolbar>
 
@@ -33,11 +33,11 @@
 
 <script>
 export default {
-  props:  {
+  props: {
     toolbarClass: {
       default: '',
       type: String,
-      required: false 
+      required: false
     },
     title: {
       type: String,
@@ -53,7 +53,6 @@ export default {
 </script>
 
 <style scoped>
-
 .doc-card-title {
   margin-left: -24px;
   padding: 2px 10px 2px 24px;

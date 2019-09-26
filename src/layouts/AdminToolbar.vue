@@ -13,28 +13,33 @@
       Quasar Admin App
     </q-toolbar-title>
 
-    <div class="row q-gutter-md">
-      <div class="col">
-        <q-icon
-          class="cursor-pointer	"
-          name="fa fa-envelope"
-          size="27px"
-        />
-        <admin-menu />
-      </div>
-      <div class="col">
-        <a
-          href="https://github.com/odranoelBR/vue-quasar-admin-example"
-          class="text-white"
-        >
-          <q-icon
-            class="cursor-pointer"
-            name="fab fa-github"
-            size="25px"
-          />
-        </a>
-      </div>
-    </div>
+    <q-space />
+
+    <q-input
+      v-model="search"
+      dense
+      dark
+      filled
+      standout="text-white"
+      placeholder="Search"
+    >
+      <template v-slot:append>
+        <q-icon name="search" />
+      </template>
+    </q-input>
+
+    <admin-menu />
+
+    <a
+      href="https://github.com/odranoelBR/vue-quasar-admin-example"
+      class="text-white q-pa-sm"
+    >
+      <q-icon
+        class="cursor-pointer"
+        name="fab fa-github"
+        size="25px"
+      />
+    </a>
   </q-toolbar>
 </template>
 
@@ -44,8 +49,12 @@ export default {
   components: {
     AdminMenu
   },
+  data: () => ({
+    search: '',
+    searchFocused: false
+  }),
   methods: {
-    toggleMenu() {
+    toggleMenu () {
       this.$emit("toggleMenu");
     }
   }
@@ -53,7 +62,7 @@ export default {
 </script>
 <style scoped>
 a {
-   text-decoration: none;
+  text-decoration: none;
 }
 </style>
 

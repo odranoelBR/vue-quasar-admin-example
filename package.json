@@ -7,6 +7,7 @@
   "author": "muniz <leonzephiro@gmail.com>",
   "private": true,
   "scripts": {
+    "quasar": "node_modules/.bin/quasar",
     "lint": "eslint --ext .js,.vue src",
     "test": "echo \"See package.json => scripts for available tests.\" && exit 0",
     "test:unit": "jest --updateSnapshot",
@@ -24,7 +25,9 @@
     "audit:lighthouse": "lighthouse http://localhost:3000 view --output-path=./test/lighthouse/reports/index.html --config-path=./test/lighthouse/configs/full-config.js"
   },
   "dependencies": {
+    "@quasar/cli": "^1.0.0",
     "@quasar/extras": "^1.0.0",
+    "@shopify/draggable": "^1.0.0-beta.8",
     "axios": "^0.18.0",
     "axios-mock-adapter": "^1.16.0",
     "chart.js": "^2.7.3",

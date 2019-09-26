@@ -1,6 +1,6 @@
 // Configuration for your app
 
-module.exports = function(ctx) { 
+module.exports = function (ctx) {
   return {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
@@ -48,7 +48,8 @@ module.exports = function(ctx) {
         'QBreadcrumbs',
         'QBreadcrumbsEl',
         'QBadge',
-        'QAjaxBar'
+        'QAjaxBar',
+        'QSpace'
 
       ],
 
@@ -70,7 +71,7 @@ module.exports = function(ctx) {
       // gzip: true,
       // analyze: true,
       // extractCSS: false,
-      extendWebpack(cfg) {
+      extendWebpack (cfg) {
         cfg.module.rules.push({
           enforce: "pre",
           test: /\.(js|vue)$/,
@@ -151,8 +152,8 @@ module.exports = function(ctx) {
 
     electron: {
       // bundler: 'builder', // or 'packager'
-      extendWebpack(cfg) {
-    
+      extendWebpack (cfg) {
+
       },
       packager: {
         // https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#options

@@ -4,7 +4,7 @@
       position="top"
       color="warning"
       size="5px"
-    /> 
+    />
     <q-header elevated>
       <admin-toolbar @toggleMenu="leftDrawerOpen = !leftDrawerOpen" />
     </q-header>
@@ -12,17 +12,17 @@
     <admin-drawer :left-drawer-open="leftDrawerOpen" />
 
     <q-page-container>
-      <transition
-        appear
-        :duration="{ enter: 300, leave: 300 }"
-        mode="out-in"
-        enter-active-class="animated fadeIn"
-        leave-active-class="animated fadeOut"
-      >
-        <q-page padding>
+      <q-page padding>
+        <transition
+          appear
+          :duration="{ enter: 300, leave: 300 }"
+          mode="out-in"
+          enter-active-class="animated fadeIn"
+          leave-active-class="animated fadeOut"
+        >
           <router-view class="q-ma-md" />
-        </q-page>
-      </transition>
+        </transition>
+      </q-page>
     </q-page-container>
   </q-layout>
 </template>
@@ -43,13 +43,13 @@ export default {
     leftDrawerOpen: true,
     data: []
   }),
-  mounted() {
+  mounted () {
     this.go();
   },
   methods: {
     ...mapMutations("app", ["setPosts"]),
     openURL,
-    go() {
+    go () {
       getPosts().then(response => {
         this.setPosts(response.data);
       });

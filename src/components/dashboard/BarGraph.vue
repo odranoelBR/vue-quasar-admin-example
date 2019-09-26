@@ -3,18 +3,18 @@ import { Bar } from "vue-chartjs";
 export default {
   extends: Bar,
   props: {
-    data: {  
-      default: () => ([]), 
-      type: Array, 
-      require: true 
+    data: {
+      default: () => ([]),
+      type: Array,
+      require: true
     },
-    labels: { 
+    labels: {
       default: () => ([]),
       type: Array,
       require: true
     }
   },
-  data() {
+  data () {
     return {
       defaultOptions: {
         scales: {
@@ -41,7 +41,7 @@ export default {
     };
   },
   watch: {
-    data() {
+    data () {
       this.renderChart({ labels: this.labels, datasets: this.data });
     }
   }

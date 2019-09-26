@@ -64,7 +64,7 @@ export default {
       labelsForGraph: ["Posts", "Comments", "Todos"],
       totalComments: 0,
       totalTodos: 0
-    }; 
+    };
   },
   mounted() {
     Promise.all([getComments(), getTodos()]).then(response => {
@@ -72,7 +72,7 @@ export default {
       this.totalTodos = response[1].data.length;
     });
   },
-  computed: { 
+  computed: {
     ...mapGetters("app", ["getPosts"]),
     totalPosts() {
       return this.getPosts.length;
