@@ -46,7 +46,9 @@ module.exports = function(ctx) {
         'QInput',
         'QDialog',
         'QBreadcrumbs',
-        'QBreadcrumbsEl'
+        'QBreadcrumbsEl',
+        'QBadge',
+        'QAjaxBar'
 
       ],
 

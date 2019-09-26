@@ -73,8 +73,7 @@ export default {
   data() {
     return {
       selected: '',
-      users: { data: [] },
-      toggleModal: false
+      users: { data: [] }
     };
   },
   computed: {

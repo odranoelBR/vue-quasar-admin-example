@@ -1,5 +1,10 @@
 <template>
   <q-layout view="hHr LpR lFf">
+    <q-ajax-bar
+      position="top"
+      color="warning"
+      size="5px"
+    /> 
     <q-header elevated>
       <admin-toolbar @toggleMenu="leftDrawerOpen = !leftDrawerOpen" />
     </q-header>
@@ -9,7 +14,7 @@
     <q-page-container>
       <transition
         appear
-        :duration="{ enter: 200, leave: 200 }"
+        :duration="{ enter: 300, leave: 300 }"
         mode="out-in"
         enter-active-class="animated fadeIn"
         leave-active-class="animated fadeOut"

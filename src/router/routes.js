@@ -29,7 +29,7 @@ const routes = [
       },
       {
         path: "/drag-and-drop",
-        component: () => import("pages/dragAndDrop/dragAndDrop"),
+        component: () => import("pages/DragAndDrop"),
         meta: { name: "Drag and Drop" },
         name: "drag-and-drop"
       }
