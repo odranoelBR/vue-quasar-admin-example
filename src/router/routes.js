@@ -1,8 +1,10 @@
+import apps from '@modules/apps/router.js'
 const routes = [
   {
     path: "/",
     component: () => import("layouts/AdminLayout.vue"),
     children: [
+      ...apps,
       {
         path: "/",
         component: () => import("pages/PageDashboard"),
@@ -26,12 +28,6 @@ const routes = [
         component: () => import("pages/PagePricing"),
         meta: { name: "Pricing" },
         name: "pricing"
-      },
-      {
-        path: "/drag-and-drop",
-        component: () => import("pages/PageDragAndDrop"),
-        meta: { name: "Drag and Drop" },
-        name: "drag-and-drop"
       }
     ]
   }

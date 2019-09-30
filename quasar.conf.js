@@ -73,6 +73,10 @@ module.exports = function (ctx) {
       // analyze: true,
       // extractCSS: false,
       extendWebpack (cfg) {
+        cfg.resolve.alias = {
+          ...cfg.resolve.alias,
+          '@modules': 'src/modules'
+        }
         cfg.module.rules.push({
           enforce: "pre",
           test: /\.(js|vue)$/,

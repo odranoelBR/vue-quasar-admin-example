@@ -1,7 +1,7 @@
 <template>
   <q-img
     :src="icon"
-    class="icon-size"
+    class="icon-size cursor-pointer"
     :data-value="badgeValue"
   >
     <q-badge

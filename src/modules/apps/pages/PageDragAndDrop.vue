@@ -26,8 +26,8 @@
           badge-value="7"
         />
       </div>
-      <div class="row">
-        <div class="col">
+      <div class="row q-gutter-xl">
+        <div class="col-auto">
           <img
             src="~assets/img/table.svg"
             alt=""
@@ -44,57 +44,32 @@
       </div>
     </div>
 
-    <q-chip
+    <drag-bar
       slot="body-two"
-      square
-    >
-      <q-avatar
-        icon="shopping_cart"
-        color="green"
-        text-color="white"
-      />
-      <div class="text-5">
-        $
-        {{ totalCost ? '' : '0' }}
-        <span ref="number" />
-      </div>
-    </q-chip>
+      :total-cost="totalCost"
+      @pay="move = arguments[0]"
+    />
   </a-card-doc>
 </template>
 <script type="text/javascript">
 import Dragula from "dragula/dragula"
-import { CountUp } from "countup.js"
-import IconDraggable from 'src/components/dragAndDrop/iconDraggable'
+import "dragula/dist/dragula.css"
+import IconDraggable from '@modules/apps/components/IconDraggable'
+import DragBar from '@modules/apps/components/DragBar'
 import ACardDoc from 'components/ACardDoc.vue'
 
 export default {
   components: {
-    IconDraggable, ACardDoc
+    IconDraggable, ACardDoc, DragBar
   },
   data () {
     return {
       dragula: "",
       totalCost: 0,
-      options: {
-        separator: "."
-      },
       move: ""
     };
   },
-  watch: {
-    totalCost (oldValue, newValue) {
-      /* eslint-disable no-new */
-      let countUp = new CountUp(
-        this.$refs.number,
-        oldValue,
-        newValue,
-        0,
-        1.5,
-        this.options
-      );
-      countUp.start();
-    }
-  },
+
   mounted () {
     let vm = this;
     this.dragula = Dragula([document.querySelector("#left"), document.querySelector("#right")])
@@ -106,33 +81,25 @@ export default {
           ? (vm.totalCost += parseInt(el.getAttribute('data-value')))
           : (vm.totalCost -= parseInt(el.getAttribute('data-value')));
       });
-  },
-  methods: {
-    pay () {
-      let vm = this;
-      this.move = { animation: "cartOut 2s" };
-      setTimeout(function () {
-        vm.move = "";
-      }, 2100);
-    }
   }
 };
 </script>
 
 <style scoped>
-.row-fruits {
-}
 #cart {
   background: url("~assets/img/cart.svg") white no-repeat;
   background-size: 350px 350px;
   width: 350px;
   height: 350px;
 }
-
+#left {
+  position: absolute;
+  top: 10px;
+}
 #right {
   margin-left: 87px;
-  padding-top: 87px;
+  margin-top: 92px;
   width: 257px;
-  height: 111px;
+  height: 130px;
 }
 </style>
