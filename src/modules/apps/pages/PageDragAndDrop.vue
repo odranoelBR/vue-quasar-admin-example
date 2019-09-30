@@ -6,24 +6,10 @@
     <div slot="body-one">
       <div id="left">
         <icon-draggable
-          icon="assets/img/apple.svg"
-          badge-value="4"
-        />
-        <icon-draggable
-          icon="assets/img/pear.svg"
-          badge-value="3"
-        />
-        <icon-draggable
-          icon="assets/img/orange.svg"
-          badge-value="2"
-        />
-        <icon-draggable
-          icon="assets/img/watermelon.svg"
-          badge-value="4"
-        />
-        <icon-draggable
-          icon="assets/img/strawberry.svg"
-          badge-value="7"
+          v-for="(fruit, index) in fruits"
+          :key="index"
+          :icon="fruit.icon"
+          :badge-value="fruit.value"
         />
       </div>
       <div class="row q-gutter-xl">
@@ -64,23 +50,34 @@ export default {
   },
   data () {
     return {
+      fruits: [
+        { icon: 'assets/img/apple.svg', value: 4 },
+        { icon: 'assets/img/pear.svg', value: 3 },
+        { icon: 'assets/img/orange.svg', value: 2 },
+        { icon: 'assets/img/watermelon.svg', value: 4 },
+        { icon: 'assets/img/strawberry.svg', value: 7 }
+      ],
       dragula: "",
       totalCost: 0,
       move: ""
     };
   },
-
   mounted () {
-    let vm = this;
-    this.dragula = Dragula([document.querySelector("#left"), document.querySelector("#right")])
-      .on("drop", (el, container, source) => {
-        if (source.id === container.id) {
-          return;
-        }
-        source.id === "left"
-          ? (vm.totalCost += parseInt(el.getAttribute('data-value')))
-          : (vm.totalCost -= parseInt(el.getAttribute('data-value')));
-      });
+    this.dragula = Dragula([
+      document.querySelector("#left"),
+      document.querySelector("#right")
+    ])
+      .on("drop", this.changeTotalCost)
+  },
+  methods: {
+    changeTotalCost (el, container, source) {
+      if (source.id === container.id) {
+        return;
+      }
+      source.id === "left"
+        ? (this.totalCost += parseInt(el.getAttribute('data-value')))
+        : (this.totalCost -= parseInt(el.getAttribute('data-value')));
+    }
   }
 };
 </script>

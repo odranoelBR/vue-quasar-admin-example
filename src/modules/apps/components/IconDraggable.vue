@@ -26,7 +26,7 @@ export default {
       default: () => 'primary'
     },
     badgeValue: {
-      type: String,
+      type: Number,
       default: () => ''
     }
   }

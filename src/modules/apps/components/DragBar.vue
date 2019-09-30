@@ -13,7 +13,6 @@
         />
         <div>
           $
-          {{ totalCost ? '' : '0' }}
           <span ref="number" />
         </div>
       </q-chip>
@@ -24,8 +23,8 @@
         color="green"
         size="12px"
         icon-right="send"
-        label="Pay"
-        @click="pay"
+        label="Checkout"
+        @click="checkout"
       />
     </div>
   </div>
@@ -37,20 +36,22 @@ export default {
   props: {
     totalCost: Number
   },
+  data: () => ({
+    countUp: null
+  }),
   watch: {
-    totalCost (oldValue, newValue) {
-      let countUp = new CountUp(
-        this.$refs.number,
-        oldValue,
-        newValue
-      );
-      countUp.start();
+    totalCost (newValue) {
+      this.countUp.update(newValue);
     }
   },
+  mounted () {
+    this.countUp = new CountUp(this.$refs.number, 0)
+    this.countUp.start()
+  },
   methods: {
-    pay () {
+    checkout () {
       let vm = this;
-      this.$emit('pay', { animation: "cartOut 2s" });
+      this.$emit('checkout', { animation: "cartOut 2s" });
       setTimeout(function () {
         vm.move = "";
       }, 2100);
