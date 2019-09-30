@@ -49,7 +49,8 @@ module.exports = function (ctx) {
         'QBreadcrumbsEl',
         'QBadge',
         'QAjaxBar',
-        'QSpace'
+        'QSpace',
+        'QChip'
 
       ],
 

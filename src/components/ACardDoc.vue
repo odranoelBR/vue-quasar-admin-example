@@ -25,7 +25,10 @@
 
     <q-separator />
 
-    <q-card-section class="bg-white">
+    <q-card-section
+      v-if="hasBodyThreeData"
+      class="bg-white"
+    >
       <slot name="body-three" />
     </q-card-section>
   </q-card>
@@ -48,6 +51,11 @@ export default {
     return {
       test: false
     };
+  },
+  computed: {
+    hasBodyThreeData () {
+      return !!this.$slots['body-three'];
+    }
   }
 };
 </script>

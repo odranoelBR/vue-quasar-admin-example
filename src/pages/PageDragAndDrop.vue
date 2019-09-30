@@ -1,61 +1,75 @@
 <template>
-  <div>
-    <div
-      id="left"
-      class="row row-fruits"
-    >
-      <icon-draggable
-        icon="assets/img/apple.svg"
-        badge-value="4"
-      />
-      <icon-draggable
-        icon="assets/img/pear.svg"
-        badge-value="3"
-      />
-      <icon-draggable
-        icon="assets/img/orange.svg"
-        badge-value="2"
-      />
-      <icon-draggable
-        icon="assets/img/watermelon.svg"
-        badge-value="4"
-      />
-      <icon-draggable
-        icon="assets/img/strawberry.svg"
-        badge-value="7"
-      />
-    </div>
-    <div class="row">
-      <img
-        src="~assets/img/table.svg"
-        alt=""
-      >
+  <a-card-doc
+    toolbar-class="bg-secondary"
+    title="Drag to cart"
+  >
+    <div slot="body-one">
+      <div id="left">
+        <icon-draggable
+          icon="assets/img/apple.svg"
+          badge-value="4"
+        />
+        <icon-draggable
+          icon="assets/img/pear.svg"
+          badge-value="3"
+        />
+        <icon-draggable
+          icon="assets/img/orange.svg"
+          badge-value="2"
+        />
+        <icon-draggable
+          icon="assets/img/watermelon.svg"
+          badge-value="4"
+        />
+        <icon-draggable
+          icon="assets/img/strawberry.svg"
+          badge-value="7"
+        />
+      </div>
+      <div class="row">
+        <div class="col">
+          <img
+            src="~assets/img/table.svg"
+            alt=""
+          >
+        </div>
+        <div
+          id="cart"
+          ref="cart"
+          class="text-center col"
+          :style="move"
+        >
+          <div id="right" />
+        </div>
+      </div>
     </div>
 
-    <div
-      id="cart"
-      ref="cart"
-      class="text-center"
-      :style="move"
+    <q-chip
+      slot="body-two"
+      square
     >
-      <div id="right" />
-      <span
-        id="span-price"
-        class="label bg-amber text-white"
-      >
-        <span class="left-detail">Total</span> $<span ref="number" />
-      </span>
-    </div>
-  </div>
+      <q-avatar
+        icon="shopping_cart"
+        color="green"
+        text-color="white"
+      />
+      <div class="text-5">
+        $
+        {{ totalCost ? '' : '0' }}
+        <span ref="number" />
+      </div>
+    </q-chip>
+  </a-card-doc>
 </template>
 <script type="text/javascript">
 import Dragula from "dragula/dragula"
 import { CountUp } from "countup.js"
 import IconDraggable from 'src/components/dragAndDrop/iconDraggable'
+import ACardDoc from 'components/ACardDoc.vue'
 
 export default {
   components: {
-    IconDraggable
+    IconDraggable, ACardDoc
   },
   data () {
     return {
@@ -83,17 +97,15 @@ export default {
   },
   mounted () {
     let vm = this;
-    this.dragula = Dragula([
-      document.querySelector("#left"),
-      document.querySelector("#right")
-    ]).on("drop", (el, container, source) => {
-      if (source.id === container.id) {
-        return;
-      }
-      source.id === "left"
-        ? (vm.totalCost += parseInt(el.getAttribute('data-value')))
-        : (vm.totalCost -= parseInt(el.getAttribute('data-value')));
-    });
+    this.dragula = Dragula([document.querySelector("#left"), document.querySelector("#right")])
+      .on("drop", (el, container, source) => {
+        if (source.id === container.id) {
+          return;
+        }
+        source.id === "left"
+          ? (vm.totalCost += parseInt(el.getAttribute('data-value')))
+          : (vm.totalCost -= parseInt(el.getAttribute('data-value')));
+      });
   },
   methods: {
     pay () {
@@ -109,8 +121,6 @@ export default {
 
 <style scoped>
 .row-fruits {
-  position: absolute;
-  top: 25px;
 }
 #cart {
   background: url("~assets/img/cart.svg") white no-repeat;
@@ -118,16 +128,11 @@ export default {
   width: 350px;
   height: 350px;
 }
-#span-price {
-  margin-top: 16px;
-  margin-left: 166px;
-  width: 132px;
-}
 
 #right {
   margin-left: 87px;
-  padding-top: 80px;
-  width: 257;
+  padding-top: 87px;
+  width: 257px;
   height: 111px;
 }
 </style>
