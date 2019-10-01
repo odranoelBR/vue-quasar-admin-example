@@ -72,51 +72,21 @@ export default {
     groupedLinks: {
       Dashboard: {
         routes: [
-          {
-            route: "/",
-            faIcon: "fa fa-home",
-            materialIcon: "home",
-            name: "Dashboard One",
-            routeName: "dash-one"
-          }
+          { route: "/", faIcon: "fa fa-home", materialIcon: "home", name: "Dashboard One", routeName: "dash-one" }
         ],
         show: true
       },
       Forms: {
         routes: [
-          {
-            route: "/form",
-            faIcon: "fa fa-search",
-            materialIcon: "search",
-            name: "Form find / edit",
-            routeName: "form-search"
-          }
+          { route: "/form", faIcon: "fa fa-search", materialIcon: "search", name: "Form find / edit", routeName: "form-search" },
+          { route: "/advanced-form", faIcon: "fa fa-search", materialIcon: "search", name: "Advanced Form", routeName: "advanced-form" }
         ],
         show: false
       },
       Pages: {
         routes: [
-          //     {
-          //       route: "/login-one",
-          //       faIcon: "fa fa-unlock-alt",
-          //       materialIcon: "lock_open",
-          //       name: "Login One",
-          //       routeName: "login"
-          //     },
-          {
-            route: "/pricing",
-            faIcon: "fa fa-money-bill-alt",
-            materialIcon: "attach_money",
-            name: "Pricing",
-            routeName: "pricing"
-          },
-          {
-            route: "/drag-and-drop",
-            faIcon: "fa fa-arrows-alt",
-            materialIcon: "move_to_inbox",
-            name: "Drag and Drop",
-            routeName: "drag-and-drop"
-          }
+          { route: "/pricing", faIcon: "fa fa-money-bill-alt", materialIcon: "attach_money", name: "Pricing", routeName: "pricing" },
+          { route: "/drag-and-drop", faIcon: "fa fa-arrows-alt", materialIcon: "move_to_inbox", name: "Drag and Drop", routeName: "drag-and-drop" }
         ]
         //   show: false
         // }
@@ -129,7 +99,7 @@ export default {
 .router-link-active {
   border-right: 3px solid #7fd7fb;
   color: #2196f3;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
 }
 .drawer {
   font-size: 1.1em;

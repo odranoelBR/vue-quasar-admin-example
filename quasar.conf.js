@@ -50,7 +50,11 @@ module.exports = function (ctx) {
         'QBadge',
         'QAjaxBar',
         'QSpace',
-        'QChip'
+        'QChip',
+        'QStepper',
+        'QStepperNavigation',
+        'QStep',
+        'QBtnToggle'
 
       ],
 

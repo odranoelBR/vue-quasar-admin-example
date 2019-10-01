@@ -2,9 +2,9 @@
   <a-card-doc
     toolbar-class="bg-secondary"
     title="Edit User"
-  > 
+  >
     <div
-      slot="body-one" 
+      slot="body-one"
       class="row"
     >
       <div class="col-4">
@@ -19,7 +19,7 @@
     </div>
     <div
       slot="body-two"
-      class="row" 
+      class="row"
     >
       <transition
         appear
@@ -28,7 +28,7 @@
         leave-active-class="animated fadeInUp"
       >
         <form-user
-          v-if="selected.value"  
+          v-if="selected.value"
           :user="selected.value"
         />
       </transition>
@@ -48,7 +48,7 @@
       </div>
       <div class="col">
         <q-btn
-          v-if="selected.value"  
+          v-if="selected.value"
           color="positive"
           class="float-right"
           @click="save"
@@ -60,9 +60,9 @@
   </a-card-doc>
 </template>
 <script type="text/javascript">
-import { findAllUsers, saveUser } from 'src/services'
+import { findAllUsers, saveUser } from 'src/services/jsonplaceholderService'
 import FormUser from 'components/form/FormUser'
-import DialogAdress from 'components/form/DialogAdress' 
+import DialogAdress from 'components/form/DialogAdress'
 import ACardDoc from 'components/ACardDoc.vue'
 
 export default {
@@ -70,7 +70,7 @@ export default {
   components: {
     FormUser, ACardDoc, DialogAdress
   },
-  data() {
+  data () {
     return {
       selected: '',
       users: { data: [] }
@@ -88,9 +88,9 @@ export default {
   methods: {
     save () {
       saveUser(this.selected.value)
-      .then(() => {
-        this.$q.notify({ message: `Save user complete.`, color: 'positive'})
-      })
+        .then(() => {
+          this.$q.notify({ message: `Save user complete.`, color: 'positive' })
+        })
     },
     async findAllUsers () {
       this.users = await findAllUsers()

@@ -49,11 +49,11 @@ export default {
     this.countUp.start()
   },
   methods: {
-    checkout () {
-      let vm = this;
+    pay () {
       this.$emit('checkout', { animation: "cartOut 2s" });
-      setTimeout(function () {
-        vm.move = "";
+      setTimeout(() => {
+        this.$emit('checkout', { animation: "" });
+
       }, 2100);
     }
   }

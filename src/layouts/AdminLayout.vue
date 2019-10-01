@@ -28,11 +28,9 @@
 </template>
 
 <script>
-import { openURL } from "quasar";
-import { mapMutations } from "vuex";
+import { mapActions } from "vuex";
 import AdminDrawer from "./AdminDrawer.vue";
 import AdminToolbar from "./AdminToolbar.vue";
-import { getPosts } from "src/services";
 export default {
   name: "AdminLayout",
   components: {
@@ -44,16 +42,10 @@ export default {
     data: []
   }),
   mounted () {
-    this.go();
+    this.fetchPosts()
   },
   methods: {
-    ...mapMutations("app", ["setPosts"]),
-    openURL,
-    go () {
-      getPosts().then(response => {
-        this.setPosts(response.data);
-      });
-    }
+    ...mapActions(['fetchPosts'])
   }
 };
 </script>
