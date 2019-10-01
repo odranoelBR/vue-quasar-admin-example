@@ -6,10 +6,10 @@ jest.mock('axios')
 
 describe('Mount Quasar', () => {
   it('test axios', async () => {
-    axios.get.mockImplementation(() => Promise.resolve({ data: [1,2,3] }));
+    axios.get.mockImplementation(() => Promise.resolve({ data: [1, 2, 3] }));
 
     const wrapper = await mountQuasar(AdminLayout)
 
-    console.log(wrapper.vm.$store.getters['app/getPosts'])
+    // console.log(wrapper.vm.$store.getters['app/getPosts'])
   })
 })

@@ -45,7 +45,7 @@ import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters("app", ["getPosts"]),
+    ...mapGetters(["getPosts"]),
     filteredPosts () {
       return this.getPosts.slice(0, 5);
     }

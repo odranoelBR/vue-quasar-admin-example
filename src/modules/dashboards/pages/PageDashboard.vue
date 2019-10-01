@@ -51,33 +51,34 @@
 <script type="text/javascript">
 import CardTotal from "components/dashboard/CardTotal.vue";
 import BarGraph from "components/dashboard/BarGraph.vue";
-import { mapGetters } from "vuex";
-import { getComments, getTodos } from "src/services";
+import { mapGetters, mapActions } from "vuex";
+import { getComments, getTodos } from "src/services/jsonplaceholderService";
 export default {
   name: "DashboardOne",
   components: {
     CardTotal,
     BarGraph
   },
-  data() {
+  data () {
     return {
       labelsForGraph: ["Posts", "Comments", "Todos"],
       totalComments: 0,
       totalTodos: 0
     };
   },
-  mounted() {
+  mounted () {
+    this.fetchPosts()
     Promise.all([getComments(), getTodos()]).then(response => {
       this.totalComments = response[0].data.length;
       this.totalTodos = response[1].data.length;
     });
   },
   computed: {
-    ...mapGetters("app", ["getPosts"]),
-    totalPosts() {
+    ...mapGetters("dashboards", ["getPosts"]),
+    totalPosts () {
       return this.getPosts.length;
     },
-    dataForGraph() {
+    dataForGraph () {
       return [
         { label: "Posts", backgroundColor: "#2196F3", data: [this.totalPosts] },
         { label: "Todos", backgroundColor: "#D81B60", data: [this.totalTodos] },
@@ -88,6 +89,9 @@ export default {
         }
       ];
     }
+  },
+  methods: {
+    ...mapActions('dashboards', ['fetchPosts'])
   }
 };
 </script>
