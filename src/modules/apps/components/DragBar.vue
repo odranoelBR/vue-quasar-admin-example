@@ -24,8 +24,8 @@
         color="green"
         size="12px"
         icon-right="send"
-        label="Pay"
-        @click="pay"
+        label="Checkout"
+        @click="checkout"
       />
     </div>
   </div>
@@ -49,10 +49,10 @@ export default {
   },
   methods: {
     pay () {
-      let vm = this;
-      this.$emit('pay', { animation: "cartOut 2s" });
-      setTimeout(function () {
-        vm.move = "";
+      this.$emit('checkout', { animation: "cartOut 2s" });
+      setTimeout(() => {
+        this.$emit('checkout', { animation: "" });
+
       }, 2100);
     }
   }
