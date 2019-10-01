@@ -54,6 +54,7 @@ module.exports = function (ctx) {
         'QStepper',
         'QStepperNavigation',
         'QStep',
+        'QBtnToggle'
 
       ],
 
