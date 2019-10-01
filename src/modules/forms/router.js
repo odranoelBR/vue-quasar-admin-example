@@ -5,6 +5,12 @@ const routes = [
     meta: { name: "Form Search" },
     name: "form-search"
   },
+  {
+    path: "/advanced-form",
+    component: () => import("./pages/PageAdvancedForm"),
+    meta: { name: "Advanced Form" },
+    name: "advanced-form"
+  },
 ];
 
 export default routes;

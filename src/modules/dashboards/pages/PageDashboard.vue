@@ -66,13 +66,6 @@ export default {
       totalTodos: 0
     };
   },
-  mounted () {
-    this.fetchPosts()
-    Promise.all([getComments(), getTodos()]).then(response => {
-      this.totalComments = response[0].data.length;
-      this.totalTodos = response[1].data.length;
-    });
-  },
   computed: {
     ...mapGetters("dashboards", ["getPosts"]),
     totalPosts () {
@@ -90,6 +83,14 @@ export default {
       ];
     }
   },
+  mounted () {
+    this.fetchPosts()
+    Promise.all([getComments(), getTodos()]).then(response => {
+      this.totalComments = response[0].data.length;
+      this.totalTodos = response[1].data.length;
+    });
+  },
+
   methods: {
     ...mapActions('dashboards', ['fetchPosts'])
   }
