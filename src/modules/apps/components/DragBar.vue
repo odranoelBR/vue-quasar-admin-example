@@ -49,7 +49,7 @@ export default {
     this.countUp.start()
   },
   methods: {
-    pay () {
+    checkout () {
       this.$emit('checkout', { animation: "cartOut 2s" });
       setTimeout(() => {
         this.$emit('checkout', { animation: "" });

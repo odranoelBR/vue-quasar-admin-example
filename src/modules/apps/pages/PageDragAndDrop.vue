@@ -33,7 +33,7 @@
     <drag-bar
       slot="body-two"
       :total-cost="totalCost"
-      @pay="move = arguments[0]"
+      @checkout="move = arguments[0]"
     />
   </a-card-doc>
 </template>

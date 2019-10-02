@@ -79,7 +79,7 @@ export default {
       Forms: {
         routes: [
           { route: "/form", faIcon: "fa fa-search", materialIcon: "search", name: "Form find / edit", routeName: "form-search" },
-          { route: "/advanced-form", faIcon: "fa fa-search", materialIcon: "search", name: "Advanced Form", routeName: "advanced-form" }
+          { route: "/advanced-form", faIcon: "fa fa-ticket-alt", materialIcon: "card-travel", name: "Advanced Form", routeName: "advanced-form" }
         ],
         show: false
       },
