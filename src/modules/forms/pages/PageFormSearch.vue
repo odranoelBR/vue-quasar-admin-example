@@ -59,7 +59,7 @@
     </div>
   </a-card-doc>
 </template>
-<script type="text/javascript">
+<script type="text/javascript"> 
 import { findAllUsers, saveUser } from 'src/services/jsonplaceholderService'
 import FormUser from 'components/form/FormUser'
 import DialogAdress from 'components/form/DialogAdress'

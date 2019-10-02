@@ -54,7 +54,9 @@ module.exports = function (ctx) {
         'QStepper',
         'QStepperNavigation',
         'QStep',
-        'QBtnToggle'
+        'QBtnToggle',
+        'QDate',
+        'QPopupProxy'
 
       ],
 
@@ -105,10 +107,10 @@ module.exports = function (ctx) {
       open: true // opens browser window automatically
     },
 
-    // animations: 'all' --- includes all animations
-    animations: [
-      'fadeIn', 'fadeOut', 'fadeInDown', 'fadeInUp'
-    ],
+    animations: 'all', // includes all animations
+    // animations: [
+    //   'fadeIn', 'fadeOut', 'fadeInDown', 'fadeInUp'
+    // ],
 
     ssr: {
       pwa: false
