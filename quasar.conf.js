@@ -51,12 +51,14 @@ module.exports = function (ctx) {
         'QAjaxBar',
         'QSpace',
         'QChip',
-        'QStepper',
-        'QStepperNavigation',
-        'QStep',
         'QBtnToggle',
         'QDate',
-        'QPopupProxy'
+        'QTabs',
+        'QTab',
+        'QSplitter',
+        'QTabPanel',
+        'QTabPanels',
+        'QPagination'
 
       ],
 
