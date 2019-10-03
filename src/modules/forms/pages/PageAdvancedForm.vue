@@ -1,6 +1,10 @@
 <template>
   <div>
-    <q-splitter v-model="splitterModel">
+    <q-splitter
+      id="splitter-classes"
+      v-model="splitterModel"
+      :before-class="{ 'width': '12%' }"
+    >
       <template v-slot:before>
         <q-tabs
           v-model="tab"
@@ -62,3 +66,8 @@ export default {
   }
 }
 </script>
+<style  scoped>
+.q-tab-panel {
+  background-color: #f7faff;
+}
+</style>

@@ -14,13 +14,6 @@
 
           <q-list>
             <q-item clickable>
-              <q-item-section avatar>
-                <q-icon
-                  color="primary"
-                  name="local_bar"
-                />
-              </q-item-section>
-
               <q-item-section>
                 <q-item-label>Bar XYZ</q-item-label>
                 <q-item-label caption>
@@ -35,7 +28,7 @@
     <div class="q-pa-lg flex flex-center">
       <q-pagination
         v-model="page"
-        :max="5"
+        :max="maxPages"
         :direction-links="true"
       />
     </div>
@@ -55,6 +48,9 @@ export default {
     page: 1
   }),
   computed: {
+    maxPages () {
+      return Math.ceil(this.cards.length / this.maxPerPage)
+    },
     cardsPerPage () {
       return this.cards.slice(this.offset, this.maxPerPage * this.page)
     },
