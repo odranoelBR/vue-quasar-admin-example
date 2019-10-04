@@ -1,73 +1,50 @@
 <template>
-  <div>
-    <q-splitter
-      id="splitter-classes"
-      v-model="splitterModel"
-      :before-class="{ 'width': '12%' }"
-    >
-      <template v-slot:before>
-        <q-tabs
-          v-model="tab"
-          vertical
-          class="text-teal"
-        >
-          <q-tab
-            v-for="(element, index) in classes"
-            :key="index"
-            :name="element"
-            :label="element"
-          />
-        </q-tabs>
-      </template>
-      <template v-slot:after>
-        <q-tab-panels
-          v-model="tab"
-          animated
-          transition-prev="jump-up"
-          transition-next="jump-up"
-        >
-          <q-tab-panel
-            v-for="(element, index) in classes"
-            :key="index"
-            :name="element"
-          >
-            <card-list :cards="cardsByClass" />
-          </q-tab-panel>
-        </q-tab-panels>
-      </template>
-    </q-splitter>
+  <div class="row q-gutter-sm">
+    <div class="col-9">
+      <div class="row">
+        <card-filter
+          class="col q-mb-sm"
+          :hearthstone-info="hearthstoneInfo"
+          @choosedClass="getByClass"
+        />
+      </div>
+      <div class="row">
+        <card-list :cards="cardsByClass" />
+      </div>
+    </div>
+
+    <div class="col">
+      qwe
+    </div>
   </div>
 </template>
 <script>
 import CardList from '@modules/forms/components/CardList'
+import CardFilter from '@modules/forms/components/CardFilter'
 import { info, getByClass } from 'src/services/hearthstoneService'
 export default {
   components: {
-    CardList
+    CardList, CardFilter
   },
   data: () => ({
-    tab: '',
-    splitterModel: 20,
     hearthstoneInfo: {},
     cardsByClass: []
   }),
-  computed: {
-    classes () {
-      return this.hearthstoneInfo.classes
-    }
-  },
-  watch: {
-    tab (newValue) {
-      getByClass(newValue).then(response => this.cardsByClass = response.data)
-    }
-  },
   mounted () {
     info().then(response => this.hearthstoneInfo = response.data)
+  },
+  methods: {
+    getByClass (choosedClass) {
+      getByClass(choosedClass).then(response => this.cardsByClass = response.data)
+    }
   }
 }
 </script>
-<style  scoped>
+<style scoped>
 .q-tab-panel {
   background-color: #f7faff;
+}
+.class-size {
+  width: 12% !important;
 }
 </style>

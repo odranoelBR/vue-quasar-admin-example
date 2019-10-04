@@ -19,7 +19,10 @@
 
     <q-separator />
 
-    <q-card-section class="bg-grey-1">
+    <q-card-section
+      class="bg-grey-1"
+      :class="{ 'no-padding': bodyTwoPaddingOff }"
+    >
       <slot name="body-two" />
     </q-card-section>
 
@@ -45,6 +48,10 @@ export default {
     title: {
       type: String,
       required: true
+    },
+    bodyTwoPaddingOff: {
+      default: true,
+      type: Boolean
     }
   },
   data () {
