@@ -33,11 +33,26 @@
 <script>
 export default {
   props: {
-    icon: String,
-    titulo: String,
-    subtitulo: String,
-    titleClass: String,
-    conteudo: Number
+    icon: {
+      type: String,
+      default: ''
+    },
+    titulo: {
+      type: String,
+      default: ''
+    },
+    subtitulo: {
+      type: String,
+      default: ''
+    },
+    titleClass: {
+      type: String,
+      default: ''
+    },
+    conteudo: {
+      type: Number,
+      default: 0
+    }
   }
 };
 </script>

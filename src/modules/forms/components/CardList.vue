@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class=" row items-start q-gutter-sm">
+    <div class=" row items-start q-gutter-sm ">
       <div
         v-for="card in cardsPerPage"
         :key="card.cardId"
@@ -41,6 +41,10 @@ export default {
       type: Array,
       required: true,
       default: () => []
+    },
+    filters: {
+      type: Object,
+      default: () => { }
     }
   },
   data: () => ({
@@ -48,11 +52,14 @@ export default {
     page: 1
   }),
   computed: {
-    maxPages () {
-      return Math.ceil(this.cards.length / this.maxPerPage)
+    filteredCards () {
+      return this.cards.filter(this.filterSets)
     },
     cardsPerPage () {
-      return this.cards.slice(this.offset, this.maxPerPage * this.page)
+      return this.filteredCards.slice(this.offset, this.maxPerPage * this.page)
+    },
+    maxPages () {
+      return Math.ceil(this.filteredCards.length / this.maxPerPage)
     },
     offset () {
       if (this.page === 1) return 1
@@ -60,7 +67,15 @@ export default {
       if (this.page === 2) return this.maxPerPage + 1
 
       return ((this.page - 1) * this.maxPerPage) + 1
+    }
+  },
+  methods: {
 
+    filterSets (card) {
+      if (this.filters.sets && this.filters.sets.length > 0) {
+        return this.filters.sets.includes(card.cardSet)
+      }
+      return true
     }
   }
 }

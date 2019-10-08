@@ -34,7 +34,10 @@ import { CountUp } from "countup.js"
 
 export default {
   props: {
-    totalCost: Number
+    totalCost: {
+      type: Number,
+      default: 0
+    }
   },
   data: () => ({
     countUp: null

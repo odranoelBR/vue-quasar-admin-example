@@ -10,17 +10,25 @@
     >
       <div class="col-12">
         <q-select
-          v-model="filters.adventure"
+          v-model="filters.sets"
           filled
           multiple
-          :options="adventureOptions"
+          :options="setOptions"
           use-chips
           stack-label
-          label="Choose adventures"
+          label="Choose Sets"
         />
       </div>
       <div class="col-12">
-        <q-input />
+        <q-select
+          v-model="filters.mechanics"
+          filled
+          multiple
+          :options="mechanicsOptions"
+          use-chips
+          stack-label
+          label="Choose Mechanics"
+        />
       </div>
       <div class="col-12">
         <q-input />
@@ -56,15 +64,19 @@ export default {
   data: () => ({
     tab: 'Death Knight',
     filters: {
-      adventure: []
+      sets: [],
+      mechanics: []
     }
   }),
   computed: {
     classes () {
       return this.hearthstoneInfo.classes
     },
-    adventureOptions () {
-      return this.hearthstoneInfo.wild
+    setOptions () {
+      return this.hearthstoneInfo.sets
+    },
+    mechanicsOptions () {
+      return this.hearthstoneInfo.mechanics
     }
   },
   watch: {

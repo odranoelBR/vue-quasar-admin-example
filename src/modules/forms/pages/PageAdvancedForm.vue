@@ -5,11 +5,21 @@
         <card-filter
           class="col q-mb-sm"
           :hearthstone-info="hearthstoneInfo"
+          @filters="setFilters"
           @choosedClass="getByClass"
         />
       </div>
-      <div class="row">
-        <card-list :cards="cardsByClass" />
+      <div class="row relative-position">
+        <card-list
+          :cards="cardsByClass"
+          :filters="filters"
+        />
+        <q-inner-loading :showing="loadingClasses">
+          <q-spinner-gears
+            size="50px"
+            color="primary"
+          />
+        </q-inner-loading>
       </div>
     </div>
 
@@ -28,14 +38,22 @@ export default {
   },
   data: () => ({
     hearthstoneInfo: {},
-    cardsByClass: []
+    cardsByClass: [],
+    loadingClasses: false,
+    filters: {}
   }),
-  mounted () {
+  created () {
     info().then(response => this.hearthstoneInfo = response.data)
   },
   methods: {
     getByClass (choosedClass) {
-      getByClass(choosedClass).then(response => this.cardsByClass = response.data)
+      this.loadingClasses = true
+      getByClass(choosedClass)
+        .then(response => this.cardsByClass = response.data)
+        .finally(() => this.loadingClasses = false)
+    },
+    setFilters (filters) {
+      this.filters = filters
     }
   }
 }

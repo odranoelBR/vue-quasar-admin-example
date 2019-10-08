@@ -58,7 +58,9 @@ module.exports = function (ctx) {
         'QSplitter',
         'QTabPanel',
         'QTabPanels',
-        'QPagination'
+        'QPagination',
+        'QInnerLoading',
+        'QSpinnerGears'
 
       ],
 

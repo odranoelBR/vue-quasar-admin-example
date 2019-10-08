@@ -18,8 +18,8 @@
       >
         <q-list no-border>
           <q-item
-            v-for="(link, index) in links.routes"
-            :key="index"
+            v-for="(link, indexRoutes) in links.routes"
+            :key="indexRoutes"
             :to="{ name: link.routeName }"
             link
             active-class="router-link-active"
