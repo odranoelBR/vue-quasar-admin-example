@@ -24,7 +24,7 @@
           v-model="filters.mechanics"
           filled
           multiple
-          :options="mechanicsOptions"
+          :options="mechanics"
           use-chips
           stack-label
           label="Choose Mechanics"
@@ -59,6 +59,10 @@ export default {
     hearthstoneInfo: {
       type: Object,
       default: () => ({})
+    },
+    mechanics: {
+      type: Array,
+      default: () => ([])
     }
   },
   data: () => ({
@@ -74,9 +78,6 @@ export default {
     },
     setOptions () {
       return this.hearthstoneInfo.sets
-    },
-    mechanicsOptions () {
-      return this.hearthstoneInfo.mechanics
     }
   },
   watch: {

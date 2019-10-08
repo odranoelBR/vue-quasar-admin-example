@@ -5,6 +5,7 @@
         <card-filter
           class="col q-mb-sm"
           :hearthstone-info="hearthstoneInfo"
+          :mechanics="mechanics"
           @filters="setFilters"
           @choosedClass="getByClass"
         />
@@ -42,6 +43,16 @@ export default {
     loadingClasses: false,
     filters: {}
   }),
+  computed: {
+    mechanics () {
+      let mechanics = this.cardsByClass
+        .filter(card => card.mechanics)
+        .map(card => card.mechanics.map(mechanic => mechanic.name))
+        .flat(1)
+
+      return [...new Set(mechanics)]
+    }
+  },
   created () {
     info().then(response => this.hearthstoneInfo = response.data)
   },
@@ -61,8 +72,5 @@ export default {
 <style scoped>
 .q-tab-panel {
   background-color: #f7faff;
-}
-.class-size {
-  width: 12% !important;
 }
 </style>

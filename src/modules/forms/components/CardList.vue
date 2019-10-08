@@ -53,7 +53,9 @@ export default {
   }),
   computed: {
     filteredCards () {
-      return this.cards.filter(this.filterSets)
+      return this.cards
+        .filter(this.filterSets)
+        .filter(this.filterMechanics)
     },
     cardsPerPage () {
       return this.filteredCards.slice(this.offset, this.maxPerPage * this.page)
@@ -70,13 +72,27 @@ export default {
     }
   },
   methods: {
-
     filterSets (card) {
       if (this.filters.sets && this.filters.sets.length > 0) {
         return this.filters.sets.includes(card.cardSet)
       }
       return true
+    },
+    filterMechanics (card) {
+
+      if (!this.filters.mechanics) {
+        return true
+      }
+      if (!card.mechanics) return false
+
+      let mechanics = card.mechanics.map(obj => obj.name)
+      if (this.filters.mechanics.length > 0) {
+        return this.filters.mechanics.some(mechanic => mechanics.includes(mechanic))
+      }
+
+      return true
     }
+
   }
 }
 </script>
