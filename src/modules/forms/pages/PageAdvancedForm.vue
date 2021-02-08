@@ -23,10 +23,6 @@
         </q-inner-loading>
       </div>
     </div>
-
-    <div class="col">
-      qwe
-    </div>
   </div>
 </template>
 <script>

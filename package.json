@@ -25,8 +25,8 @@
     "audit:lighthouse": "lighthouse http://localhost:3000 view --output-path=./test/lighthouse/reports/index.html --config-path=./test/lighthouse/configs/full-config.js"
   },
   "dependencies": {
-    "@quasar/cli": "^1.0.0",
-    "@quasar/extras": "^1.0.0",
+    "@quasar/cli": "^1.1.3",
+    "@quasar/extras": "^1.9.16",
     "@shopify/draggable": "^1.0.0-beta.8",
     "axios": "^0.18.0",
     "axios-mock-adapter": "^1.16.0",
@@ -35,7 +35,7 @@
     "dragula": "^3.7.2",
     "json-server": "^0.14.2",
     "moxios": "^0.4.0",
-    "quasar": "^1.1.4",
+    "quasar": "^1.15.2",
     "vivus": "^0.4.4",
     "vue-chartjs": "^3.4.0",
     "vue-i18n": "^7.3.3",
@@ -43,12 +43,12 @@
     "vuelidate": "^0.7.4"
   },
   "devDependencies": {
-    "@quasar/app": "^1.0.0-beta.0",
-    "@quasar/quasar-app-extension-testing": "^1.0.0-beta.7",
-    "@quasar/quasar-app-extension-testing-e2e-cypress": "^1.0.0-beta.5",
-    "@quasar/quasar-app-extension-testing-quality": "^1.0.0-beta.5",
-    "@quasar/quasar-app-extension-testing-security": "^1.0.0-alpha.2",
-    "@quasar/quasar-app-extension-testing-unit-jest": "^1.0.0-beta.14",
+    "@quasar/app": "^1.9.6",
+    "@quasar/quasar-app-extension-testing": "^1.0.3",
+    "@quasar/quasar-app-extension-testing-e2e-cypress": "^1.0.0-beta.13",
+    "@quasar/quasar-app-extension-testing-quality": "^1.0.0-beta.8",
+    "@quasar/quasar-app-extension-testing-security": "^1.0.0-alpha.8",
+    "@quasar/quasar-app-extension-testing-unit-jest": "^1.1.0-beta.7",
     "@vue/eslint-config-prettier": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.10.0",

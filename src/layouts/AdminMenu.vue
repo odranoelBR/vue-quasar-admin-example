@@ -55,50 +55,23 @@ export default {
       return new Date(new Date() - Math.floor(Math.random() * 10000000000));
     },
     randomAvatarUrl () {
-      return `https://api.adorable.io/avatars/face/${this.randomEye()}/${this.randomNose()}/${this.randomMouth()}/${this.randomHexColor()}`;
+      return `https://avatars.dicebear.com/4.5/api/${this.randomSprit()}/${this.randomThing()}.svg`
     },
-    randomHexColor () {
-      return Math.random()
-        .toString(16)
-        .slice(2, 8);
-    },
-    randomEye () {
+    randomSprit () {
       return this.randomArrayElement([
-        "eyes1",
-        "eyes10",
-        "eyes2",
-        "eyes3",
-        "eyes4",
-        "eyes5",
-        "eyes6",
-        "eyes7",
-        "eyes9"
+        "male",
+        "female"
       ]);
-    },
-    randomNose () {
+    }, 
+    randomThing () {
       return this.randomArrayElement([
-        "nose2",
-        "nose3",
-        "nose4",
-        "nose5",
-        "nose6",
-        "nose7",
-        "nose8",
-        "nose9"
+        "bear",
+        "song",
+        "wall",
+        "blue",
+        "tech"
       ]);
-    },
-    randomMouth () {
-      return this.randomArrayElement([
-        "mouth1",
-        "mouth10",
-        "mouth11",
-        "mouth3",
-        "mouth5",
-        "mouth6",
-        "mouth7",
-        "mouth9"
-      ]);
-    },
+    }, 
     randomArrayElement (array) {
       return array[Math.floor(Math.random() * array.length)];
     }

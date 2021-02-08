@@ -1,5 +1,5 @@
 const fs = require('fs-extra')
-let extend = undefined
+let extend
 
 /**
  * The .babelrc file has been created to assist Jest for transpiling.

@@ -36,17 +36,16 @@
 
     <div
       slot="body-three"
-      class="row justify-between"
+      class="row justify-center q-col-gutter-sm"
     >
-      <div class="col" />
-      <div class="col">
+      <div class="col-auto">
         <dialog-adress
           v-if="selected.value"
           :user="selected.value"
           @save="save"
         />
       </div>
-      <div class="col">
+      <div class="col-auto">
         <q-btn
           v-if="selected.value"
           color="positive"

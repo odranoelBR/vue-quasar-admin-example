@@ -11,7 +11,7 @@
       <q-layout
         view="Lhh lpR fff"
         container
-        style="max-height: 67vh; max-width:40vh"
+        style="max-height: 72vh; max-width:40vh"
         class="bg-white"
       >
         <q-header class="bg-primary">
@@ -54,7 +54,7 @@
               color="positive"
               @click="save"
             >
-              Salvar
+              Save
             </q-btn>
           </q-card-section>
         </q-card>
