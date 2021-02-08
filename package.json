@@ -10,7 +10,7 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
-    "axios": "^0.15.3",
+    "axios": "^0.21.1",
     "babel-runtime": "^6.0.0",
     "chart.js": "^2.5.0",
     "countup.js": "^1.8.2",
