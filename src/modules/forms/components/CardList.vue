@@ -1,16 +1,18 @@
 <template>
   <div>
-    <div class=" row items-start q-gutter-sm ">
+    <div class="row q-col-gutter-sm ">
       <div
-        v-for="card in cardsPerPage"
+        v-for="card in cards"
         :key="card.cardId"
-        class="col-auto"
+        class="col-4"
       >
-        <q-card class="my-card">
-          <img
-            :src="`https://media.services.zam.com/v1/media/byName/hs/cards/enus/${card.cardId}.png`"
-            :alt="card.name"
-          >
+        <q-card>
+          <q-card-section>
+            <q-img
+              :src="card.imageUrl"
+              :alt="card.name"
+            />
+          </q-card-section>
 
           <q-list>
             <q-item clickable>
@@ -28,7 +30,6 @@
     <div class="q-pa-lg flex flex-center">
       <q-pagination
         v-model="page"
-        :max="maxPages"
         :direction-links="true"
       />
     </div>
@@ -41,10 +42,6 @@ export default {
       type: Array,
       required: true,
       default: () => []
-    },
-    filters: {
-      type: Object,
-      default: () => { }
     }
   },
   data: () => ({
@@ -52,24 +49,6 @@ export default {
     page: 1
   }),
   computed: {
-    filteredCards () {
-      return this.cards
-        .filter(this.filterSets)
-        .filter(this.filterMechanics)
-    },
-    cardsPerPage () {
-      return this.filteredCards.slice(this.offset, this.maxPerPage * this.page)
-    },
-    maxPages () {
-      return Math.ceil(this.filteredCards.length / this.maxPerPage)
-    },
-    offset () {
-      if (this.page === 1) return 1
-
-      if (this.page === 2) return this.maxPerPage + 1
-
-      return ((this.page - 1) * this.maxPerPage) + 1
-    }
   },
   methods: {
     filterSets (card) {

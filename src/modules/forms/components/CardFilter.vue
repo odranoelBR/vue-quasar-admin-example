@@ -10,18 +10,18 @@
     >
       <div class="col-12">
         <q-select
-          v-model="filters.sets"
+          v-model="selectedType"
           filled
-          multiple
-          :options="setOptions"
-          use-chips
+          emit-value
+          :options="typesOptions"
+          :loading="types.length == 0"
           stack-label
-          label="Choose Sets"
+          label="Choose types"
         />
       </div>
       <div class="col-12">
         <q-select
-          v-model="filters.mechanics"
+          v-model="selectedMechanic"
           filled
           multiple
           :options="mechanics"
@@ -30,22 +30,16 @@
           label="Choose Mechanics"
         />
       </div>
-      <div class="col-12">
-        <q-input />
-      </div>
     </div>
-
-    <q-tabs
-      slot="body-two"
-      v-model="tab"
-    >
-      <q-tab
-        v-for="(element, index) in classes"
-        :key="index"
-        :name="element"
-        :label="element"
-      />
-    </q-tabs>
+    <div slot="body-three">
+      <q-btn
+        class="fit"
+        color="primary"
+        @click="search"
+      >
+        Search
+      </q-btn>
+    </div>
   </a-card-doc>
 </template>
 <script>
@@ -56,9 +50,9 @@ export default {
     ACardDoc
   },
   props: {
-    hearthstoneInfo: {
-      type: Object,
-      default: () => ({})
+    types: {
+      type: Array,
+      default: () => ([])
     },
     mechanics: {
       type: Array,
@@ -67,31 +61,34 @@ export default {
   },
   data: () => ({
     tab: 'Death Knight',
-    filters: {
-      sets: [],
-      mechanics: []
-    }
+    selectedType: null,
+    selectedMechanic: []
   }),
   computed: {
-    classes () {
-      return this.hearthstoneInfo.classes
-    },
     setOptions () {
       return this.hearthstoneInfo.sets
-    }
+    },
+    typesOptions () {
+      return this.types.map(type => ({ label: type, value: type }))
+    },
   },
-  watch: {
-    tab: {
-      immediate: true,
-      handler (newValue) {
-        this.$emit('choosedClass', newValue)
-      }
+  methods: {
+    search () {
+      this.$emit('search', this.getQueryParams())
+    },
+    getQueryParams () {
+      let params = new URLSearchParams()
+      params.append('type', this.selectedType)
+      params.append('pageSize', 12)
+
+      params.forEach((param, key) => {
+        if (param == 'null') {
+          params.delete(key)
+        }
+      })
+
+      return params.toString()
     }
-  },
-  created () {
-    this.$watch(vm => vm.filters, function () {
-      this.$emit('filters', this.filters)
-    }, { deep: true })
   }
 }
 </script>

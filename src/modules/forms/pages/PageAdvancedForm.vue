@@ -4,18 +4,13 @@
       <div class="row">
         <card-filter
           class="col q-mb-sm"
-          :hearthstone-info="hearthstoneInfo"
-          :mechanics="mechanics"
-          @filters="setFilters"
-          @choosedClass="getByClass"
+          :types="types"
+          @search="search"
         />
       </div>
       <div class="row relative-position">
-        <card-list
-          :cards="cardsByClass"
-          :filters="filters"
-        />
-        <q-inner-loading :showing="loadingClasses">
+        <card-list :cards="cards" />
+        <q-inner-loading :showing="loadingCards">
           <q-spinner-gears
             size="50px"
             color="primary"
@@ -28,39 +23,24 @@
 <script>
 import CardList from '@modules/forms/components/CardList'
 import CardFilter from '@modules/forms/components/CardFilter'
-import { info, getByClass } from 'src/services/hearthstoneService'
+import { mapActions } from 'vuex'
+import { mapFields } from 'vuex-map-fields'
 export default {
   components: {
     CardList, CardFilter
   },
   data: () => ({
-    hearthstoneInfo: {},
-    cardsByClass: [],
-    loadingClasses: false,
-    filters: {}
   }),
   computed: {
-    mechanics () {
-      let mechanics = this.cardsByClass
-        .filter(card => card.mechanics)
-        .map(card => card.mechanics.map(mechanic => mechanic.name))
-        .flat(1)
-
-      return [...new Set(mechanics)]
-    }
+    ...mapFields('forms', ['types', 'cards', 'loadingCards'])
   },
   created () {
-    info().then(response => this.hearthstoneInfo = response.data)
+    this.getTypes()
   },
   methods: {
-    getByClass (choosedClass) {
-      this.loadingClasses = true
-      getByClass(choosedClass)
-        .then(response => this.cardsByClass = response.data)
-        .finally(() => this.loadingClasses = false)
-    },
-    setFilters (filters) {
-      this.filters = filters
+    ...mapActions('forms', ['getTypes', 'getCards']),
+    search (params) {
+      this.getCards(params)
     }
   }
 }

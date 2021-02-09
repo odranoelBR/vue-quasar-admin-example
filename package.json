@@ -40,7 +40,8 @@
     "vue-chartjs": "^3.4.0",
     "vue-i18n": "^7.3.3",
     "vue2-google-maps": "^0.10.6",
-    "vuelidate": "^0.7.4"
+    "vuelidate": "^0.7.4",
+    "vuex-map-fields": "^1.4.1"
   },
   "devDependencies": {
     "@quasar/app": "^1.9.6",

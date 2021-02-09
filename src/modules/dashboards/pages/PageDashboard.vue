@@ -67,7 +67,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("dashboards", ["getPosts"]),
+    ...mapGetters(["getPosts"]),
     totalPosts () {
       return this.getPosts.length;
     },
@@ -92,7 +92,7 @@ export default {
   },
 
   methods: {
-    ...mapActions('dashboards', ['fetchPosts'])
+    ...mapActions(['fetchPosts'])
   }
 };
 </script>

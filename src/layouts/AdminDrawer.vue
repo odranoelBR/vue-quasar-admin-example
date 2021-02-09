@@ -53,7 +53,7 @@
           size="56px"
           class="q-mb-sm"
         >
-          <img src="https://cdn.quasar-framework.org/img/boy-avatar.png">
+          <img src="https://cdn.quasar.dev/img/boy-avatar.png">
         </q-avatar>
         <div class="text-weight-bold text-white">
           Razvan Stoenescu
