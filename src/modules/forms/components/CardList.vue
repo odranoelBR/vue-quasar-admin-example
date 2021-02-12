@@ -30,7 +30,8 @@
     <div class="q-pa-lg flex flex-center">
       <q-pagination
         v-model="page"
-        :direction-links="true"
+        :max="pagination.pageSize"
+        :max-pages="10"
       />
     </div>
   </div>
@@ -42,35 +43,18 @@ export default {
       type: Array,
       required: true,
       default: () => []
+    },
+    pagination: {
+      type: Object,
+      required: true,
+      // eslint-disable-next-line no-unused-labels
+      default: () => { pageSize: 1 }
     }
   },
   data: () => ({
-    maxPerPage: 10,
     page: 1
   }),
-  computed: {
-  },
   methods: {
-    filterSets (card) {
-      if (this.filters.sets && this.filters.sets.length > 0) {
-        return this.filters.sets.includes(card.cardSet)
-      }
-      return true
-    },
-    filterMechanics (card) {
-
-      if (!this.filters.mechanics) {
-        return true
-      }
-      if (!card.mechanics) return false
-
-      let mechanics = card.mechanics.map(obj => obj.name)
-      if (this.filters.mechanics.length > 0) {
-        return this.filters.mechanics.some(mechanic => mechanics.includes(mechanic))
-      }
-
-      return true
-    }
 
   }
 }

@@ -9,7 +9,10 @@
         />
       </div>
       <div class="row relative-position">
-        <card-list :cards="cards" />
+        <card-list
+          :cards="cards"
+          :pagination="pagination"
+        />
         <q-inner-loading :showing="loadingCards">
           <q-spinner-gears
             size="50px"
@@ -32,7 +35,7 @@ export default {
   data: () => ({
   }),
   computed: {
-    ...mapFields('forms', ['types', 'cards', 'loadingCards'])
+    ...mapFields('forms', ['types', 'cards', 'loadingCards', 'pagination'])
   },
   created () {
     this.getTypes()

@@ -85,7 +85,8 @@ module.exports = function (ctx) {
       extendWebpack (cfg) {
         cfg.resolve.alias = {
           ...cfg.resolve.alias,
-          '@modules': 'src/modules'
+          '@modules': 'src/modules',
+          '@helpers': 'src/helpers'
         }
         cfg.module.rules.push({
           enforce: "pre",
