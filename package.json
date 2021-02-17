@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "@quasar/app": "^1.9.6",
+    "@quasar/quasar-app-extension-dotenv": "^1.1.0",
     "@quasar/quasar-app-extension-testing": "^1.0.3",
     "@quasar/quasar-app-extension-testing-e2e-cypress": "^1.0.0-beta.13",
     "@quasar/quasar-app-extension-testing-quality": "^1.0.0-beta.8",

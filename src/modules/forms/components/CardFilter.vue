@@ -10,7 +10,7 @@
     >
       <div class="col-12">
         <q-select
-          v-model="selectedType"
+          v-model="type"
           filled
           emit-value
           :options="typesOptions"
@@ -44,7 +44,7 @@
 </template>
 <script>
 import ACardDoc from 'components/ACardDoc.vue'
-
+import { mapFields } from 'vuex-map-fields'
 export default {
   components: {
     ACardDoc
@@ -65,6 +65,7 @@ export default {
     selectedMechanic: []
   }),
   computed: {
+    ...mapFields('forms', ['params.type']),
     setOptions () {
       return this.hearthstoneInfo.sets
     },
@@ -74,20 +75,7 @@ export default {
   },
   methods: {
     search () {
-      this.$emit('search', this.getQueryParams())
-    },
-    getQueryParams () {
-      let params = new URLSearchParams()
-      params.append('type', this.selectedType)
-      params.append('pageSize', 12)
-
-      params.forEach((param, key) => {
-        if (param == 'null') {
-          params.delete(key)
-        }
-      })
-
-      return params.toString()
+      this.$emit('search')
     }
   }
 }

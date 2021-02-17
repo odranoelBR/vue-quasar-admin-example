@@ -8,11 +8,22 @@
           @search="search"
         />
       </div>
-      <div class="row relative-position">
+      <div class="row justify-center">
         <card-list
           :cards="cards"
           :pagination="pagination"
+          @change-page="search"
         />
+
+        <div class="row q-pa-lg justify-center">
+          <q-pagination
+            v-model="page"
+            :max="pagination.pageSize"
+            :max-pages="10"
+            @input="getCards"
+          />
+        </div>
+
         <q-inner-loading :showing="loadingCards">
           <q-spinner-gears
             size="50px"
@@ -35,15 +46,17 @@ export default {
   data: () => ({
   }),
   computed: {
-    ...mapFields('forms', ['types', 'cards', 'loadingCards', 'pagination'])
+    ...mapFields('forms', ['types', 'cards', 'loadingCards', 'pagination', 'params.page'])
   },
   created () {
+    this.search()
     this.getTypes()
   },
   methods: {
     ...mapActions('forms', ['getTypes', 'getCards']),
-    search (params) {
-      this.getCards(params)
+    search () {
+      this.page = 1
+      this.getCards()
     }
   }
 }
