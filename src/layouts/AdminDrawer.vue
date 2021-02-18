@@ -35,37 +35,25 @@
               label
               class="light-paragraph"
             >
-              {{
-                link.name
-              }}
+              {{ link.name }}
             </q-item-section>
           </q-item>
         </q-list>
       </q-expansion-item>
     </q-list>
 
-    <q-img
-      class="absolute-top"
-      src="statics/montain_back.png"
-      style="height: 180px"
-    >
-      <div class="absolute-bottom bg-transparent">
-        <q-avatar
-          size="56px"
-          class="q-mb-sm"
-        >
-          <img src="https://cdn.quasar.dev/img/boy-avatar.png">
-        </q-avatar>
-        <div class="text-weight-bold text-white">
-          Razvan Stoenescu
-        </div>
-        <div>@rstoenescu</div>
-      </div>
-    </q-img>
+    <img-user-profile v-once />
+
+    <div-powered-icons v-once />
   </q-drawer>
 </template>
 <script>
+import DivPoweredIcons from '@layouts/DivPoweredIcons'
+import ImgUserProfile from '@layouts/ImgUserProfile'
 export default {
+  components: {
+    DivPoweredIcons, ImgUserProfile
+  },
   props: {
     leftDrawerOpen: Boolean
   },

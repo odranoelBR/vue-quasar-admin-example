@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstanceJsonPlaceholder = axios.create({
-  baseURL: "https://jsonplaceholder.typicode.com/"
+  baseURL: process.env.JSON_PLACEHOLDER_API
 });
 
 export function getPosts () {

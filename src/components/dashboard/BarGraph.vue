@@ -14,35 +14,36 @@ export default {
       require: true
     }
   },
-  data () {
-    return {
-      defaultOptions: {
-        scales: {
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: true
-              },
-              gridLines: {
-                display: true
-              }
+  data: () => ({
+    defaultOptions: {
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true
+            },
+            gridLines: {
+              display: true
             }
-          ],
-          xAxes: [
-            {
-              gridLines: {
-                display: false
-              },
-              barThickness: 40
-            }
-          ]
-        }
+          }
+        ],
+        xAxes: [
+          {
+            gridLines: {
+              display: false
+            },
+            barThickness: 40
+          }
+        ]
       }
-    };
-  },
+    }
+  }),
   watch: {
-    data () {
-      this.renderChart({ labels: this.labels, datasets: this.data });
+    data: {
+      handler: function () {
+        this.renderChart({ labels: this.labels, datasets: this.data });
+      },
+      deep: true
     }
   }
 };

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="row q-gutter-sm">
+    <div class="row q-col-gutter-sm">
       <div class="col">
         <card-total
           title-class="bg-secondary"
@@ -34,8 +34,8 @@
         />
       </div>
     </div>
-    <div class="row">
-      <div class="col-xl-5">
+    <div class="row q-col-gutter-sm">
+      <div class="col-6">
         <q-card class="bg-white ">
           <q-card-section>
             <bar-graph
@@ -45,55 +45,56 @@
           </q-card-section>
         </q-card>
       </div>
+      <div class="col-6">
+        <q-card class="bg-white ">
+          <q-card-section>
+            <todo-list :todos="todos" />
+          </q-card-section>
+        </q-card>
+      </div>
     </div>
   </div>
 </template>
 <script type="text/javascript">
-import CardTotal from "components/dashboard/CardTotal.vue";
-import BarGraph from "components/dashboard/BarGraph.vue";
-import { mapGetters, mapActions } from "vuex";
-import { getComments, getTodos } from "src/services/jsonplaceholderService";
+import CardTotal from "components/dashboard/CardTotal.vue"
+import BarGraph from "components/dashboard/BarGraph.vue"
+import TodoList from "components/dashboard/TodoList.vue"
+import { mapActions } from "vuex"
+import { mapFields } from 'vuex-map-fields'
 export default {
   name: "DashboardOne",
   components: {
-    CardTotal,
-    BarGraph
+    CardTotal, BarGraph, TodoList
   },
-  data () {
-    return {
-      labelsForGraph: ["Posts", "Comments", "Todos"],
-      totalComments: 0,
-      totalTodos: 0
-    };
-  },
+  data: () => ({
+    labelsForGraph: ["Posts", "Comments", "Todos"]
+  }),
   computed: {
-    ...mapGetters(["getPosts"]),
+    ...mapFields(['posts', 'todos', 'comments']),
     totalPosts () {
-      return this.getPosts.length;
+      return this.posts.length
+    },
+    totalTodos () {
+      return this.todos.length
+    },
+    totalComments () {
+      return this.comments.length
     },
     dataForGraph () {
       return [
         { label: "Posts", backgroundColor: "#2196F3", data: [this.totalPosts] },
         { label: "Todos", backgroundColor: "#D81B60", data: [this.totalTodos] },
-        {
-          label: "Comments",
-          backgroundColor: "#21BA45",
-          data: [this.totalComments]
-        }
-      ];
+        { label: "Comments", backgroundColor: "#21BA45", data: [this.totalComments] }
+      ]
     }
   },
-  mounted () {
-    this.fetchPosts()
-    Promise.all([getComments(), getTodos()]).then(response => {
-      this.totalComments = response[0].data.length;
-      this.totalTodos = response[1].data.length;
-    });
+  created () {
+    this.fetchComments()
+    this.fetchTodos()
   },
-
   methods: {
-    ...mapActions(['fetchPosts'])
+    ...mapActions(['fetchComments', 'fetchTodos'])
   }
-};
+}
 </script>
 <style scoped></style>

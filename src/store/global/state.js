@@ -1,3 +1,5 @@
 export default {
-  posts: []
+  posts: [],
+  todos: [],
+  comments: []
 };

@@ -21,3 +21,4 @@ yarn-error.log*
 
 .env
 .env-prod
+.quasar.env.json

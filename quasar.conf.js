@@ -60,7 +60,8 @@ module.exports = function (ctx) {
         'QTabPanels',
         'QPagination',
         'QInnerLoading',
-        'QSpinnerGears'
+        'QSpinnerGears',
+        'QInfiniteScroll'
 
       ],
 
@@ -86,7 +87,8 @@ module.exports = function (ctx) {
         cfg.resolve.alias = {
           ...cfg.resolve.alias,
           '@modules': 'src/modules',
-          '@helpers': 'src/helpers'
+          '@helpers': 'src/helpers',
+          '@layouts': 'src/layouts'
         }
         cfg.module.rules.push({
           enforce: "pre",

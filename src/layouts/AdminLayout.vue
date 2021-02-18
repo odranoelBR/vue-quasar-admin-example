@@ -41,7 +41,7 @@ export default {
     leftDrawerOpen: true,
     data: []
   }),
-  mounted () {
+  created () {
     this.fetchPosts()
   },
   methods: {
