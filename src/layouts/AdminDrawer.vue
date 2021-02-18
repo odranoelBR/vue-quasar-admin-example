@@ -15,6 +15,7 @@
         :key="index"
         group="links"
         :label="index"
+        :default-opened="links.show"
       >
         <q-list no-border>
           <q-item
@@ -74,11 +75,11 @@ export default {
         routes: [
           { route: "/", faIcon: "fa fa-home", materialIcon: "home", name: "Dashboard One", routeName: "dash-one" }
         ],
-        show: true
+        show: false
       },
       Forms: {
         routes: [
-          { route: "/form", faIcon: "fa fa-search", materialIcon: "search", name: "Form find / edit", routeName: "form-search" },
+          { route: "/form-search", faIcon: "fa fa-search", materialIcon: "search", name: "Form find / edit", routeName: "form-search" },
           { route: "/advanced-form", faIcon: "fa fa-ticket-alt", materialIcon: "card-travel", name: "Advanced Form", routeName: "advanced-form" }
         ],
         show: false
@@ -87,12 +88,23 @@ export default {
         routes: [
           { route: "/pricing", faIcon: "fa fa-money-bill-alt", materialIcon: "attach_money", name: "Pricing", routeName: "pricing" },
           { route: "/drag-and-drop", faIcon: "fa fa-arrows-alt", materialIcon: "move_to_inbox", name: "Drag and Drop", routeName: "drag-and-drop" }
-        ]
-        //   show: false
-        // }
+        ],
+        show: false
       }
     }
-  })
+  }),
+  created () {
+    this.makeTheRightExpansionItemOpen()
+  },
+  methods: {
+    makeTheRightExpansionItemOpen () {
+      Object.keys(this.groupedLinks).forEach(link => {
+        let routes = this.groupedLinks[link].routes.map(route => route.route)
+
+        this.groupedLinks[link].show = routes.includes(this.$route.path)
+      })
+    }
+  }
 };
 </script>
 <style scoped>

@@ -30,38 +30,41 @@
       </div>
     </div>
 
-    <drag-bar
-      slot="body-two"
-      :total-cost="totalCost"
-      @checkout="move = arguments[0]"
-    />
+    <div
+      slot="body-three"
+      class="row"
+    >
+      <drag-cart-actions
+        class="row"
+        :total-cost="totalCost"
+        @checkout="move = arguments[0]"
+      />
+    </div>
   </a-card-doc>
 </template>
 <script type="text/javascript">
 import Dragula from "dragula/dragula"
 import "dragula/dist/dragula.css"
 import IconDraggable from '@modules/apps/components/IconDraggable'
-import DragBar from '@modules/apps/components/DragBar'
+import DragCartActions from '@modules/apps/components/DragCartActions'
 import ACardDoc from 'components/ACardDoc.vue'
 
 export default {
   components: {
-    IconDraggable, ACardDoc, DragBar
+    IconDraggable, ACardDoc, DragCartActions
   },
-  data () {
-    return {
-      fruits: [
-        { icon: 'assets/img/apple.svg', value: 4 },
-        { icon: 'assets/img/pear.svg', value: 3 },
-        { icon: 'assets/img/orange.svg', value: 2 },
-        { icon: 'assets/img/watermelon.svg', value: 4 },
-        { icon: 'assets/img/strawberry.svg', value: 7 }
-      ],
-      dragula: "",
-      totalCost: 0,
-      move: ""
-    };
-  },
+  data: () => ({
+    fruits: [
+      { icon: 'statics/img/apple.svg', value: 4 },
+      { icon: 'statics/img/pear.svg', value: 3 },
+      { icon: 'statics/img/orange.svg', value: 2 },
+      { icon: 'statics/img/watermelon.svg', value: 4 },
+      { icon: 'statics/img/strawberry.svg', value: 7 }
+    ],
+    dragula: "",
+    totalCost: 0,
+    move: ""
+  }),
   mounted () {
     this.dragula = Dragula([
       document.querySelector("#left"),

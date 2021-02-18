@@ -1,8 +1,9 @@
 <template>
-  <div class="row q-gutter-md">
+  <div class="row q-col-gutter-md">
     <div class="col-auto">
       <q-chip
         slot="body-two"
+        size="17.7px"
         class="no-margin"
         square
       >
@@ -21,7 +22,6 @@
     <div class="col">
       <q-btn
         color="green"
-        size="12px"
         icon-right="send"
         label="Checkout"
         @click="checkout"
