@@ -52,6 +52,9 @@
           </q-card-section>
         </q-card>
       </div>
+      <div class="col-6">
+        <card-server-log :data="logData" />
+      </div>
     </div>
   </div>
 </template>
@@ -59,15 +62,24 @@
 import CardTotal from "components/dashboard/CardTotal.vue"
 import BarGraph from "components/dashboard/BarGraph.vue"
 import TodoList from "components/dashboard/TodoList.vue"
+import CardServerLog from "components/dashboard/CardServerLog.vue"
 import { mapActions } from "vuex"
 import { mapFields } from 'vuex-map-fields'
 export default {
   name: "DashboardOne",
   components: {
-    CardTotal, BarGraph, TodoList
+    CardTotal, BarGraph, TodoList, CardServerLog
   },
   data: () => ({
-    labelsForGraph: ["Posts", "Comments", "Todos"]
+    labelsForGraph: ["Posts", "Comments", "Todos"],
+    logData: {
+      id: 16828,
+      error: [{}, {}],
+      warning: [{}, {}],
+      solved: [{}],
+      dtEnvio: "2019-02-06 15:03:37",
+      serverId: 'e96f3416-76b7-11eb-9439-0242ac130002'
+    }
   }),
   computed: {
     ...mapFields(['posts', 'todos', 'comments']),

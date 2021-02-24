@@ -40,14 +40,17 @@
         size="25px"
       />
     </a>
+
+    <btn-dropdown-menu />
   </q-toolbar>
 </template>
 
 <script>
 import AdminMenu from "./AdminMenu.vue";
+import BtnDropdownMenu from "./BtnDropdownMenu.vue";
 export default {
   components: {
-    AdminMenu
+    AdminMenu, BtnDropdownMenu
   },
   data: () => ({
     search: '',

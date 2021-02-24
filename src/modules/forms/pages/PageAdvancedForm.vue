@@ -20,7 +20,7 @@
             v-model="page"
             :max="pagination.pageSize"
             :max-pages="10"
-            @input="getCards"
+            @input="fetchCards"
           />
         </div>
 
@@ -50,13 +50,13 @@ export default {
   },
   created () {
     this.search()
-    this.getTypes()
+    this.fetchTypes()
   },
   methods: {
-    ...mapActions('forms', ['getTypes', 'getCards']),
+    ...mapActions('forms', ['fetchTypes', 'fetchCards']),
     search () {
       this.page = 1
-      this.getCards()
+      this.fetchCards()
     }
   }
 }

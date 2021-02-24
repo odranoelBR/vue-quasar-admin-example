@@ -1,5 +1,5 @@
 import { SET_POSTS, SET_COMMENTS, SET_TODOS } from './mutation-types'
-import { getPosts, getComments, getTodos } from 'src/services/jsonplaceholderService'
+import { getPosts, getComments, getTodos, putTodo } from 'src/services/jsonplaceholderService'
 
 export function fetchPosts ({ commit }) {
   getPosts().then(response => {
@@ -14,6 +14,10 @@ export function fetchComments ({ commit }) {
 export function fetchTodos ({ commit }) {
   getTodos().then(response => {
     commit(SET_TODOS, response.data)
+  });
+}
+export function updateTodo (store, payload) {
+  putTodo(payload).then(() => {
   });
 }
 

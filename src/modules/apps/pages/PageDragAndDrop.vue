@@ -3,7 +3,10 @@
     toolbar-class="bg-secondary"
     title="Drag to cart"
   >
-    <div slot="body-one">
+    <div
+      slot="body-one"
+      style="overflow: hidden;"
+    >
       <div id="left">
         <icon-draggable
           v-for="(fruit, index) in fruits"

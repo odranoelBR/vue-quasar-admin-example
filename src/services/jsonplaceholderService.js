@@ -13,6 +13,9 @@ export function getComments () {
 export function getTodos () {
   return axiosInstanceJsonPlaceholder.get("todos");
 }
+export function putTodo (payload) {
+  return axiosInstanceJsonPlaceholder.put(`todos/${payload.id}`, payload);
+}
 export function findAllUsers () {
   return axiosInstanceJsonPlaceholder.get('users')
 }

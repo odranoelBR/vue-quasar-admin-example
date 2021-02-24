@@ -1,13 +1,13 @@
 <template>
   <q-list>
     <q-item-label header>
-      My Posts
+      My Tasks
     </q-item-label>
 
     <div
       ref="scrollTargetRef"
       class="q-pa-md"
-      :style="`max-height: 250px; overflow: auto;`"
+      :style="`max-height: 350px; overflow: auto;`"
     >
       <q-infinite-scroll
         :offset="250"
@@ -28,20 +28,18 @@
           </q-item-section>
 
           <q-item-section top>
-            <q-item-label lines="1">
-              <span class="text-weight-medium">[quasarframework/quasar]</span>
-            </q-item-label>
             <q-item-label
               caption
+              class="text-body1"
               lines="1"
             >
               {{ todo.title }}
             </q-item-label>
             <q-item-label
               lines="1"
-              class="q-mt-xs text-body2 text-weight-bold text-primary text-uppercase"
+              class="q-mt-xs text-body2 text-primary text-uppercase"
             >
-              <span class="cursor-pointer">Open in GitHub</span>
+              <span class="cursor-pointer">Open task</span>
             </q-item-label>
           </q-item-section>
 
@@ -50,21 +48,12 @@
             side
           >
             <div class="text-grey-8 q-gutter-xs">
-              <q-btn
-                class="gt-xs"
-                size="12px"
-                flat
-                dense
-                round
-                icon="delete"
-              />
-              <q-btn
-                class="gt-xs"
-                size="12px"
-                flat
-                dense
-                round
-                icon="done"
+              <q-toggle
+                v-model="todo.completed"
+                :color="todo.completed ? 'positive' : 'primary'"
+                unchecked-icon="clear"
+                checked-icon="check"
+                @input="update(todo)"
               />
             </div>
           </q-item-section>
@@ -84,6 +73,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   props: {
     todos: {
@@ -101,12 +91,16 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['updateTodo']),
     onLoadRef (index, done) {
       setTimeout(() => {
         this.sliceSize += 5
         done()
       }, 1500);
 
+    },
+    update (todo) {
+      this.updateTodo(todo)
     }
   }
 }

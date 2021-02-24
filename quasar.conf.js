@@ -52,6 +52,8 @@ module.exports = function (ctx) {
         'QSpace',
         'QChip',
         'QBtnToggle',
+        'QBtnDropdown',
+        'QToggle',
         'QDate',
         'QTabs',
         'QTab',
