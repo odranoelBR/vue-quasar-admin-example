@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row q-col-gutter-sm">
-      <div class="col">
+      <div class="col-lg-3 col-xs-12 col-sm-6 col-md-3">
         <card-total
           title-class="bg-secondary"
           icon="fa fa-envelope"
@@ -9,7 +9,7 @@
           :conteudo="totalPosts"
         />
       </div>
-      <div class="col-3">
+      <div class="col-lg-3 col-xs-12 col-sm-6 col-md-3">
         <card-total
           title-class="bg-secondary"
           icon="fa fa-comments"
@@ -17,7 +17,7 @@
           :conteudo="totalComments"
         />
       </div>
-      <div class="col-3">
+      <div class="col-lg-3 col-xs-12 col-sm-6 col-md-3">
         <card-total
           title-class="bg-accent"
           icon="fa fa-tasks"
@@ -25,7 +25,7 @@
           :conteudo="totalTodos"
         />
       </div>
-      <div class="col-3">
+      <div class="col-lg-3 col-xs-12 col-sm-6 col-md-3">
         <card-total
           title-class="bg-accent"
           icon="fa fa-amilia"
@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="row q-col-gutter-sm">
-      <div class="col-6">
+      <div class="col-lg-6 col-sm-6 col-xs-12">
         <q-card class="bg-white ">
           <q-card-section>
             <bar-graph
@@ -45,14 +45,14 @@
           </q-card-section>
         </q-card>
       </div>
-      <div class="col-6">
+      <div class="col-lg-6 col-sm-6 col-xs-12">
         <q-card class="bg-white ">
           <q-card-section>
             <todo-list :todos="todos" />
           </q-card-section>
         </q-card>
       </div>
-      <div class="col-6">
+      <div class="col-lg-6 col-sm-6 col-xs-12">
         <card-server-log :data="logData" />
       </div>
     </div>

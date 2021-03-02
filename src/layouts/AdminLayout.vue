@@ -6,10 +6,10 @@
       size="5px"
     />
     <q-header elevated>
-      <admin-toolbar @toggleMenu="leftDrawerOpen = !leftDrawerOpen" />
+      <admin-toolbar />
     </q-header>
 
-    <admin-drawer :left-drawer-open="leftDrawerOpen" />
+    <admin-drawer />
 
     <q-page-container>
       <q-page padding>

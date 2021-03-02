@@ -50,13 +50,12 @@
 <script>
 import DivPoweredIcons from '@layouts/DivPoweredIcons'
 import ImgUserProfile from '@layouts/ImgUserProfile'
+import { mapFields } from 'vuex-map-fields'
 export default {
   components: {
     DivPoweredIcons, ImgUserProfile
   },
-  props: {
-    leftDrawerOpen: Boolean
-  },
+  
   data: () => ({
     groupedLinks: {
       Dashboard: {
@@ -81,6 +80,9 @@ export default {
       }
     }
   }),
+  computed: {
+    ...mapFields(['leftDrawerOpen'])
+  }, 
   created () {
     this.makeTheRightExpansionItemOpen()
   },

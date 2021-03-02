@@ -7,7 +7,6 @@
       <q-item
         v-ripple
         clickable
-        @click="logout"
       >
         <q-item-section>Exit</q-item-section>
 
@@ -21,7 +20,6 @@
       <q-item
         v-ripple
         clickable
-        @click="help"
       >
         <q-item-section>Help?</q-item-section>
         <q-item-section avatar>

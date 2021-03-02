@@ -46,8 +46,10 @@
 </template>
 
 <script>
-import AdminMenu from "./AdminMenu.vue";
-import BtnDropdownMenu from "./BtnDropdownMenu.vue";
+import AdminMenu from "./AdminMenu.vue"
+import BtnDropdownMenu from "./BtnDropdownMenu.vue"
+import { mapFields } from 'vuex-map-fields'
+
 export default {
   components: {
     AdminMenu, BtnDropdownMenu
@@ -56,9 +58,12 @@ export default {
     search: '',
     searchFocused: false
   }),
+  computed: {
+    ...mapFields(['leftDrawerOpen'])
+  },
   methods: {
     toggleMenu () {
-      this.$emit("toggleMenu");
+      this.leftDrawerOpen = !this.leftDrawerOpen
     }
   }
 };

@@ -1,5 +1,6 @@
 export default {
   posts: [],
   todos: [],
-  comments: []
+  comments: [],
+  leftDrawerOpen: false
 };
