@@ -90,6 +90,7 @@
           v-if="data.warning.length > 0"
           btn-color="warning"
           icon="warning"
+          title="List Warning"
           :criticas="data.warning"
         />
       </div>
@@ -98,6 +99,7 @@
           v-if="data.error.length > 0"
           btn-color="negative"
           icon="delete"
+          title="List Errors"
           :erros="data.error"
         />
       </div>
