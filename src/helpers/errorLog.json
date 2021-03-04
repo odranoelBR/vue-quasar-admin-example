@@ -1,0 +1,10 @@
+[
+  {
+    "label": "Messages",
+    "children": [
+      {
+        "label": "java.lang.NumberFormatException: For input string: '398729' at java.lang.NumberFormatException.forInputString(NumberFormatException.java: 65) at java.lang.Long.parseLong(Long.java: 589) at java.lang.Long.parseLong(Long.java: 631) at br.mil.fab.identificacao.domains.sigpes.service.DependenteService.atualizarNrRegistroDependenteAposImpressao(DependenteService.java: 57)"
+      }
+    ]
+  }
+]

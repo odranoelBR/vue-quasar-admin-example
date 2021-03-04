@@ -55,7 +55,7 @@ export default {
   components: {
     DivPoweredIcons, ImgUserProfile
   },
-  
+
   data: () => ({
     groupedLinks: {
       Dashboard: {
@@ -82,7 +82,7 @@ export default {
   }),
   computed: {
     ...mapFields(['leftDrawerOpen'])
-  }, 
+  },
   created () {
     this.makeTheRightExpansionItemOpen()
   },

@@ -63,8 +63,8 @@ module.exports = function (ctx) {
         'QPagination',
         'QInnerLoading',
         'QSpinnerGears',
-        'QInfiniteScroll'
-
+        'QInfiniteScroll',
+        'QTree'
       ],
 
       directives: ["Ripple"],

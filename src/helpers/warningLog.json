@@ -1,0 +1,13 @@
+[
+  {
+    "label": "Messages",
+    "children": [
+      {
+        "label": "WARNING: FIXME temporary hack to work around library bug, remove me when library is fixed!"
+      },
+      {
+        "label": "WARNING: All illegal access operations will be denied in a future release"
+      }
+    ]
+  }
+]

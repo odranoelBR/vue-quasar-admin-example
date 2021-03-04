@@ -8,6 +8,7 @@
         Server : {{ data.serverId }}
       </q-item-label>
     </q-card-section>
+
     <q-card-section class="bg-blue-grey-1">
       <q-list class="q-mt-md">
         <q-item>
@@ -51,7 +52,7 @@
               color="secondary"
               class="shadow-2"
             >
-              {{ data.warning.length }}
+              {{ data.warning[0].children.length }}
             </q-chip>
           </q-item-section>
         </q-item>
@@ -73,7 +74,7 @@
               text-color="white"
               class="shadow-2"
             >
-              {{ data.error.length }}
+              {{ data.error[0].children.length }}
             </q-chip>
           </q-item-section>
         </q-item>
@@ -91,7 +92,7 @@
           btn-color="warning"
           icon="warning"
           title="List Warning"
-          :criticas="data.warning"
+          :messages="data.warning"
         />
       </div>
       <div class="col">
@@ -100,7 +101,7 @@
           btn-color="negative"
           icon="delete"
           title="List Errors"
-          :erros="data.error"
+          :messages="data.error"
         />
       </div>
     </q-card-actions>

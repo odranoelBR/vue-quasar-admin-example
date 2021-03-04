@@ -63,6 +63,8 @@ import CardTotal from "components/dashboard/CardTotal.vue"
 import BarGraph from "components/dashboard/BarGraph.vue"
 import TodoList from "components/dashboard/TodoList.vue"
 import CardServerLog from "components/dashboard/CardServerLog.vue"
+import errorLog from '@helpers/errorLog.json'
+import warningLog from '@helpers/warningLog.json'
 import { mapActions } from "vuex"
 import { mapFields } from 'vuex-map-fields'
 export default {
@@ -74,8 +76,8 @@ export default {
     labelsForGraph: ["Posts", "Comments", "Todos"],
     logData: {
       id: 16828,
-      error: [{}, {}],
-      warning: [{}, {}],
+      error: errorLog,
+      warning: warningLog,
       solved: [{}],
       dtEnvio: "2019-02-06 15:03:37",
       serverId: 'e96f3416-76b7-11eb-9439-0242ac130002'

@@ -9,9 +9,11 @@
     </q-btn>
     <q-dialog
       ref="modal"
-      :content-style="{maxWidth: '60vw'}"
+      transition-show="flip-down"
+      transition-hide="flip-up"
     >
       <a-card-doc
+        style="width: 75vw; max-width: 90vw;"
         toolbar-class="bg-secondary"
         :title="title"
       >
@@ -19,22 +21,15 @@
           slot="body-one"
           class="row"
         >
-          <div class="col-4" />
+          <q-tree
+            :nodes="messages"
+            node-key="label"
+          />
         </div>
-        <div
-          slot="body-two"
-          class="row"
-        >
-          asd
-        </div>
-
         <div
           slot="body-three"
           class="row justify-center q-col-gutter-sm"
-        >
-          <div class="col-auto" />
-          <div class="col-auto" />
-        </div>
+        />
       </a-card-doc>
     </q-dialog>
   </div>
@@ -47,7 +42,7 @@ export default {
     ACardDoc
   },
   props: {
-    error: { type: Array, default: () => ([]) },
+    messages: { type: Array, default: () => ([]) },
     title: {
       type: String,
       default: ''
